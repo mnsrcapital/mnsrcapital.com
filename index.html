@@ -3,779 +3,533 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MNSR Capital | Global Strategic Advisory</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>MNSR Capital — Global Strategic Advisory</title>
 <meta name="description" content="MNSR Capital — boutique strategic advisory connecting companies with global capital across private equity, family offices, sovereign wealth, and accredited investors.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 
-/* ─────────────────────────────────────
-   TOKENS — Rothschild-inspired
-   Stone/linen body · Deep navy ink · Champagne gold
-───────────────────────────────────── */
+/* ═══════════════════════════════════════
+   MNSR CAPITAL — EXACT ROTHSCHILD DNA
+   Pixel-extracted from rothschildandco.com
+   White body · warm rose-beige cards · near-black ink · champagne
+═══════════════════════════════════════ */
 :root {
-  /* Deep navy — headings, dark sections, nav */
-  --navy:     #1B3A6B;
-  --navy-dk:  #0F2448;
-  --navy-lt:  #2A4F8C;
+  /* Dark navy-indigo — hero, process, footer, dark panels */
+  --navy:      #2A2F52;
+  --navy-dk:   #1C2039;
+  --navy-lt:   #384070;
 
-  /* Stone / linen scale — primary backgrounds */
-  --stone:    #EDEAE4;
-  --stone-lt: #F4F1EC;
-  --stone-dk: #E0DDD6;
-  --stone-bd: #CCC8BF;
+  /* Warm card/section backgrounds */
+  --stone:     #F0ECE9;   /* Rothschild's exact card bg */
+  --stone-lt:  #FFFFFF;   /* pure white page bg */
+  --stone-dk:  #E6E0DB;
+  --stone-bd:  #D4CCC6;
 
-  /* Champagne gold accent */
-  --gold:     #B5975A;
-  --gold-lt:  #CDB07A;
-  --gold-dk:  #8C7240;
+  /* Light champagne accent */
+  --gold:      #D4B896;
+  --gold-lt:   #E8D4BC;
+  --gold-dk:   #A8865C;
 
-  /* Ink text on stone */
-  --ink:      #1A1F2E;
-  --ink-mid:  #3D4A5C;
-  --ink-low:  #7A8595;
-  --ink-line: #CCC8BF;
+  /* Near-black ink text */
+  --ink:       #0A0C0B;
+  --ink-mid:   #424D53;
+  --ink-low:   #9A8E86;
+  --ink-line:  #D4CCC6;
 
-  /* On-dark text */
-  --d-hi:     #F4F1EC;
-  --d-mid:    rgba(244,241,236,0.65);
-  --d-low:    rgba(244,241,236,0.35);
-  --d-line:   rgba(244,241,236,0.09);
+  /* On-dark */
+  --d-hi:      #F0ECE9;
+  --d-mid:     rgba(240,236,233,.65);
+  --d-low:     rgba(240,236,233,.35);
+  --d-line:    rgba(240,236,233,.08);
 
   --max: 1100px;
 }
 
-/* ── RESET ── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; font-size:16px; }
 body {
-  font-family: 'Inter', sans-serif;
-  background: var(--stone-lt);
-  color: var(--ink);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  font-family:'Inter',sans-serif;
+  background:#ffffff;
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
-a { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
+a { color:inherit; text-decoration:none; }
+img { display:block; max-width:100%; }
 
-/* ── TYPOGRAPHY ── */
-.t-overline {
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: var(--gold-dk);
+/* ── TYPE ── */
+.ov {
+  font-size:.64rem; font-weight:500;
+  letter-spacing:.24em; text-transform:uppercase;
+  display:flex; align-items:center; gap:12px;
+  color:var(--gold-dk);
 }
-.t-overline::before {
-  content: '';
-  display: block;
-  width: 24px;
-  height: 1px;
-  background: currentColor;
-  flex-shrink: 0;
+.ov::before {
+  content:''; width:24px; height:1px;
+  background:currentColor; flex-shrink:0;
 }
-.t-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.8rem, 5vw, 4.2rem);
-  font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -0.01em;
+h1.display {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.8rem,5vw,4.4rem);
+  font-weight:400; line-height:1.07;
+  letter-spacing:-.01em;
 }
-.t-h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.9rem, 3vw, 2.6rem);
-  font-weight: 400;
-  line-height: 1.15;
+h2.section-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.9rem,3vw,2.7rem);
+  font-weight:400; line-height:1.14;
 }
-.t-h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.20rem;
-  font-weight: 400;
-  line-height: 1.28;
+h3.card-title {
+  font-family:'Playfair Display',serif;
+  font-size:1.5rem; font-weight:400;
+  line-height:1.22; color:var(--ink);
 }
-.t-body {
-  font-size: 0.95rem;
-  font-weight: 300;
-  line-height: 1.80;
-}
-.t-small {
-  font-size: 0.85rem;
-  font-weight: 300;
-  line-height: 1.72;
-}
-.t-label {
-  font-size: 0.70rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
+.body-copy { font-size:.94rem; font-weight:300; line-height:1.80; }
+.small-copy { font-size:.87rem; font-weight:300; line-height:1.72; }
 
 /* ── LAYOUT ── */
-.wrap  { max-width: var(--max); margin: 0 auto; }
-.px    { padding-left: 60px; padding-right: 60px; }
-.py-lg { padding-top: 100px; padding-bottom: 100px; }
-.py-md { padding-top: 68px; padding-bottom: 68px; }
+.wrap { max-width:var(--max); margin:0 auto; }
+.px   { padding-left:60px; padding-right:60px; }
 
-/* ────────────────────────────────────
-   NAVIGATION — deep navy, gold accents
-──────────────────────────────────── */
+/* ══════════════════════════════════════
+   NAV — deep navy, champagne accents
+══════════════════════════════════════ */
 #nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 200;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 52px;
-  background: var(--navy-dk);
-  border-bottom: 1px solid rgba(181,151,90,0.15);
-  transition: box-shadow 0.3s;
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  height:64px; display:flex; align-items:center;
+  justify-content:space-between; padding:0 52px;
+  background:var(--navy-dk);
+  border-bottom:1px solid rgba(181,151,90,.14);
+  transition:box-shadow .3s;
 }
-#nav.raised { box-shadow: 0 4px 32px rgba(0,0,0,0.45); }
+#nav.raised { box-shadow:0 4px 32px rgba(0,0,0,.45); }
 
 .nav-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.10rem;
-  font-weight: 400;
-  color: var(--d-hi);
-  letter-spacing: 0.06em;
-  text-decoration: none;
+  font-family:'Playfair Display',serif;
+  font-size:1.08rem; font-weight:400;
+  color:var(--d-hi); letter-spacing:.06em;
+}
+.nav-links {
+  display:flex; list-style:none; margin:0; padding:0;
+}
+.nav-links li a {
+  color:var(--d-mid); font-size:.68rem; font-weight:300;
+  letter-spacing:.18em; text-transform:uppercase;
+  display:block; padding:0 20px; height:64px; line-height:64px;
+  transition:color .2s;
+}
+.nav-links li a:hover { color:var(--gold-lt); }
+
+.nav-cta {
+  font-size:.66rem; font-weight:400;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:var(--gold); border:1px solid rgba(181,151,90,.42);
+  padding:8px 22px; transition:all .22s;
+}
+.nav-cta:hover { background:var(--gold); border-color:var(--gold); color:var(--navy-dk); }
+
+.hamburger {
+  display:none; flex-direction:column;
+  gap:5px; cursor:pointer; padding:6px;
+  background:none; border:none;
+}
+.hamburger span {
+  display:block; width:22px; height:1.5px;
+  background:var(--gold); transition:all .25s;
+}
+.hamburger.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity:0; }
+.hamburger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+.mob-menu {
+  display:none; position:fixed;
+  top:64px; left:0; right:0; bottom:0;
+  background:var(--navy-dk); z-index:99;
+  padding:36px 28px; flex-direction:column;
+  border-top:1px solid rgba(181,151,90,.18);
+}
+.mob-menu.open { display:flex; }
+.mob-menu a {
+  display:block; padding:18px 0;
+  font-size:.95rem; font-weight:300;
+  color:var(--d-mid); border-bottom:1px solid var(--d-line);
+  letter-spacing:.06em; transition:color .2s;
+}
+.mob-menu a:hover { color:var(--gold-lt); }
+.mob-menu .mob-cta {
+  margin-top:32px; padding:14px 24px;
+  background:var(--gold); color:var(--navy-dk);
+  font-size:.68rem; font-weight:600;
+  letter-spacing:.14em; text-transform:uppercase;
+  text-align:center; border:none; border-bottom:none;
 }
 
-.nav-center {
-  display: flex;
-  list-style: none;
-  margin: 0; padding: 0;
-}
-.nav-center li a {
-  color: var(--d-mid);
-  font-size: 0.68rem;
-  font-weight: 300;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  display: block;
-  padding: 0 20px;
-  height: 64px;
-  line-height: 64px;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.nav-center li a:hover { color: var(--gold-lt); }
-
-.nav-btn {
-  font-size: 0.66rem;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid rgba(181,151,90,0.45);
-  padding: 8px 22px;
-  transition: all 0.22s;
-  text-decoration: none;
-}
-.nav-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--navy-dk); }
-
-/* Hamburger */
-.nav-hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 6px;
-  background: none;
-  border: none;
-}
-.nav-hamburger span {
-  display: block;
-  width: 22px; height: 1.5px;
-  background: var(--gold);
-  transition: all 0.25s;
-}
-.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.nav-hamburger.open span:nth-child(2) { opacity: 0; }
-.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-.mobile-menu {
-  display: none;
-  position: fixed;
-  top: 64px; left: 0; right: 0; bottom: 0;
-  background: var(--navy-dk);
-  z-index: 99;
-  padding: 36px 28px;
-  flex-direction: column;
-  border-top: 1px solid rgba(181,151,90,0.18);
-}
-.mobile-menu.open { display: flex; }
-.mobile-menu a {
-  display: block;
-  padding: 18px 0;
-  font-size: 0.95rem;
-  font-weight: 300;
-  color: var(--d-mid);
-  border-bottom: 1px solid var(--d-line);
-  letter-spacing: 0.06em;
-  transition: color 0.2s;
-  text-decoration: none;
-}
-.mobile-menu a:hover { color: var(--gold-lt); }
-.mobile-menu .mob-contact-btn {
-  margin-top: 32px;
-  padding: 14px 24px;
-  background: var(--gold);
-  color: var(--navy-dk);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-align: center;
-  border: none;
-  border-bottom: none;
-}
-
-/* ────────────────────────────────────
-   HERO — deep navy, stone text
-──────────────────────────────────── */
+/* ══════════════════════════════════════
+   HERO — deep navy
+══════════════════════════════════════ */
 #hero {
-  min-height: 100vh;
-  background: var(--navy-dk);
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
+  min-height:100vh; background:var(--navy-dk);
+  display:flex; align-items:center;
+  position:relative; overflow:hidden;
 }
 #hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 100% 10%, rgba(181,151,90,0.07) 0%, transparent 65%);
-  pointer-events: none;
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 70% 60% at 100% 10%, rgba(181,151,90,.07) 0%, transparent 65%);
+  pointer-events:none;
 }
 #hero::after {
-  content: '';
-  position: absolute;
-  left: 60px; right: 60px; bottom: 0;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(181,151,90,0.5) 0%, transparent 55%);
+  content:''; position:absolute;
+  left:60px; right:60px; bottom:0; height:1px;
+  background:linear-gradient(90deg, rgba(181,151,90,.45) 0%, transparent 55%);
 }
 
 .hero-inner {
-  position: relative;
-  z-index: 1;
-  padding: 148px 60px 110px;
-  width: 100%;
+  position:relative; z-index:1;
+  width:100%; padding:148px 60px 110px;
 }
-.hero-wrap { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center; }
+.hero-grid {
+  max-width:var(--max); margin:0 auto;
+  display:grid; grid-template-columns:1.1fr .9fr; gap:80px; align-items:center;
+}
 
-.hero-overline { color: var(--gold); margin-bottom: 28px; animation: fadeUp 0.7s ease 0.1s both; }
-.hero-h1 { color: var(--d-hi); margin-bottom: 28px; animation: fadeUp 0.7s ease 0.25s both; }
-.hero-h1 em { color: var(--gold-lt); font-style: italic; }
-.hero-rule { width: 44px; height: 1px; background: var(--gold); margin-bottom: 26px; animation: fadeUp 0.7s ease 0.38s both; }
-.hero-sub { color: var(--d-mid); margin-bottom: 48px; max-width: 440px; animation: fadeUp 0.7s ease 0.48s both; }
-.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-ov { color:var(--gold); margin-bottom:28px; animation:up .7s ease .1s both; }
+.hero-h1 { color:var(--d-hi); margin-bottom:28px; animation:up .7s ease .25s both; }
+.hero-h1 em { color:var(--gold-lt); font-style:italic; }
+.hero-rule { width:44px; height:1px; background:var(--gold); margin-bottom:26px; animation:up .7s ease .38s both; }
+.hero-sub { color:var(--d-mid); margin-bottom:48px; max-width:440px; animation:up .7s ease .48s both; }
+.hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
 
-/* Stats */
+.btn-gold        { display:inline-block; padding:13px 30px; background:var(--gold); color:var(--navy-dk); font-size:.68rem; font-weight:400; letter-spacing:.18em; text-transform:uppercase; cursor:pointer; border:none; transition:all .22s; }
+.btn-gold:hover  { background:var(--gold-lt); transform:translateY(-1px); }
+.btn-ghost       { display:inline-block; padding:13px 30px; background:transparent; color:var(--d-mid); border:1px solid rgba(245,242,236,.18); font-size:.68rem; font-weight:400; letter-spacing:.18em; text-transform:uppercase; cursor:pointer; transition:all .22s; }
+.btn-ghost:hover { border-color:rgba(181,151,90,.5); color:var(--gold-lt); }
+
 .hero-stats {
-  border-left: 1px solid rgba(181,151,90,0.2);
-  padding-left: 56px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  border-left:1px solid rgba(181,151,90,.2);
+  padding-left:56px;
+  display:flex; flex-direction:column; gap:0;
 }
-.hero-stat { padding: 28px 0; border-bottom: 1px solid var(--d-line); }
-.hero-stat:last-child { border-bottom: none; }
-.hero-stat-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
-  font-weight: 400;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 8px;
+.hero-stat { padding:28px 0; border-bottom:1px solid var(--d-line); }
+.hero-stat:last-child { border-bottom:none; }
+.stat-num {
+  font-family:'Playfair Display',serif;
+  font-size:2.4rem; font-weight:400;
+  color:var(--gold); line-height:1; margin-bottom:8px;
 }
-.hero-stat-num span { color: var(--gold-lt); font-size: 1.3rem; }
-.hero-stat-label {
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--d-mid);
-  margin-bottom: 4px;
-}
-.hero-stat-desc { font-size: 0.78rem; font-weight: 300; color: var(--d-low); }
+.stat-num sup { font-size:1.1rem; color:var(--gold-lt); }
+.stat-label { font-size:.68rem; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--d-mid); margin-bottom:4px; }
+.stat-desc  { font-size:.78rem; font-weight:300; color:var(--d-low); }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
+@keyframes up {
+  from { opacity:0; transform:translateY(18px); }
+  to   { opacity:1; transform:translateY(0); }
 }
 
-/* ── BUTTONS ── */
-.btn {
-  display: inline-block;
-  font-size: 0.68rem;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  padding: 13px 30px;
-  cursor: pointer;
-  border: none;
-  transition: all 0.22s;
-}
-.btn-gold        { background: var(--gold); color: var(--navy-dk); }
-.btn-gold:hover  { background: var(--gold-lt); transform: translateY(-1px); }
-.btn-ghost-dark  { background: transparent; color: var(--d-mid); border: 1px solid rgba(244,241,236,0.18); }
-.btn-ghost-dark:hover { border-color: rgba(181,151,90,0.5); color: var(--gold-lt); }
-.btn-navy        { background: var(--navy); color: var(--stone-lt); }
-.btn-navy:hover  { background: var(--navy-lt); transform: translateY(-1px); }
-
-/* ────────────────────────────────────
-   SERVICES — stone background, editorial cards
-──────────────────────────────────── */
+/* ══════════════════════════════════════
+   SERVICES — Rothschild editorial 2-col
+   Stone bg · left border · large serif title
+══════════════════════════════════════ */
 #services {
-  background: var(--stone-lt);
-  padding: 100px 60px;
+  background:#ffffff;
+  padding:104px 60px;
 }
-.services-header { max-width: var(--max); margin: 0 auto 64px; }
-.services-header .t-overline { margin-bottom: 16px; }
-.services-header .t-h2 { color: var(--navy); margin-bottom: 14px; }
-.services-header .t-body { color: var(--ink-mid); max-width: 520px; }
+.svc-hd { max-width:var(--max); margin:0 auto 68px; }
+.svc-hd .ov { margin-bottom:16px; }
+.svc-hd h2 { color:var(--ink); margin-bottom:14px; }
+.svc-hd p  { color:var(--ink-mid); max-width:540px; }
 
-/* 3-col grid — editorial Rothschild style */
-.services-grid {
-  max-width: var(--max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  background: var(--stone-bd);
+.svc-grid {
+  max-width:var(--max); margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:2px; background:var(--stone-bd);
 }
 .svc {
-  background: var(--stone-lt);
-  padding: 44px 36px;
-  position: relative;
-  transition: background 0.22s;
-  display: flex;
-  flex-direction: column;
+  background:var(--stone);
+  padding:52px 48px;
+  display:flex; flex-direction:column;
+  border-left:3px solid transparent;
+  transition:border-color .25s, background .22s;
+  position:relative;
 }
-.svc:hover { background: var(--stone); }
-.svc::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 0; height: 2px;
-  background: var(--gold);
-  transition: width 0.28s ease;
+.svc:hover {
+  background:var(--stone-dk);
+  border-left-color:var(--ink);
 }
-.svc:hover::after { width: 100%; }
+.svc-num {
+  font-size:.57rem; font-weight:400;
+  letter-spacing:.26em; color:var(--gold-dk);
+  margin-bottom:14px;
+}
+.svc h3 { margin-bottom:16px; }
+.svc p  { color:var(--ink-mid); flex:1; }
+.svc-arrow {
+  display:inline-flex; align-items:center; gap:8px;
+  margin-top:32px; font-size:.67rem; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase;
+  color:var(--navy); transition:color .2s;
+}
+.svc-arrow::after { content:'›'; font-size:1.1rem; font-weight:300; transition:transform .2s; display:inline-block; }
+.svc:hover .svc-arrow { color:var(--gold-dk); }
+.svc:hover .svc-arrow::after { transform:translateX(4px); }
 
-.svc-n {
-  font-size: 0.58rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  color: var(--gold);
-  margin-bottom: 20px;
+/* Card 06 — Intelligence — dark treatment */
+.svc-intel {
+  background:var(--navy-dk) !important;
+  border-left:3px solid var(--gold) !important;
 }
-.svc-icon {
-  width: 28px; height: 28px;
-  margin-bottom: 20px;
-}
-.svc-icon svg {
-  width: 100%; height: 100%;
-  stroke: var(--navy);
-  fill: none;
-  stroke-width: 1.4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.svc-title {
-  color: var(--navy);
-  margin-bottom: 14px;
-}
-.svc-body { color: var(--ink-mid); flex: 1; }
+.svc-intel:hover { background:var(--navy) !important; border-left-color:var(--gold-lt) !important; }
+.svc-intel .svc-num { color:var(--gold); }
+.svc-intel h3.card-title { color:var(--d-hi); }
+.svc-intel p  { color:var(--d-mid); }
+.svc-intel .svc-arrow { color:var(--gold); }
+.svc-intel:hover .svc-arrow { color:var(--gold-lt); }
 
-/* Featured card 06 */
-.svc-featured {
-  background: var(--stone-dk) !important;
-  border: 2px solid var(--gold-dk) !important;
-  position: relative;
+.intel-badge {
+  display:inline-block; font-size:.50rem; font-weight:600;
+  letter-spacing:.20em; text-transform:uppercase;
+  color:var(--gold); border:1px solid rgba(181,151,90,.38);
+  padding:3px 9px; margin-bottom:18px; width:fit-content;
 }
-.svc-featured::before {
-  content: '';
-  position: absolute;
-  top: -2px; left: -2px; right: -2px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--gold-dk), var(--gold-lt));
-  z-index: 1;
-}
-.svc-featured .svc-title { color: var(--navy-dk); }
-.svc-featured .svc-icon svg { stroke: var(--gold-dk); }
 
-.svc-badge {
-  display: inline-block;
-  font-size: 0.48rem;
-  font-weight: 600;
-  letter-spacing: 0.20em;
-  text-transform: uppercase;
-  color: var(--gold-dk);
-  border: 1px solid var(--gold-dk);
-  padding: 2px 7px;
-  margin-bottom: 14px;
-}
-.svc-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 20px;
-  font-size: 0.63rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--navy);
-  border-bottom: 1px solid var(--gold-dk);
-  padding-bottom: 2px;
-  transition: color 0.2s, border-color 0.2s;
-}
-.svc-link:hover { color: var(--gold-dk); }
+/* ══════════════════════════════════════
+   WHO WE SERVE — stone | navy
+══════════════════════════════════════ */
+#serve { padding:0; }
+.serve-duo { display:grid; grid-template-columns:1fr 1fr; }
+.serve-panel { padding:92px 72px; }
+.serve-lt { background:var(--stone); }
+.serve-dk { background:var(--navy-dk); }
 
-/* ────────────────────────────────────
-   WHO WE SERVE — stone left / navy right
-──────────────────────────────────── */
-#serve { padding: 0; }
-.serve-duo {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.serve-panel { padding: 88px 72px; }
-.serve-light { background: var(--stone); }
-.serve-dark  { background: var(--navy-dk); }
+.serve-lt .ov { color:var(--gold-dk); margin-bottom:20px; }
+.serve-dk .ov { color:var(--gold);    margin-bottom:20px; }
+.serve-lt h2  { color:var(--ink);   margin-bottom:36px; font-size:clamp(1.6rem,2.5vw,2.2rem); }
+.serve-dk h2  { color:var(--d-hi);  margin-bottom:36px; font-size:clamp(1.6rem,2.5vw,2.2rem); }
 
-.serve-panel .t-overline { margin-bottom: 20px; }
-.serve-light .t-overline { color: var(--gold-dk); }
-.serve-dark  .t-overline { color: var(--gold); }
-
-.serve-panel .t-h2 { margin-bottom: 32px; font-size: clamp(1.6rem, 2.5vw, 2.2rem); }
-.serve-light .t-h2 { color: var(--navy); }
-.serve-dark  .t-h2 { color: var(--d-hi); }
-
-.serve-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.serve-list { list-style:none; display:flex; flex-direction:column; }
 .serve-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  font-size: 0.88rem;
-  font-weight: 300;
-  line-height: 1.65;
-  padding: 14px 0;
-  border-bottom: 1px solid;
+  display:flex; align-items:flex-start; gap:14px;
+  font-size:.88rem; font-weight:300; line-height:1.65;
+  padding:15px 0; border-bottom:1px solid;
 }
-.serve-light .serve-list li { color: var(--ink-mid); border-color: var(--ink-line); }
-.serve-dark  .serve-list li { color: var(--d-mid);  border-color: var(--d-line); }
-.serve-list li:last-child { border-bottom: none; }
-.serve-list li::before {
-  content: '›';
-  font-size: 1rem;
-  margin-top: 0px;
-  flex-shrink: 0;
-  font-weight: 300;
-}
-.serve-light .serve-list li::before { color: var(--gold-dk); }
-.serve-dark  .serve-list li::before { color: var(--gold); }
+.serve-list li:last-child { border-bottom:none; }
+.serve-list li::before { content:'›'; font-size:1.1rem; font-weight:300; flex-shrink:0; margin-top:-1px; }
+.serve-lt .serve-list li { color:var(--ink-mid); border-color:var(--ink-line); }
+.serve-lt .serve-list li::before { color:var(--gold-dk); }
+.serve-dk .serve-list li { color:var(--d-mid); border-color:var(--d-line); }
+.serve-dk .serve-list li::before { color:var(--gold); }
 
-/* ────────────────────────────────────
+/* ══════════════════════════════════════
    PROCESS — deep navy
-──────────────────────────────────── */
-#process {
-  background: var(--navy-dk);
-  padding: 100px 60px;
-}
-.process-header { max-width: var(--max); margin: 0 auto 64px; }
-.process-header .t-overline { color: var(--gold); margin-bottom: 16px; }
-.process-header .t-h2 { color: var(--d-hi); margin-bottom: 14px; }
-.process-header .t-body { color: var(--d-mid); max-width: 480px; }
+══════════════════════════════════════ */
+#process { background:var(--navy-dk); padding:104px 60px; }
+.proc-hd { max-width:var(--max); margin:0 auto 64px; }
+.proc-hd .ov { color:var(--gold); margin-bottom:16px; }
+.proc-hd h2  { color:var(--d-hi); margin-bottom:14px; }
+.proc-hd p   { color:var(--d-mid); max-width:480px; }
 
-.process-steps {
-  max-width: var(--max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
-  background: rgba(181,151,90,0.12);
+.proc-grid {
+  max-width:var(--max); margin:0 auto;
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:2px; background:rgba(181,151,90,.12);
 }
-.p-step {
-  background: var(--navy-dk);
-  padding: 44px 32px;
-  text-align: left;
-  transition: background 0.2s;
+.proc-step {
+  background:var(--navy-dk); padding:48px 32px;
+  transition:background .2s;
 }
-.p-step:hover { background: var(--navy); }
-.p-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  font-weight: 400;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 20px;
-  opacity: 0.6;
+.proc-step:hover { background:var(--navy); }
+.proc-n {
+  font-family:'Playfair Display',serif;
+  font-size:2.2rem; font-weight:400;
+  color:var(--gold); opacity:.55;
+  line-height:1; margin-bottom:20px;
 }
-.p-title { color: var(--d-hi); font-size: 0.80rem; font-weight: 400; letter-spacing: 0.10em; text-transform: uppercase; margin-bottom: 12px; }
-.p-body  { color: var(--d-low); font-size: 0.84rem; font-weight: 300; line-height: 1.70; }
+.proc-title { font-size:.78rem; font-weight:400; letter-spacing:.12em; text-transform:uppercase; color:var(--d-hi); margin-bottom:12px; }
+.proc-body  { font-size:.85rem; font-weight:300; color:var(--d-low); line-height:1.70; }
 
-/* ────────────────────────────────────
-   CONTACT — warm stone
-──────────────────────────────────── */
-#contact { background: var(--stone); padding: 100px 60px; }
-.contact-wrap { max-width: var(--max); margin: 0 auto; }
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 88px;
-  align-items: start;
-}
-.c-left .t-overline { margin-bottom: 18px; }
-.c-left .t-h2 { color: var(--navy); margin-bottom: 18px; }
-.c-left .t-body { color: var(--ink-mid); margin-bottom: 32px; }
-.c-detail {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 0.84rem; font-weight: 300; color: var(--ink-mid);
-  margin-bottom: 10px;
-}
-.c-detail svg { width: 14px; height: 14px; stroke: var(--gold-dk); fill: none; stroke-width: 1.5; flex-shrink: 0; }
-.c-detail a { color: var(--gold-dk); }
+/* ══════════════════════════════════════
+   CONTACT
+══════════════════════════════════════ */
+#contact { background:var(--stone); padding:104px 60px; }
+.contact-wrap { max-width:var(--max); margin:0 auto; }
+.contact-grid { display:grid; grid-template-columns:1fr 1.5fr; gap:88px; align-items:start; }
 
-.form-box { background: var(--stone-lt); border: 1px solid var(--ink-line); padding: 44px 40px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.form-g   { margin-bottom: 20px; }
+.c-left .ov  { margin-bottom:18px; }
+.c-left h2   { color:var(--ink); margin-bottom:18px; }
+.c-left p    { color:var(--ink-mid); margin-bottom:32px; }
+.c-detail    { display:flex; align-items:center; gap:10px; font-size:.84rem; font-weight:300; color:var(--ink-mid); margin-bottom:10px; }
+.c-detail svg { width:14px; height:14px; stroke:var(--gold-dk); fill:none; stroke-width:1.5; flex-shrink:0; }
+.c-detail a  { color:var(--gold-dk); }
 
+.form-box { background:var(--stone-lt); border:1px solid var(--ink-line); padding:44px 40px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.form-g   { margin-bottom:20px; }
 label {
-  display: block;
-  font-size: 0.62rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-low);
-  margin-bottom: 6px;
+  display:block; font-size:.62rem; font-weight:500;
+  letter-spacing:.16em; text-transform:uppercase;
+  color:var(--ink-low); margin-bottom:6px;
 }
-input, select, textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid var(--ink-line);
-  font-family: 'Inter', sans-serif;
-  font-size: 0.88rem;
-  font-weight: 300;
-  color: var(--ink);
-  background: var(--stone-lt);
-  outline: none;
-  border-radius: 0;
-  -webkit-appearance: none;
-  transition: border-color 0.2s;
+input,select,textarea {
+  width:100%; padding:10px 12px;
+  border:1px solid var(--ink-line);
+  font-family:'Inter',sans-serif; font-size:.88rem; font-weight:300;
+  color:var(--ink); background:var(--stone-lt);
+  outline:none; border-radius:0; -webkit-appearance:none;
+  transition:border-color .2s;
 }
-input:focus, select:focus, textarea:focus { border-color: var(--gold-dk); }
-textarea { resize: vertical; min-height: 100px; }
+input:focus,select:focus,textarea:focus { border-color:var(--gold-dk); }
+textarea { resize:vertical; min-height:100px; }
 select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23B5975A' stroke-width='1.3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  padding-right: 32px;
-  cursor: pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23B5975A' stroke-width='1.3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 12px center;
+  padding-right:32px; cursor:pointer;
 }
 .form-submit {
-  width: 100%;
-  padding: 13px;
-  background: var(--navy);
-  color: var(--stone-lt);
-  border: none;
-  cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  transition: background 0.2s;
-  margin-top: 6px;
+  width:100%; padding:13px; background:var(--navy);
+  color:var(--stone-lt); border:none; cursor:pointer;
+  font-family:'Inter',sans-serif; font-size:.68rem; font-weight:500;
+  letter-spacing:.18em; text-transform:uppercase;
+  transition:background .2s; margin-top:6px;
 }
-.form-submit:hover { background: var(--gold); color: var(--navy-dk); }
+.form-submit:hover { background:var(--gold); color:var(--navy-dk); }
 .form-disclaimer {
-  font-size: 0.65rem;
-  font-weight: 300;
-  color: var(--ink-low);
-  line-height: 1.65;
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid var(--ink-line);
+  font-size:.64rem; font-weight:300; color:var(--ink-low);
+  line-height:1.65; margin-top:16px; padding-top:16px;
+  border-top:1px solid var(--ink-line);
 }
-.form-success { display: none; text-align: center; padding: 52px 20px; }
-.form-success.show { display: block; }
-.s-icon {
-  width: 46px; height: 46px;
-  border: 1px solid var(--gold-dk);
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 16px;
-}
-.s-icon svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.8; }
+.form-success { display:none; text-align:center; padding:52px 20px; }
+.s-icon { width:46px; height:46px; border:1px solid var(--gold-dk); display:flex; align-items:center; justify-content:center; margin:0 auto 16px; }
+.s-icon svg { width:20px; height:20px; stroke:var(--gold); fill:none; stroke-width:1.8; }
 
-/* ────────────────────────────────────
+/* ══════════════════════════════════════
    FOOTER
-──────────────────────────────────── */
+══════════════════════════════════════ */
 footer {
-  background: var(--navy-dk);
-  border-top: 1px solid rgba(181,151,90,0.15);
-  padding: 56px 60px 36px;
+  background:var(--navy-dk);
+  border-top:1px solid rgba(181,151,90,.15);
+  padding:56px 60px 36px;
 }
-.footer-inner { max-width: var(--max); margin: 0 auto; }
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding-bottom: 44px;
-  margin-bottom: 36px;
-  border-bottom: 1px solid var(--d-line);
+.foot-inner { max-width:var(--max); margin:0 auto; }
+.foot-top {
+  display:flex; justify-content:space-between; align-items:flex-start;
+  padding-bottom:44px; margin-bottom:36px;
+  border-bottom:1px solid var(--d-line);
 }
-.footer-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.10rem;
-  font-weight: 400;
-  color: var(--d-hi);
-  letter-spacing: 0.05em;
-  margin-bottom: 6px;
-}
-.footer-tag { font-size: 0.62rem; font-weight: 300; color: var(--gold-dk); letter-spacing: 0.14em; text-transform: uppercase; }
-.footer-cols { display: flex; gap: 60px; }
-.footer-col h4 {
-  font-size: 0.60rem; font-weight: 500; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--gold-dk); margin-bottom: 16px;
-}
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-col a {
-  font-size: 0.82rem; font-weight: 300; color: var(--d-low);
-  transition: color 0.2s;
-}
-.footer-col a:hover { color: var(--d-hi); }
-.footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
-.footer-legal {
-  font-size: 0.65rem; font-weight: 300;
-  color: rgba(244,241,236,0.2); line-height: 1.72; max-width: 660px;
-}
-.footer-copy { font-size: 0.65rem; font-weight: 300; color: rgba(244,241,236,0.2); white-space: nowrap; }
+.foot-brand { font-family:'Playfair Display',serif; font-size:1.08rem; font-weight:400; color:var(--d-hi); letter-spacing:.05em; margin-bottom:6px; }
+.foot-tag   { font-size:.62rem; font-weight:300; color:var(--gold-dk); letter-spacing:.14em; text-transform:uppercase; }
+.foot-cols  { display:flex; gap:60px; }
+.foot-col h4 { font-size:.60rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-dk); margin-bottom:16px; }
+.foot-col ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.foot-col a  { font-size:.82rem; font-weight:300; color:var(--d-low); transition:color .2s; }
+.foot-col a:hover { color:var(--d-hi); }
+.foot-bottom { display:flex; justify-content:space-between; align-items:flex-start; gap:40px; }
+.foot-legal  { font-size:.64rem; font-weight:300; color:rgba(245,242,236,.18); line-height:1.72; max-width:660px; }
+.foot-copy   { font-size:.64rem; font-weight:300; color:rgba(245,242,236,.18); white-space:nowrap; }
 
-/* ── SCROLL REVEAL ── */
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.reveal.in { opacity: 1; transform: translateY(0); }
+/* ── REVEAL ── */
+.reveal { opacity:0; transform:translateY(22px); transition:opacity .6s ease,transform .6s ease; }
+.reveal.in { opacity:1; transform:translateY(0); }
 
-/* ────────────────────────────────────
+/* ══════════════════════════════════════
    RESPONSIVE
-──────────────────────────────────── */
-@media (max-width: 960px) {
-  #nav { padding: 0 24px; }
-  .nav-center { display: none; }
-  .nav-btn { display: none; }
-  .nav-hamburger { display: flex; }
+══════════════════════════════════════ */
+@media(max-width:960px){
+  #nav { padding:0 24px; }
+  .nav-links,.nav-cta { display:none; }
+  .hamburger { display:flex; }
 
-  .hero-inner { padding: 120px 24px 80px; }
-  .hero-wrap { grid-template-columns: 1fr; gap: 52px; }
-  .hero-stats { border-left: none; border-top: 1px solid var(--d-line); padding-left: 0; padding-top: 40px; flex-direction: row; flex-wrap: wrap; gap: 0; }
-  .hero-stat { flex: 1; min-width: 160px; border-bottom: none; padding: 16px 24px 16px 0; border-right: 1px solid var(--d-line); margin-right: 0; }
-  .hero-stat:last-child { border-right: none; }
+  .hero-inner { padding:120px 24px 80px; }
+  .hero-grid  { grid-template-columns:1fr; gap:52px; }
+  .hero-stats { border-left:none; border-top:1px solid var(--d-line); padding-left:0; padding-top:40px; flex-direction:row; flex-wrap:wrap; }
+  .hero-stat  { flex:1; min-width:150px; border-bottom:none; padding:16px 20px 16px 0; border-right:1px solid var(--d-line); }
+  .hero-stat:last-child { border-right:none; }
 
-  #services { padding: 72px 24px; }
-  .services-header { margin-bottom: 44px; }
-  .services-grid { grid-template-columns: 1fr 1fr; }
+  #services { padding:72px 24px; }
+  .svc-grid { grid-template-columns:1fr; }
 
-  .serve-duo { grid-template-columns: 1fr; }
-  .serve-panel { padding: 60px 32px; }
+  .serve-duo  { grid-template-columns:1fr; }
+  .serve-panel { padding:60px 32px; }
 
-  #process { padding: 72px 24px; }
-  .process-steps { grid-template-columns: 1fr 1fr; }
+  #process { padding:72px 24px; }
+  .proc-grid { grid-template-columns:1fr 1fr; }
 
-  #contact { padding: 72px 24px; }
-  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  #contact { padding:72px 24px; }
+  .contact-grid { grid-template-columns:1fr; gap:48px; }
 
-  footer { padding: 48px 24px 30px; }
-  .footer-top { flex-direction: column; gap: 32px; }
-  .footer-bottom { flex-direction: column; gap: 14px; }
+  footer { padding:48px 24px 30px; }
+  .foot-top    { flex-direction:column; gap:32px; }
+  .foot-bottom { flex-direction:column; gap:14px; }
 }
-
-@media (max-width: 600px) {
-  .hero-wrap { gap: 40px; }
-  .hero-stats { flex-direction: column; }
-  .hero-stat { border-right: none; border-bottom: 1px solid var(--d-line); padding: 18px 0; }
-  .hero-stat:last-child { border-bottom: none; }
-  .services-grid { grid-template-columns: 1fr; }
-  .svc { background: var(--stone-lt) !important; }
-  .process-steps { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
-  .footer-cols { flex-direction: column; gap: 28px; }
+@media(max-width:600px){
+  .hero-stats { flex-direction:column; }
+  .hero-stat  { border-right:none; border-bottom:1px solid var(--d-line); padding:18px 0; }
+  .hero-stat:last-child { border-bottom:none; }
+  .proc-grid  { grid-template-columns:1fr; }
+  .form-row   { grid-template-columns:1fr; }
+  .foot-cols  { flex-direction:column; gap:28px; }
 }
 </style>
 </head>
 <body>
 
-<!-- ─── NAV ─── -->
+<!-- NAV -->
 <nav id="nav">
   <a href="#hero" class="nav-logo">MNSR Capital</a>
-  <ul class="nav-center">
+  <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#serve">Who We Serve</a></li>
     <li><a href="#process">Our Process</a></li>
     <li><a href="intelligence-gate.html">Intelligence</a></li>
   </ul>
-  <a href="#contact" class="nav-btn">Contact</a>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="#contact" class="nav-cta">Contact</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#services" onclick="closeMenu()">Services</a>
-  <a href="#serve" onclick="closeMenu()">Who We Serve</a>
-  <a href="#process" onclick="closeMenu()">Our Process</a>
+<div class="mob-menu" id="mobMenu">
+  <a href="#services"  onclick="closeMenu()">Services</a>
+  <a href="#serve"     onclick="closeMenu()">Who We Serve</a>
+  <a href="#process"   onclick="closeMenu()">Our Process</a>
   <a href="intelligence-gate.html" onclick="closeMenu()">Market Intelligence</a>
-  <a href="#contact" class="mob-contact-btn" onclick="closeMenu()">Contact Us</a>
+  <a href="#contact" class="mob-cta" onclick="closeMenu()">Contact Us</a>
 </div>
 
 
-<!-- ─── HERO ─── -->
+<!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-wrap">
+    <div class="hero-grid">
 
-      <div class="hero-left">
-        <p class="t-overline hero-overline">Global Strategic Advisory</p>
-        <h1 class="t-h1 hero-h1">
-          The Bridge Between<br>
-          Companies and<br>
-          <em>Global Capital</em>
-        </h1>
+      <div>
+        <p class="ov hero-ov">Global Strategic Advisory</p>
+        <h1 class="display hero-h1">The Bridge Between<br>Companies and<br><em>Global Capital</em></h1>
         <div class="hero-rule"></div>
-        <p class="t-body hero-sub">
-          MNSR Capital connects companies at every inflection point — growth, transformation, strategic pivot, or capital cycle — with the right capital partners across global markets.
-        </p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-gold">Inquire Now</a>
-          <a href="#services" class="btn btn-ghost-dark">Our Services</a>
+        <p class="body-copy hero-sub">MNSR Capital connects companies at every inflection point — growth, transformation, strategic pivot, or capital cycle — with the right capital partners across global markets.</p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn-gold">Inquire Now</a>
+          <a href="#services" class="btn-ghost">Our Services</a>
         </div>
       </div>
 
-      <div class="hero-right">
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <div class="hero-stat-num">$32<span>T</span></div>
-            <div class="hero-stat-label">Global Alternative AUM by 2030</div>
-            <div class="hero-stat-desc">Private equity, credit, infrastructure, and real assets seeking deployment</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">200<span>K+</span></div>
-            <div class="hero-stat-label">Companies Underserved</div>
-            <div class="hero-stat-desc">Companies at every inflection point underserved by existing advisory infrastructure</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">$80<span>T</span></div>
-            <div class="hero-stat-label">Private Capital Mobilizing</div>
-            <div class="hero-stat-desc">Wealth managers and family offices allocating to private markets at an accelerating pace</div>
-          </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="stat-num">$32<sup>T</sup></div>
+          <div class="stat-label">Global Alternative AUM by 2030</div>
+          <div class="stat-desc">Private equity, credit, infrastructure, and real assets seeking deployment</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-num">200<sup>K+</sup></div>
+          <div class="stat-label">Companies Underserved</div>
+          <div class="stat-desc">Companies at every inflection point underserved by existing advisory infrastructure</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-num">$80<sup>T</sup></div>
+          <div class="stat-label">Private Capital Mobilizing</div>
+          <div class="stat-desc">Wealth managers and family offices allocating to private markets at an accelerating pace</div>
         </div>
       </div>
 
@@ -784,89 +538,74 @@ footer {
 </section>
 
 
-<!-- ─── SERVICES ─── -->
+<!-- SERVICES -->
 <section id="services">
-  <div class="services-header">
-    <p class="t-overline reveal">What We Do</p>
-    <h2 class="t-h2 reveal">Strategic Advisory Services</h2>
-    <p class="t-body reveal">Independent advisory for companies at every inflection point — and for the capital partners seeking them.</p>
+  <div class="svc-hd reveal">
+    <p class="ov">What We Do</p>
+    <h2 class="section-title">Our Advisory Services</h2>
+    <p class="body-copy">Independent, conflict-free advisory for companies seeking capital and investors seeking opportunity — across every stage, sector, and geography.</p>
   </div>
 
-  <div class="services-grid">
+  <div class="svc-grid">
 
     <div class="svc reveal">
-      <div class="svc-n">01</div>
-      <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-      <p class="t-h3 svc-title">Capital Advisory</p>
-      <p class="t-small svc-body">Strategic guidance on capital structure, funding readiness, and positioning for companies seeking the right capital partners — across private equity, sovereign wealth, family offices, and accredited investors globally.</p>
+      <div class="svc-num">01</div>
+      <h3 class="card-title">M&amp;A and Strategic Advisory</h3>
+      <p class="small-copy">We advise companies on mergers, acquisitions, divestitures, and strategic transactions — as well as capital structure and funding strategy. Independent, conflict-free counsel from first conversation through execution.</p>
+      <span class="svc-arrow">Learn More</span>
     </div>
 
     <div class="svc reveal">
-      <div class="svc-n">02</div>
-      <div class="svc-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-      <p class="t-h3 svc-title">Company Evaluation &amp; Positioning</p>
-      <p class="t-small svc-body">Independent analysis of company fundamentals, capital structure, sector comparables, and capital readiness — the foundation for credible market engagement.</p>
+      <div class="svc-num">02</div>
+      <h3 class="card-title">Debt Advisory &amp; Restructuring</h3>
+      <p class="small-copy">We advise on debt structure, capital raises, refinancings, and where necessary, balance sheet restructuring. Our counsel is independent — we have no preferred lenders, no conflicts of interest, and no agenda beyond our client's objectives.</p>
+      <span class="svc-arrow">Learn More</span>
     </div>
 
     <div class="svc reveal">
-      <div class="svc-n">03</div>
-      <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <p class="t-h3 svc-title">Capital Introduction</p>
-      <p class="t-small svc-body">Strategic introductions between qualified companies and the right capital partners — every connection is deliberate, structured, and built on mandate alignment.</p>
+      <div class="svc-num">03</div>
+      <h3 class="card-title">Capital Introduction &amp; Placement</h3>
+      <p class="small-copy">We evaluate company fundamentals and capital readiness, develop the investor narrative and materials, then make deliberate introductions to capital partners whose mandate, sector, and geography align precisely. From positioning through placement — a single, integrated process built around one outcome: the right capital, not just any capital.</p>
+      <span class="svc-arrow">Learn More</span>
     </div>
 
-    <div class="svc reveal">
-      <div class="svc-n">04</div>
-      <div class="svc-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-      <p class="t-h3 svc-title">Strategic Transaction Advisory</p>
-      <p class="t-small svc-body">Advisory across M&amp;A, divestitures, joint ventures, and strategic partnerships — helping clients pursue value-creating transactions globally.</p>
-    </div>
-
-    <div class="svc reveal">
-      <div class="svc-n">05</div>
-      <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-      <p class="t-h3 svc-title">Roadshow Advisory</p>
-      <p class="t-small svc-body">End-to-end preparation and strategic support for investor roadshows — narrative development, materials, investor targeting, and meeting facilitation.</p>
-    </div>
-
-    <div class="svc svc-featured reveal">
-      <div class="svc-badge">Intelligence Platform</div>
-      <div class="svc-n">06</div>
-      <div class="svc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-      <p class="t-h3 svc-title">Global Market Intelligence</p>
-      <p class="t-small svc-body">Proprietary sector and regional intelligence across eight high-growth sectors and six global regions — where capital is actively deploying.</p>
-      <a href="intelligence-gate.html" class="svc-link">Explore Intelligence →</a>
+    <div class="svc svc-intel reveal">
+      <div class="intel-badge">Intelligence Platform</div>
+      <div class="svc-num">04</div>
+      <h3 class="card-title">Global Market Intelligence</h3>
+      <p class="small-copy">Proprietary sector and regional intelligence across eight high-growth sectors and six global regions — tracking where capital conviction is building, where capital is deploying, and where the next cycle of opportunity is forming.</p>
+      <a href="intelligence-gate.html" class="svc-arrow">Explore Intelligence</a>
     </div>
 
   </div>
 </section>
 
 
-<!-- ─── WHO WE SERVE ─── -->
+<!-- WHO WE SERVE -->
 <section id="serve">
   <div class="serve-duo">
 
-    <div class="serve-panel serve-light reveal">
-      <p class="t-overline">For Companies</p>
-      <h2 class="t-h2">Companies at Every<br>Inflection Point</h2>
+    <div class="serve-panel serve-lt reveal">
+      <p class="ov">For Companies</p>
+      <h2 class="section-title">Companies at Every<br>Inflection Point</h2>
       <ul class="serve-list">
         <li>Companies scaling into new markets and seeking the right capital to accelerate growth</li>
-        <li>Companies navigating strategic pivots — new technology, production line, or market repositioning</li>
+        <li>Companies navigating strategic pivots — new technology, new production line, or market repositioning</li>
         <li>Companies funding capex cycles to win new categories of customers</li>
         <li>Companies facing customer concentration risk and needing capital to diversify revenue</li>
         <li>Companies in high-growth sectors seeking investors who understand their industry and region</li>
-        <li>Management teams requiring credible, independent advisory for complex capital situations</li>
+        <li>Management teams requiring independent advisory for complex capital situations</li>
       </ul>
     </div>
 
-    <div class="serve-panel serve-dark reveal">
-      <p class="t-overline">For Investors</p>
-      <h2 class="t-h2">Investors &amp;<br>Capital Allocators</h2>
+    <div class="serve-panel serve-dk reveal">
+      <p class="ov">For Investors</p>
+      <h2 class="section-title">Investors &amp;<br>Capital Allocators</h2>
       <ul class="serve-list">
         <li>Hedge funds and alternative asset managers seeking curated deal flow</li>
         <li>Private equity firms evaluating emerging market opportunities</li>
         <li>Sovereign wealth funds deploying capital across global sectors</li>
-        <li>Family offices seeking differentiated investment opportunities</li>
+        <li>Family offices seeking differentiated private market opportunities</li>
         <li>Asset managers building exposure to high-growth international markets</li>
         <li>Investors seeking independent sector intelligence and market positioning data</li>
       </ul>
@@ -876,54 +615,51 @@ footer {
 </section>
 
 
-<!-- ─── PROCESS ─── -->
+<!-- PROCESS -->
 <section id="process">
-  <div class="process-header reveal">
-    <p class="t-overline">How We Work</p>
-    <h2 class="t-h2">Our Advisory Process</h2>
-    <p class="t-body">A structured, transparent approach from first engagement to strategic outcome.</p>
+  <div class="proc-hd reveal">
+    <p class="ov">How We Work</p>
+    <h2 class="section-title">Our Advisory Process</h2>
+    <p class="body-copy">A structured, transparent approach from first engagement to strategic outcome.</p>
   </div>
-
-  <div class="process-steps">
-    <div class="p-step reveal">
-      <div class="p-num">01</div>
-      <p class="p-title">Strategic Assessment</p>
-      <p class="p-body">A thorough evaluation of your company's fundamentals, capital needs, market positioning, and capital readiness.</p>
+  <div class="proc-grid">
+    <div class="proc-step reveal">
+      <div class="proc-n">01</div>
+      <p class="proc-title">Strategic Assessment</p>
+      <p class="proc-body">A thorough evaluation of your company's fundamentals, capital needs, market positioning, and readiness for institutional engagement.</p>
     </div>
-    <div class="p-step reveal">
-      <div class="p-num">02</div>
-      <p class="p-title">Market Positioning</p>
-      <p class="p-body">We develop your capital narrative — sector story, financial positioning, and investor materials that resonate globally.</p>
+    <div class="proc-step reveal">
+      <div class="proc-n">02</div>
+      <p class="proc-title">Market Positioning</p>
+      <p class="proc-body">We develop your capital narrative — sector story, financial positioning, and investor materials that resonate with the right global capital.</p>
     </div>
-    <div class="p-step reveal">
-      <div class="p-num">03</div>
-      <p class="p-title">Investor Targeting</p>
-      <p class="p-body">We identify investors whose mandate, geography, and sector focus align precisely with your profile.</p>
+    <div class="proc-step reveal">
+      <div class="proc-n">03</div>
+      <p class="proc-title">Investor Targeting</p>
+      <p class="proc-body">We identify capital partners whose mandate, geography, and sector focus align precisely with your profile and objectives.</p>
     </div>
-    <div class="p-step reveal">
-      <div class="p-num">04</div>
-      <p class="p-title">Engagement &amp; Advisory</p>
-      <p class="p-body">Structured investor engagement and ongoing strategic counsel through every stage of the capital or transaction process.</p>
+    <div class="proc-step reveal">
+      <div class="proc-n">04</div>
+      <p class="proc-title">Engagement &amp; Advisory</p>
+      <p class="proc-body">Structured engagement and ongoing strategic counsel through every stage of the capital raise or transaction process.</p>
     </div>
   </div>
 </section>
 
 
-<!-- ─── CONTACT ─── -->
+<!-- CONTACT -->
 <section id="contact">
   <div class="contact-wrap">
     <div class="contact-grid">
-
       <div class="c-left reveal">
-        <p class="t-overline">Get In Touch</p>
-        <h2 class="t-h2">Contact Our<br>Advisory Team</h2>
-        <p class="t-body">Whether you represent a company seeking capital or an investor seeking curated deal flow, we welcome your inquiry. All submissions are handled with strict confidentiality.</p>
+        <p class="ov">Get In Touch</p>
+        <h2 class="section-title">Contact Our<br>Advisory Team</h2>
+        <p class="body-copy">Whether you represent a company seeking capital or an investor seeking curated deal flow, we welcome your inquiry. All submissions are handled with strict confidentiality.</p>
         <div class="c-detail">
           <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           <a href="mailto:info@mnsrcapital.com">info@mnsrcapital.com</a>
         </div>
       </div>
-
       <div class="form-box reveal">
         <div id="formContent">
           <div class="form-row">
@@ -947,92 +683,81 @@ footer {
         </div>
         <div class="form-success" id="formSuccess">
           <div class="s-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <p class="t-h3" style="font-family:'Playfair Display',serif;color:var(--navy);margin-bottom:8px;">Inquiry Received</p>
-          <p class="t-body" style="color:var(--ink-mid);">Our advisory team will review your submission and respond within 2 business days.</p>
+          <h3 style="font-family:'Playfair Display',serif;color:var(--navy);margin-bottom:8px;font-weight:400;">Inquiry Received</h3>
+          <p class="body-copy" style="color:var(--ink-mid);">Our advisory team will review your submission and respond within 2 business days.</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 
-<!-- ─── FOOTER ─── -->
+<!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-top">
+  <div class="foot-inner">
+    <div class="foot-top">
       <div>
-        <div class="footer-brand">MNSR Capital</div>
-        <div class="footer-tag">Global Strategic Advisory</div>
+        <div class="foot-brand">MNSR Capital</div>
+        <div class="foot-tag">Global Strategic Advisory</div>
       </div>
-      <div class="footer-cols">
-        <div class="footer-col">
+      <div class="foot-cols">
+        <div class="foot-col">
           <h4>Services</h4>
           <ul>
-            <li><a href="#services">Capital Advisory</a></li>
-            <li><a href="#services">Company Evaluation</a></li>
-            <li><a href="#services">Capital Introduction</a></li>
-            <li><a href="#services">Strategic Transaction Advisory</a></li>
-            <li><a href="#services">Roadshow Advisory</a></li>
+            <li><a href="#services">M&amp;A and Strategic Advisory</a></li>
+            <li><a href="#services">Debt Advisory &amp; Restructuring</a></li>
+            <li><a href="#services">Capital Introduction &amp; Placement</a></li>
             <li><a href="intelligence-gate.html">Global Market Intelligence</a></li>
           </ul>
         </div>
-        <div class="footer-col">
+        <div class="foot-col">
           <h4>Company</h4>
           <ul>
             <li><a href="#serve">Who We Serve</a></li>
             <li><a href="#process">Our Process</a></li>
-            <li><a href="intelligence-gate.html">Market Intelligence</a></li>
+            <li><a href="intelligence-gate.html">Intelligence Platform</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="mailto:info@mnsrcapital.com">info@mnsrcapital.com</a></li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p class="footer-legal">MNSR Capital LLC is a strategic advisory firm. This website does not constitute investment advice, an offer to sell, or a solicitation of an offer to buy any securities. All services are subject to applicable laws and regulations. This disclaimer is preliminary and subject to review by qualified legal counsel prior to formal client engagement.</p>
-      <div class="footer-copy">© 2026 MNSR Capital LLC</div>
+    <div class="foot-bottom">
+      <p class="foot-legal">MNSR Capital LLC is a strategic advisory firm. This website does not constitute investment advice, an offer to sell, or a solicitation of an offer to buy any securities. All services are subject to applicable laws and regulations. This disclaimer is preliminary and subject to review by qualified legal counsel prior to formal client engagement.</p>
+      <div class="foot-copy">© 2026 MNSR Capital LLC</div>
     </div>
   </div>
 </footer>
 
+
 <script>
-window.addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('raised', window.scrollY > 40);
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('raised',scrollY>40);
 });
-
-setTimeout(() => {
-  document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
-}, 300);
-
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); }
-    });
-  }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => { el.classList.remove('in'); observer.observe(el); });
+setTimeout(()=>{ document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in')); },300);
+if('IntersectionObserver' in window){
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);} });
+  },{threshold:.05,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(e=>{ e.classList.remove('in'); obs.observe(e); });
 }
-
-function doSubmit() {
-  const email = document.getElementById('emailIn').value.trim();
-  const role  = document.getElementById('roleIn').value;
-  if (!email || !role) { alert('Please provide your email and role.'); return; }
-  document.getElementById('formContent').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
+function doSubmit(){
+  const email=document.getElementById('emailIn').value.trim();
+  const role=document.getElementById('roleIn').value;
+  if(!email||!role){alert('Please provide your email and role.');return;}
+  document.getElementById('formContent').style.display='none';
+  document.getElementById('formSuccess').style.display='block';
 }
-
-function toggleMenu() {
-  const ham = document.getElementById('hamburger');
-  const menu = document.getElementById('mobileMenu');
-  ham.classList.toggle('open');
-  menu.classList.toggle('open');
-  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+function toggleMenu(){
+  const h=document.getElementById('hamburger');
+  const m=document.getElementById('mobMenu');
+  h.classList.toggle('open'); m.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
 }
-function closeMenu() {
+function closeMenu(){
   document.getElementById('hamburger').classList.remove('open');
-  document.getElementById('mobileMenu').classList.remove('open');
-  document.body.style.overflow = '';
+  document.getElementById('mobMenu').classList.remove('open');
+  document.body.style.overflow='';
 }
 </script>
 </body>

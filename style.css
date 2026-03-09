@@ -1,50 +1,47 @@
 /* ─────────────────────────────────────
-   MNSR CAPITAL — INSTITUTIONAL PALETTE
-   Peer research: BlackRock, Carlyle, Apollo, Rothschild, KKR
+   MNSR CAPITAL — EXACT ROTHSCHILD DNA
+   Pixel-extracted from rothschildandco.com
    
-   PALETTE:
-   Navy anchor:  #0B1D2E (deeper than before — Carlyle/Apollo depth)
-   Mid navy:     #112840
-   Navy accent:  #1A3A56
-   Platinum:     #B8C4CF (differentiator — Rothschild restraint)
-   Platinum lt:  #D4DCE4
-   Steel blue:   #2E6DA4 (nav/links only)
-   Off-white:    #F4F5F7
-   Border:       #DDE2E8
-   Body text:    #3A4A58
-   Muted text:   #7A8C9A
+   Page bg:    #FFFFFF (pure white)
+   Card bg:    #F0ECE9 (warm rose-beige)
+   Headings:   #0A0C0B (near black — NOT navy)
+   Dark navy:  #1C2039 (used sparingly for drama)
+   Body text:  #424D53 (dark warm gray)
+   Accent:     #D4B896 (light champagne)
 ───────────────────────────────────── */
 :root {
-  --n900: #0B1D2E;
-  --n800: #112840;
-  --n700: #1A3A56;
-  --n600: #22506E;
+  /* Near-black ink — headings and primary text */
+  --n900: #0A0C0B;
+  --n800: #1C2039;   /* dark navy-indigo — hero, dark sections */
+  --n700: #2A2F52;
+  --n600: #384070;
 
-  --plat:    #B8C4CF;
-  --plat-lt: #D4DCE4;
-  --plat-dk: #8A9BAA;
+  /* Light champagne accent */
+  --plat:    #D4B896;
+  --plat-lt: #E8D4BC;
+  --plat-dk: #A8865C;
 
-  --blue:    #2E6DA4;
-  --blue-lt: #4A87BC;
+  /* Warm body scale — Rothschild's actual palette */
+  --g50:  #FFFFFF;   /* page body — pure white */
+  --g100: #F0ECE9;   /* card / section bg — warm rose-beige */
+  --g200: #E6E0DB;   /* darker card variant */
+  --g300: #D4CCC6;   /* borders */
+  --g400: #9A8E86;   /* muted text */
+  --g500: #424D53;   /* body text */
+  --g700: #2A3038;
+  --g900: #0A0C0B;
 
-  --g50:  #F4F5F7;
-  --g100: #EAECF0;
-  --g200: #DDE2E8;
-  --g300: #C4CDD6;
-  --g400: #8A9BAA;
-  --g500: #5A6B78;
-  --g700: #2E3D4A;
-  --g900: #101C26;
+  /* On-dark text */
+  --d-hi:   #F0ECE9;
+  --d-mid:  rgba(240,236,233,0.65);
+  --d-low:  rgba(240,236,233,0.35);
+  --d-line: rgba(240,236,233,0.08);
 
-  --d-hi:   #FFFFFF;
-  --d-mid:  rgba(212,220,228,0.75);
-  --d-low:  rgba(184,196,207,0.38);
-  --d-line: rgba(255,255,255,0.06);
-
-  --l-hi:   #101C26;
-  --l-mid:  #5A6B78;
-  --l-low:  #8A9BAA;
-  --l-line: #DDE2E8;
+  /* On-light text */
+  --l-hi:   #0A0C0B;
+  --l-mid:  #424D53;
+  --l-low:  #9A8E86;
+  --l-line: #D4CCC6;
 
   --radius: 0px;
   --max: 1080px;
@@ -54,7 +51,7 @@
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: 'Inter', sans-serif;
-  background: #fff;
+  background: #ffffff;
   color: var(--l-hi);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
