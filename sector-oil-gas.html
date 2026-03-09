@@ -9,34 +9,34 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-.gate-wall{background:var(--n900);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 24px 80px;}
+.gate-wall{background:#ffffff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 24px 80px;border-top:4px solid #1F3260;}
 .gate-box{max-width:560px;width:100%;text-align:center;}
-.gate-overline{font-size:0.62rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--plat);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:10px;}
-.gate-overline::before,.gate-overline::after{content:"";width:28px;height:1px;background:var(--plat);opacity:0.4;}
-.gate-title{font-family:"Playfair Display",serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:400;color:#fff;line-height:1.15;margin-bottom:16px;}
-.gate-sub{font-size:0.88rem;font-weight:300;color:var(--d-mid);line-height:1.80;margin-bottom:28px;max-width:460px;margin-left:auto;margin-right:auto;}
-.gate-stats{display:flex;justify-content:center;border:1px solid var(--d-line);margin-bottom:32px;}
-.gate-stat{padding:18px 20px;border-right:1px solid var(--d-line);flex:1;}
+.gate-overline{font-size:0.62rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:#A8A09A;margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:10px;}
+.gate-overline::before,.gate-overline::after{content:"";width:28px;height:1px;background:#E0DADA;}
+.gate-title{font-family:"Playfair Display",serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:400;color:#1F3260;line-height:1.15;margin-bottom:16px;}
+.gate-sub{font-size:0.88rem;font-weight:300;color:#3D3D3D;line-height:1.80;margin-bottom:28px;max-width:460px;margin-left:auto;margin-right:auto;}
+.gate-stats{display:flex;justify-content:center;border:1px solid #E0DADA;margin-bottom:32px;background:#F0ECE9;}
+.gate-stat{padding:18px 20px;border-right:1px solid #E0DADA;flex:1;}
 .gate-stat:last-child{border-right:none;}
-.gate-stat-num{font-family:"Playfair Display",serif;font-size:1.4rem;font-weight:400;color:var(--plat);line-height:1;margin-bottom:4px;}
-.gate-stat-lbl{font-size:0.58rem;font-weight:500;letter-spacing:0.10em;text-transform:uppercase;color:var(--d-low);}
-.gate-form-wrap{background:rgba(255,255,255,0.03);border:1px solid var(--d-line);border-top:2px solid var(--plat);padding:24px 24px 20px;margin-bottom:16px;}
-.gate-form-label{font-size:0.60rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--plat);margin-bottom:14px;text-align:left;}
+.gate-stat-num{font-family:"Playfair Display",serif;font-size:1.4rem;font-weight:400;color:#1F3260;line-height:1;margin-bottom:4px;}
+.gate-stat-lbl{font-size:0.58rem;font-weight:500;letter-spacing:0.10em;text-transform:uppercase;color:#A8A09A;}
+.gate-form-wrap{background:#F0ECE9;border:1px solid #E0DADA;border-top:2px solid #1F3260;padding:24px 24px 20px;margin-bottom:16px;}
+.gate-form-label{font-size:0.60rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#A8A09A;margin-bottom:14px;text-align:left;}
 .gate-email-row{display:flex;}
-.gate-email-input{flex:1;padding:12px 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-right:none;color:#fff;font-size:0.85rem;font-family:inherit;outline:none;transition:border-color 0.2s;}
-.gate-email-input::placeholder{color:rgba(255,255,255,0.25);}
-.gate-email-input:focus{border-color:var(--plat);}
-.gate-submit-btn{padding:12px 20px;background:var(--plat);color:var(--n900);border:none;font-size:0.63rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;white-space:nowrap;}
-.gate-submit-btn:hover{background:var(--plat-lt);}
-.gate-disclaimer{font-size:0.60rem;color:var(--d-low);line-height:1.6;margin-top:10px;text-align:left;}
-.platform-banner{background:var(--n800);border:1px solid var(--d-line);border-left:3px solid var(--plat);padding:20px 52px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
-.pb-badge{font-size:0.58rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--plat);margin-bottom:5px;display:flex;align-items:center;gap:6px;}
-.pb-badge::before{content:"";width:6px;height:6px;background:var(--plat);border-radius:50%;animation:pulse 2s infinite;}
-.pb-title{font-size:0.88rem;font-weight:400;color:#fff;margin-bottom:3px;}
-.pb-sub{font-size:0.75rem;font-weight:300;color:var(--d-mid);}
+.gate-email-input{flex:1;padding:12px 14px;background:#ffffff;border:1px solid #E0DADA;border-right:none;color:#3D3D3D;font-size:0.85rem;font-family:inherit;outline:none;transition:border-color 0.2s;}
+.gate-email-input::placeholder{color:#A8A09A;}
+.gate-email-input:focus{border-color:#1F3260;}
+.gate-submit-btn{padding:12px 20px;background:#1F3260;color:#ffffff;border:none;font-size:0.63rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;white-space:nowrap;}
+.gate-submit-btn:hover{background:#2B4280;}
+.gate-disclaimer{font-size:0.60rem;color:#A8A09A;line-height:1.6;margin-top:10px;text-align:left;}
+.platform-banner{background:#F0ECE9;border:1px solid #E0DADA;border-left:3px solid #1F3260;padding:20px 52px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.pb-badge{font-size:0.58rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#1F3260;margin-bottom:5px;display:flex;align-items:center;gap:6px;}
+.pb-badge::before{content:"";width:6px;height:6px;background:#1F3260;border-radius:50%;animation:pulse 2s infinite;}
+.pb-title{font-size:0.88rem;font-weight:400;color:#1F3260;margin-bottom:3px;}
+.pb-sub{font-size:0.75rem;font-weight:300;color:#3D3D3D;}
 .pb-date{text-align:right;flex-shrink:0;}
-.pb-date-num{font-family:"Playfair Display",serif;font-size:1.2rem;color:var(--plat);font-weight:400;}
-.pb-date-lbl{font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--d-low);}
+.pb-date-num{font-family:"Playfair Display",serif;font-size:1.2rem;color:#1F3260;font-weight:400;}
+.pb-date-lbl{font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:#A8A09A;}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
 @media(max-width:600px){.platform-banner{padding:20px 24px;flex-direction:column;align-items:flex-start;}.pb-date{text-align:left;}}
 </style>
@@ -136,7 +136,7 @@
 <div class="cta-band">
   <h2>Position Your Oil & Gas Company for Institutional Capital</h2>
   <p>The right narrative, the right investors, the right moment. MNSR Capital builds the bridge.</p>
-  <a href="index.html#contact" class="btn-white">Start the Conversation</a>
+  <a href="index.html#contact" class="btn-navy">Start the Conversation</a>
 </div>
 </div>
 <footer>
