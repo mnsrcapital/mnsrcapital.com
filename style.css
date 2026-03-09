@@ -229,7 +229,7 @@ img { display: block; max-width: 100%; }
 }
 
 .nav-center {
-  display: flex !important;
+  display: flex;
   list-style: none;
   gap: 0;
   align-items: center;
@@ -1191,8 +1191,8 @@ footer {
 @media (max-width: 900px) {
   #nav { padding: 0 24px; }
   .nav-center { display: none !important; }
-  .nav-btn { display: none; }
-  .nav-hamburger { display: flex !important; visibility: visible; }
+  .nav-btn { display: none !important; }
+  .nav-hamburger { display: flex !important; }
   .hero-inner { grid-template-columns: 1fr; gap: 40px; }
   .hero-stats { display: grid; grid-template-columns: 1fr 1fr; }
   .svc-grid { grid-template-columns: 1fr 1fr; }
