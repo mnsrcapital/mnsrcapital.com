@@ -1147,24 +1147,24 @@ footer {
       <div class="form-box reveal">
         <div id="formContent">
           <div class="form-row">
-            <div class="form-g"><label>First Name</label><input type="text" placeholder="First name"></div>
-            <div class="form-g"><label>Last Name</label><input type="text" placeholder="Last name"></div>
+            <div class="form-g"><label>First Name</label><input type="text" id="cfFirstName" placeholder="First name"></div>
+            <div class="form-g"><label>Last Name</label><input type="text" id="cfLastName" placeholder="Last name"></div>
           </div>
           <div class="form-g"><label>Email Address</label><input type="email" id="emailIn" placeholder="your@email.com"></div>
-          <div class="form-g"><label>Company / Organization</label><input type="text" placeholder="Company name"></div>
+          <div class="form-g"><label>Company / Organization</label><input type="text" id="cfCompany" placeholder="Company name"></div>
           <div class="form-g">
             <label>I Am Inquiring As</label>
             <div class="select-wrap">
               <select id="roleIn">
                 <option value="" disabled selected>Select your role</option>
-                <option>A Company Seeking Capital</option>
-                <option>An Investor</option>
-                <option>Other / General Inquiry</option>
+                <option value="company">A Company Seeking Capital</option>
+                <option value="investor">An Investor</option>
+                <option value="other">Other / General Inquiry</option>
               </select>
               <span class="select-arrow">›</span>
             </div>
           </div>
-          <div class="form-g"><label>Message</label><textarea placeholder="Brief description of your inquiry — sector, geography, capital range where applicable..."></textarea></div>
+          <div class="form-g"><label>Message</label><textarea id="cfMessage" placeholder="Brief description of your inquiry — sector, geography, capital range where applicable..."></textarea></div>
           <button class="form-submit" onclick="doSubmit()">Submit Inquiry</button>
           <p class="form-disclaimer"><strong>Disclaimer:</strong> MNSR Capital LLC provides strategic advisory services. This website is for informational purposes only and does not constitute an offer or solicitation of securities. All services are subject to applicable laws and regulations.</p>
         </div>
@@ -1229,10 +1229,36 @@ if('IntersectionObserver' in window){
   },{threshold:.05,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(e=>{ e.classList.remove('in'); obs.observe(e); });
 }
-function doSubmit(){
-  const email=document.getElementById('emailIn').value.trim();
-  const role=document.getElementById('roleIn').value;
-  if(!email||!role){alert('Please provide your email and role.');return;}
+async function doSubmit(){
+  const firstName = document.getElementById('cfFirstName').value.trim();
+  const lastName  = document.getElementById('cfLastName').value.trim();
+  const email     = document.getElementById('emailIn').value.trim();
+  const company   = document.getElementById('cfCompany').value.trim();
+  const role      = document.getElementById('roleIn').value;
+  const message   = document.getElementById('cfMessage').value.trim();
+
+  if(!email||!role){ alert('Please provide your email and select your role.'); return; }
+
+  const btn = document.querySelector('.form-submit');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  try {
+    const _sb = supabase.createClient(
+      'https://alghdneaynvwhylvqhpk.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFsZ2hkbmVheW52d2h5bHZxaHBrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwODI1OTIsImV4cCI6MjA4ODY1ODU5Mn0.9NyImCFhmzUjMo_YRHON4pv1CQuEKIO6-I47iRWrAOU'
+    );
+    await _sb.from('contact_submissions').insert({
+      name: [firstName, lastName].filter(Boolean).join(' ') || null,
+      email,
+      company: company || null,
+      message: message || null,
+      type: role
+    });
+  } catch(e) { /* fail silently — still show success */ }
+
+  btn.textContent = 'Submit Inquiry';
+  btn.disabled = false;
   document.getElementById('formContent').style.display='none';
   document.getElementById('formSuccess').style.display='block';
 }
@@ -1248,5 +1274,6 @@ function closeMenu(){
   document.body.style.overflow='';
 }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </body>
 </html>

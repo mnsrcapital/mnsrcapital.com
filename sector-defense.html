@@ -197,5 +197,42 @@ document.addEventListener("keydown",function(e){
   if(e.key==="Enter"){var a=document.activeElement;if(a&&a.classList.contains("gate-email-input")){unlockContent(a.id.replace("gateEmail_",""));}}
 });
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const _sb = supabase.createClient(
+  'https://alghdneaynvwhylvqhpk.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFsZ2hkbmVheW52d2h5bHZxaHBrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwODI1OTIsImV4cCI6MjA4ODY1ODU5Mn0.9NyImCFhmzUjMo_YRHON4pv1CQuEKIO6-I47iRWrAOU'
+);
+// Override unlockContent to also save to Supabase
+const _origUnlock = window.unlockContent;
+window.unlockContent = async function(pageId) {
+  const emailEl = document.getElementById('gateEmail_' + pageId);
+  if (!emailEl) return;
+  const email = emailEl.value.trim();
+  if (email && email.includes('@')) {
+    // Save to gate_registrations — fire and forget
+    _sb.from('gate_registrations').insert({
+      email: email,
+      page: pageId
+    }).then(() => {});
+  }
+  // Call original unlock
+  if (typeof _origUnlock === 'function') {
+    _origUnlock(pageId);
+  } else {
+    // Fallback inline logic
+    if (!email || email.indexOf('@') < 0) {
+      emailEl.style.borderColor = '#B43C3C';
+      return;
+    }
+    document.getElementById('gateWall_' + pageId).style.display = 'none';
+    var c = document.getElementById('intelContent_' + pageId);
+    c.style.display = 'block';
+    document.getElementById('platformBanner_' + pageId).style.display = 'flex';
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+};
+</script>
 </body>
 </html>
