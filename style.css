@@ -583,10 +583,38 @@ img { display: block; max-width: 100%; }
 /* ─── PAGE HERO (subpages) ─── */
 .page-hero {
   background: var(--n900);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 110px 52px 52px;
   border-bottom: 1px solid var(--d-line);
   position: relative;
+  overflow: hidden;
 }
+/* Photo overlay — darkens photo, preserves text legibility */
+.page-hero .page-hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(.22) saturate(.65);
+  z-index: 0;
+  transition: transform 8s ease;
+}
+.page-hero:hover .page-hero-photo { transform: scale(1.04); }
+/* Gradient overlay: left strong (text sits left), right lighter */
+.page-hero::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(
+    to right,
+    rgba(10,13,28,.85) 0%,
+    rgba(10,13,28,.60) 55%,
+    rgba(10,13,28,.30) 100%
+  );
+}
+.page-hero-inner { position: relative; z-index: 2; }
 .page-hero::after {
   content: '';
   position: absolute;
@@ -594,6 +622,7 @@ img { display: block; max-width: 100%; }
   width: 44px;
   height: 2px;
   background: var(--plat);
+  z-index: 3;
 }
 .page-hero-inner { max-width: var(--max); margin: 0 auto; }
 .breadcrumb {

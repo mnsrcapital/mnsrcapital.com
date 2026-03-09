@@ -388,106 +388,86 @@ h3.card-title {
    PROCESS — atmospheric photo background
 ══════════════════════════════════════ */
 #process {
-  background:#0e1221;
+  background:#F5F1EE;
   padding:104px 60px;
   position:relative;
   overflow:hidden;
 }
-/* Full-bleed background photo */
+/* Subtle photo strip behind header — very low opacity, architectural */
 #process .proc-bg {
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  object-fit:cover; object-position:center 30%;
-  filter:brightness(.28) saturate(.6);
+  position:absolute; top:0; left:0; right:0;
+  height:380px;
+  width:100%;
+  object-fit:cover; object-position:center 40%;
+  filter:brightness(.06) saturate(.4);
   z-index:0;
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,.7) 0%, transparent 100%);
+  -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.7) 0%, transparent 100%);
 }
-/* Gradient overlay to darken sides and bottom */
-#process::before {
-  content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
-  background:
-    linear-gradient(to right, rgba(14,18,33,.6), transparent 40%, transparent 60%, rgba(14,18,33,.6)),
-    linear-gradient(to top, rgba(14,18,33,.7) 0%, transparent 40%);
-}
+#process::before { display:none; }
 
 .proc-hd { max-width:var(--max); margin:0 auto 68px; position:relative; z-index:2; }
-.proc-hd .ov { color:rgba(240,236,233,.4); margin-bottom:16px; }
-.proc-hd h2  { color:#F0ECE9; margin-bottom:14px; }
-.proc-hd p   { color:rgba(240,236,233,.55); max-width:540px; }
+.proc-hd .ov { color:var(--ink-low); margin-bottom:16px; }
+.proc-hd h2  { color:var(--ink); margin-bottom:14px; }
+.proc-hd p   { color:var(--ink-mid); max-width:540px; }
 
 .proc-grid {
   max-width:var(--max); margin:0 auto;
   display:grid; grid-template-columns:1fr 1fr;
-  gap:1px; background:rgba(240,236,233,.08);
+  gap:2px; background:var(--stone-bd);
   position:relative; z-index:2;
 }
 .proc-step {
-  background:rgba(14,18,33,.55);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
+  background:#FFFFFF;
   padding:52px 48px;
   display:flex; flex-direction:column;
   border-left:3px solid transparent;
   transition:border-color .25s, background .22s;
 }
 .proc-step:hover {
-  background:rgba(14,18,33,.72);
-  border-left-color:rgba(240,236,233,.3);
+  background:#F0ECE9;
+  border-left-color:var(--navy);
 }
 .proc-n {
   font-size:.57rem; font-weight:400;
-  letter-spacing:.26em; color:rgba(240,236,233,.3);
+  letter-spacing:.26em; color:var(--ink-low);
   margin-bottom:14px;
 }
 .proc-title {
   font-family:'Playfair Display',serif;
   font-size:1.35rem; font-weight:400; line-height:1.25;
-  color:#F0ECE9; margin-bottom:16px;
+  color:var(--navy); margin-bottom:16px;
 }
 .proc-body {
   font-size:.88rem; font-weight:300;
-  color:rgba(240,236,233,.58); line-height:1.75; flex:1;
+  color:var(--ink-mid); line-height:1.75; flex:1;
 }
 
 /* ══════════════════════════════════════
-   CONTACT — photo left column
+   CONTACT — white left, form right
 ══════════════════════════════════════ */
-#contact { background:var(--stone); padding:0; }
-.contact-wrap { max-width:100%; margin:0; }
-.contact-grid { display:grid; grid-template-columns:1fr 1.6fr; align-items:stretch; min-height:600px; }
+#contact { background:var(--stone); padding:104px 60px; }
+.contact-wrap { max-width:var(--max); margin:0 auto; }
+.contact-grid { display:grid; grid-template-columns:1fr 1.6fr; gap:96px; align-items:start; }
 
-/* Left: full-height photo with text overlay */
-.c-left {
-  position:relative; overflow:hidden;
-  background:#0e1221;
-}
-.c-left-photo {
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  object-fit:cover; object-position:center;
-  filter:brightness(.4) saturate(.65);
-  transition:transform .8s cubic-bezier(.16,1,.3,1);
-}
-#contact:hover .c-left-photo { transform:scale(1.03); }
-.c-left::before {
-  content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
-  background:linear-gradient(135deg, rgba(14,18,33,.7) 0%, rgba(31,50,96,.5) 100%);
-}
+/* Left: clean white / navy */
+.c-left { background:transparent; position:relative; }
+.c-left-photo { display:none; }
+.c-left::before { display:none; }
 .c-left-content {
-  position:relative; z-index:2;
-  padding:80px 64px;
-  display:flex; flex-direction:column; justify-content:flex-end;
-  height:100%;
+  padding:0;
+  display:flex; flex-direction:column;
 }
-.c-left-content .ov { color:rgba(240,236,233,.38); margin-bottom:18px; }
-.c-left-content h2 { color:#F0ECE9; margin-bottom:18px; font-size:clamp(1.7rem,2.5vw,2.3rem); }
-.c-left-content p { color:rgba(240,236,233,.55); margin-bottom:32px; font-size:.88rem; line-height:1.75; }
-.c-detail { display:flex; align-items:center; gap:10px; font-size:.84rem; font-weight:300; color:rgba(240,236,233,.6); margin-bottom:10px; }
-.c-detail svg { width:14px; height:14px; stroke:rgba(240,236,233,.5); fill:none; stroke-width:1.5; flex-shrink:0; }
-.c-detail a { color:rgba(240,236,233,.7); transition:color .2s; }
-.c-detail a:hover { color:#F0ECE9; }
+.c-left-content .ov { color:var(--ink-low); margin-bottom:18px; }
+.c-left-content h2 { color:var(--navy); margin-bottom:18px; font-size:clamp(1.7rem,2.5vw,2.3rem); }
+.c-left-content p { color:var(--ink-mid); margin-bottom:32px; font-size:.88rem; line-height:1.75; }
+.c-detail { display:flex; align-items:center; gap:10px; font-size:.84rem; font-weight:300; color:var(--ink-mid); margin-bottom:10px; }
+.c-detail svg { width:14px; height:14px; stroke:var(--gold-dk); fill:none; stroke-width:1.5; flex-shrink:0; }
+.c-detail a { color:var(--gold-dk); transition:color .2s; }
+.c-detail a:hover { color:var(--navy); }
 
 /* Right: form */
-.c-right { padding:80px 72px; background:var(--stone); }
+.c-right { padding:0; background:transparent; }
 
 .form-box { background:var(--stone-lt); border:1px solid var(--ink-line); padding:44px 40px; }
 .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
@@ -651,11 +631,10 @@ footer {
 
 .panel-title {
   font-family:'Cormorant Garamond','Playfair Display',serif;
-  font-size:clamp(2.2rem,3.2vw,3.2rem);
-  font-weight:400;
-  color:#F0ECE9; line-height:1.1; letter-spacing:-.01em;
+  font-size:clamp(2rem,3vw,3rem);
+  font-weight:300;
+  color:#F0ECE9; line-height:1.15; letter-spacing:.01em;
 }
-.panel-title strong { font-weight:600; display:block; }
 
 .panel-body {
   overflow:hidden; max-height:0;
@@ -774,40 +753,7 @@ footer {
 /* ══════════════════════════════════════
    CONTACT — photo on left side
 ══════════════════════════════════════ */
-.contact-photo {
-  position:relative;
-  overflow:hidden;
-  border-radius:0;
-  min-height:280px;
-}
-.contact-photo img {
-  width:100%; height:100%;
-  object-fit:cover;
-  object-position:center;
-  filter:brightness(.75) saturate(.8);
-  transition:transform .8s cubic-bezier(.16,1,.3,1);
-  position:absolute; inset:0;
-}
-.contact-photo:hover img { transform:scale(1.04); }
-.contact-photo-caption {
-  position:absolute;
-  bottom:0; left:0; right:0;
-  padding:28px 32px;
-  background:linear-gradient(to top, rgba(24,29,56,.85) 0%, transparent 100%);
-  z-index:1;
-}
-.contact-photo-caption p {
-  font-size:.72rem; font-weight:300;
-  color:rgba(240,236,233,.65);
-  line-height:1.6;
-  font-style:normal;
-}
-.contact-photo-caption strong {
-  display:block;
-  font-family:'Playfair Display',serif;
-  font-size:1.05rem; font-weight:400;
-  color:#F0ECE9; margin-bottom:6px;
-}
+
 
 /* ══════════════════════════════════════
    RESPONSIVE — all colors hardcoded hex, no variables
@@ -817,7 +763,7 @@ footer {
   /* PHOTO ELEMENTS MOBILE */
   .svc-thumb { height:120px !important; }
   .serve-photo-strip { height:140px !important; grid-template-columns:1fr 1fr 1fr; }
-  .contact-photo { min-height:200px !important; }
+
   .process-bg { opacity:1; }
 
   /* NAV */
@@ -872,28 +818,26 @@ footer {
   .serve-dk .serve-photo-wrap::after { background:linear-gradient(to top, #181D38, transparent) !important; }
 
   /* PROCESS */
-  #process { padding:72px 24px !important; }
+  #process { padding:72px 24px !important; background:#F5F1EE !important; }
   .proc-grid { grid-template-columns:1fr; }
-  .proc-step { background:rgba(14,18,33,.75) !important; border-left:3px solid transparent; backdrop-filter:none !important; }
-  .proc-title { color:#F0ECE9 !important; font-family:'Playfair Display',serif !important; }
-  .proc-body  { color:rgba(240,236,233,.65) !important; font-weight:400 !important; }
-  .proc-n { color:rgba(240,236,233,.3) !important; opacity:1 !important; }
-  .proc-hd h2 { color:#F0ECE9 !important; }
-  .proc-hd p  { color:rgba(240,236,233,.55) !important; }
-  .proc-hd .ov { color:rgba(240,236,233,.4) !important; }
+  .proc-step { background:#ffffff !important; border-left:3px solid transparent; }
+  .proc-title { color:#1F3260 !important; font-family:'Playfair Display',serif !important; }
+  .proc-body  { color:#3D3D3D !important; font-weight:400 !important; }
+  .proc-n { color:#A8A09A !important; opacity:1 !important; }
+  .proc-hd h2 { color:#1F3260 !important; }
+  .proc-hd p  { color:#3D3D3D !important; }
+  .proc-hd .ov { color:#A8A09A !important; }
 
   /* CONTACT */
-  #contact { padding:0 !important; }
-  .contact-grid { grid-template-columns:1fr !important; }
-  .c-left { min-height:320px !important; }
-  .c-left-content { padding:40px 28px !important; }
-  .c-left-content h2 { color:#F0ECE9 !important; font-size:1.8rem !important; }
-  .c-left-content p { color:rgba(240,236,233,.6) !important; }
-  .c-left-content .ov { color:rgba(240,236,233,.4) !important; }
-  .c-detail { color:rgba(240,236,233,.6) !important; }
-  .c-detail a { color:rgba(240,236,233,.75) !important; }
-  .c-right { padding:48px 28px !important; background:#F0ECE9 !important; }
-  .form-box { background:#ffffff !important; border:none !important; padding:32px 24px !important; }
+  #contact { padding:72px 24px !important; background:#F0ECE9 !important; }
+  .contact-grid { grid-template-columns:1fr !important; gap:48px !important; }
+  .c-left-content h2 { color:#1F3260 !important; font-size:1.8rem !important; }
+  .c-left-content p { color:#3D3D3D !important; }
+  .c-left-content .ov { color:#A8A09A !important; }
+  .c-detail { color:#3D3D3D !important; }
+  .c-detail a { color:#7A706A !important; }
+  .c-right { padding:0 !important; background:transparent !important; }
+  .form-box { background:#ffffff !important; }
   input, textarea { color:#1F3260 !important; background:#ffffff !important; border-color:#E0DADA !important; }
   label { color:#1F3260 !important; font-weight:500 !important; }
   .form-disclaimer { color:#A8A09A !important; }
@@ -976,9 +920,7 @@ footer {
           <div class="panel-eyebrow-line"></div>
           <span class="panel-eyebrow-text">For Companies</span>
         </div>
-        <div class="panel-title">
-          <strong>Capital at the Right Moment</strong>
-        </div>
+        <div class="panel-title">Strategic Capital. Precisely Placed.</div>
         <div class="panel-body">
           <p class="panel-desc">We advise companies at every strategic inflection — from growth capital to M&amp;A to full transaction execution — connecting leadership teams with precisely the right capital partners across global markets.</p>
           <a class="panel-cta" href="#services">Our Services ›</a>
@@ -995,9 +937,7 @@ footer {
           <div class="panel-eyebrow-line"></div>
           <span class="panel-eyebrow-text">For Investors</span>
         </div>
-        <div class="panel-title">
-          <strong>Curated Flow. No Noise.</strong>
-        </div>
+        <div class="panel-title">Independent Intelligence. Deliberate Access.</div>
         <div class="panel-body">
           <p class="panel-desc">We surface opportunities calibrated to your mandate — sector, geography, stage — with independent intelligence, no preferred relationships, and no agenda beyond your outcome.</p>
           <a class="panel-cta" href="#serve">Who We Serve ›</a>
@@ -1179,13 +1119,6 @@ footer {
   <div class="contact-wrap">
     <div class="contact-grid">
       <div class="c-left reveal">
-        <div class="contact-photo">
-          <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=800&q=90&auto=format&fit=crop&crop=center" alt="MNSR Capital">
-          <div class="contact-photo-caption">
-            <strong>Advisory Without Agenda</strong>
-            <p>We welcome inquiries from companies seeking capital and investors seeking curated opportunity.</p>
-          </div>
-        </div>
         <p class="ov" style="margin-top:28px;">Get In Touch</p>
         <h2 class="section-title">Contact Our<br>Advisory Team</h2>
         <p class="body-copy">Whether you represent a company seeking capital or an investor seeking curated deal flow, we welcome your inquiry. All submissions are handled with strict confidentiality.</p>
