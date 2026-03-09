@@ -340,25 +340,25 @@ h3.card-title {
 .serve-lt { background:var(--stone-lt); border-right:1px solid var(--ink-line); }
 .serve-dk { background:var(--navy-dk); }
 
-/* Photo strip at top of each panel */
-.serve-photo-wrap { position:relative; overflow:hidden; height:220px; }
+/* Photo strip at top of each panel — subtle thin band */
+.serve-photo-wrap { position:relative; overflow:hidden; height:110px; }
 .serve-photo {
   width:100%; height:100%;
-  object-fit:cover; object-position:center;
+  object-fit:cover; object-position:center 30%;
   display:block;
-  filter:brightness(.8) saturate(.75);
-  transition:transform .8s cubic-bezier(.16,1,.3,1);
+  filter:brightness(.75) saturate(.6);
+  transition:transform 1s cubic-bezier(.16,1,.3,1);
 }
-.serve-panel:hover .serve-photo { transform:scale(1.04); }
+.serve-panel:hover .serve-photo { transform:scale(1.03); }
 
 /* Fade photo into panel bg */
 .serve-lt .serve-photo-wrap::after {
-  content:''; position:absolute; bottom:0; left:0; right:0; height:80px;
+  content:''; position:absolute; bottom:0; left:0; right:0; height:40px;
   background:linear-gradient(to top, #ffffff, transparent);
   pointer-events:none; z-index:1;
 }
 .serve-dk .serve-photo-wrap::after {
-  content:''; position:absolute; bottom:0; left:0; right:0; height:80px;
+  content:''; position:absolute; bottom:0; left:0; right:0; height:40px;
   background:linear-gradient(to top, #181D38, transparent);
   pointer-events:none; z-index:1;
 }
@@ -385,13 +385,49 @@ h3.card-title {
 .serve-dk .serve-list li::before { color:rgba(240,236,233,.45); }
 
 /* ══════════════════════════════════════
-   PROCESS — atmospheric photo background
+   PROCESS — light stone, subtle photo strip at top
 ══════════════════════════════════════ */
 #process {
   background:#F5F1EE;
-  padding:104px 60px;
+  padding:0 60px 104px;
   position:relative;
   overflow:hidden;
+  border-top:1px solid #E0DADA;
+}
+
+/* Thin photo strip — mirrors Who We Serve treatment exactly */
+.proc-photo-wrap {
+  position:relative; overflow:hidden;
+  height:110px; margin:0 -60px 72px;
+}
+.proc-photo {
+  width:100%; height:100%;
+  object-fit:cover; object-position:center 40%;
+  display:block;
+  filter:brightness(.75) saturate(.6);
+  transition:transform 1s cubic-bezier(.16,1,.3,1);
+}
+#process:hover .proc-photo { transform:scale(1.03); }
+/* Fade into section bg */
+.proc-photo-wrap::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:50px;
+  background:linear-gradient(to top, #F5F1EE, transparent);
+  pointer-events:none; z-index:1;
+}
+/* Top left fade too — softer entry */
+.proc-photo-wrap::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to bottom, rgba(245,241,238,.3) 0%, transparent 40%);
+  pointer-events:none; z-index:1;
+}
+}
+/* Thin gold accent line at very top — like a page rule */
+#process::after {
+  content:'';
+  position:absolute;
+  top:0; left:60px;
+  width:44px; height:2px;
+  background:#A8A09A;
 }
 /* Subtle photo strip behind header — very low opacity, architectural */
 #process .proc-bg {
@@ -399,15 +435,16 @@ h3.card-title {
 }
 #process::before { display:none; }
 
-.proc-hd { max-width:var(--max); margin:0 auto 68px; position:relative; z-index:2; }
+.proc-hd { max-width:var(--max); margin:0 auto 48px; padding:0 60px; position:relative; z-index:2; }
 .proc-hd .ov { color:var(--ink-low); margin-bottom:16px; }
 .proc-hd h2  { color:var(--ink); margin-bottom:14px; }
 .proc-hd p   { color:var(--ink-mid); max-width:540px; }
 
 .proc-grid {
   max-width:var(--max); margin:0 auto;
+  padding:0 60px;
   display:grid; grid-template-columns:1fr 1fr;
-  gap:2px; background:var(--stone-bd);
+  gap:2px; background:transparent;
   position:relative; z-index:2;
 }
 .proc-step {
@@ -779,7 +816,7 @@ footer {
 
   /* WHO WE SERVE */
   .serve-duo  { grid-template-columns:1fr; }
-  .serve-photo-wrap { height:160px !important; }
+  .serve-photo-wrap { height:90px !important; }
   .serve-content { padding:32px 28px 52px !important; }
   .serve-lt { background:#ffffff !important; border-right:none !important; border-bottom:1px solid #E0DADA !important; }
   .serve-dk { background:#181D38 !important; }
@@ -1054,7 +1091,11 @@ footer {
 
 <!-- PROCESS -->
 <section id="process">
-  <img class="process-bg" src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=1600&q=85&auto=format&fit=crop&crop=center" alt="City background">
+  <div class="proc-photo-wrap">
+    <img class="proc-photo"
+      src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=88&auto=format&fit=crop&crop=center"
+      alt="">
+  </div>
   <div class="proc-hd reveal">
     <p class="ov">How We Work</p>
     <h2 class="section-title">Our Advisory Process</h2>
