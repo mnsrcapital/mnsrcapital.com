@@ -242,9 +242,9 @@ h3.card-title {
   to   { opacity:1; transform:translateY(0); }
 }
 
+
 /* ══════════════════════════════════════
-   SERVICES — Rothschild editorial 2-col
-   Stone bg · left border · large serif title
+   SERVICES — with editorial thumbnails
 ══════════════════════════════════════ */
 #services {
   background:#ffffff;
@@ -262,16 +262,35 @@ h3.card-title {
 }
 .svc {
   background:var(--stone);
-  padding:52px 48px;
+  padding:0 0 48px 0;
   display:flex; flex-direction:column;
   border-left:3px solid transparent;
   transition:border-color .25s, background .22s;
-  position:relative;
+  position:relative; overflow:hidden;
 }
-.svc:hover {
-  background:var(--stone-dk);
-  border-left-color:var(--ink);
+.svc:hover { background:var(--stone-dk); border-left-color:var(--ink); }
+
+/* Thumbnail */
+.svc-thumb-wrap { position:relative; overflow:hidden; }
+.svc-thumb {
+  width:100%; height:170px;
+  object-fit:cover; object-position:center; display:block;
+  filter:brightness(.85) saturate(.78);
+  transition:transform .8s cubic-bezier(.16,1,.3,1), filter .6s ease;
 }
+.svc:hover .svc-thumb { transform:scale(1.05); filter:brightness(.78) saturate(.72); }
+/* Fade thumbnail into card bg */
+.svc-thumb-wrap::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:56px;
+  pointer-events:none; z-index:1;
+}
+.svc:not(.svc-intel) .svc-thumb-wrap::after { background:linear-gradient(to top, #F0ECE9, transparent); }
+.svc-intel .svc-thumb-wrap::after { background:linear-gradient(to top, #181D38, transparent); }
+.svc:hover:not(.svc-intel) .svc-thumb-wrap::after { background:linear-gradient(to top, #E5DED9, transparent); }
+
+/* Card body */
+.svc-body { padding:28px 48px 0; display:flex; flex-direction:column; flex:1; }
+
 .svc-num {
   font-size:.57rem; font-weight:400;
   letter-spacing:.26em; color:var(--gold-dk);
@@ -309,13 +328,43 @@ h3.card-title {
 }
 
 /* ══════════════════════════════════════
-   WHO WE SERVE — stone | navy
+   WHO WE SERVE — photo strip + text panels
 ══════════════════════════════════════ */
 #serve { padding:0; }
 .serve-duo { display:grid; grid-template-columns:1fr 1fr; }
-.serve-panel { padding:92px 72px; }
+.serve-panel {
+  padding:0;
+  display:flex; flex-direction:column;
+  position:relative; overflow:hidden;
+}
 .serve-lt { background:var(--stone-lt); border-right:1px solid var(--ink-line); }
 .serve-dk { background:var(--navy-dk); }
+
+/* Photo strip at top of each panel */
+.serve-photo-wrap { position:relative; overflow:hidden; height:220px; }
+.serve-photo {
+  width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  display:block;
+  filter:brightness(.8) saturate(.75);
+  transition:transform .8s cubic-bezier(.16,1,.3,1);
+}
+.serve-panel:hover .serve-photo { transform:scale(1.04); }
+
+/* Fade photo into panel bg */
+.serve-lt .serve-photo-wrap::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:80px;
+  background:linear-gradient(to top, #ffffff, transparent);
+  pointer-events:none; z-index:1;
+}
+.serve-dk .serve-photo-wrap::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:80px;
+  background:linear-gradient(to top, #181D38, transparent);
+  pointer-events:none; z-index:1;
+}
+
+/* Content area */
+.serve-content { padding:40px 72px 80px; flex:1; }
 
 .serve-lt .ov { color:var(--ink-low); margin-bottom:20px; }
 .serve-dk .ov { color:rgba(240,236,233,.45); margin-bottom:20px; }
@@ -336,58 +385,109 @@ h3.card-title {
 .serve-dk .serve-list li::before { color:rgba(240,236,233,.45); }
 
 /* ══════════════════════════════════════
-   PROCESS — mirrors services exactly
+   PROCESS — atmospheric photo background
 ══════════════════════════════════════ */
-#process { background:#ffffff; padding:104px 60px; }
-.proc-hd { max-width:var(--max); margin:0 auto 68px; }
-.proc-hd .ov { color:var(--ink-low); margin-bottom:16px; }
-.proc-hd h2  { color:var(--ink); margin-bottom:14px; }
-.proc-hd p   { color:var(--ink-mid); max-width:540px; }
+#process {
+  background:#0e1221;
+  padding:104px 60px;
+  position:relative;
+  overflow:hidden;
+}
+/* Full-bleed background photo */
+#process .proc-bg {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover; object-position:center 30%;
+  filter:brightness(.28) saturate(.6);
+  z-index:0;
+}
+/* Gradient overlay to darken sides and bottom */
+#process::before {
+  content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:
+    linear-gradient(to right, rgba(14,18,33,.6), transparent 40%, transparent 60%, rgba(14,18,33,.6)),
+    linear-gradient(to top, rgba(14,18,33,.7) 0%, transparent 40%);
+}
+
+.proc-hd { max-width:var(--max); margin:0 auto 68px; position:relative; z-index:2; }
+.proc-hd .ov { color:rgba(240,236,233,.4); margin-bottom:16px; }
+.proc-hd h2  { color:#F0ECE9; margin-bottom:14px; }
+.proc-hd p   { color:rgba(240,236,233,.55); max-width:540px; }
 
 .proc-grid {
   max-width:var(--max); margin:0 auto;
   display:grid; grid-template-columns:1fr 1fr;
-  gap:2px; background:var(--stone-bd);
+  gap:1px; background:rgba(240,236,233,.08);
+  position:relative; z-index:2;
 }
 .proc-step {
-  background:var(--stone);
+  background:rgba(14,18,33,.55);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
   padding:52px 48px;
   display:flex; flex-direction:column;
   border-left:3px solid transparent;
   transition:border-color .25s, background .22s;
 }
 .proc-step:hover {
-  background:var(--stone-dk);
-  border-left-color:var(--ink);
+  background:rgba(14,18,33,.72);
+  border-left-color:rgba(240,236,233,.3);
 }
 .proc-n {
   font-size:.57rem; font-weight:400;
-  letter-spacing:.26em; color:var(--ink-low);
+  letter-spacing:.26em; color:rgba(240,236,233,.3);
   margin-bottom:14px;
 }
 .proc-title {
   font-family:'Playfair Display',serif;
   font-size:1.35rem; font-weight:400; line-height:1.25;
-  color:var(--ink); margin-bottom:16px;
+  color:#F0ECE9; margin-bottom:16px;
 }
 .proc-body {
   font-size:.88rem; font-weight:300;
-  color:var(--ink-mid); line-height:1.75; flex:1;
+  color:rgba(240,236,233,.58); line-height:1.75; flex:1;
 }
 
 /* ══════════════════════════════════════
-   CONTACT
+   CONTACT — photo left column
 ══════════════════════════════════════ */
-#contact { background:var(--stone); padding:104px 60px; }
-.contact-wrap { max-width:var(--max); margin:0 auto; }
-.contact-grid { display:grid; grid-template-columns:1fr 1.5fr; gap:88px; align-items:start; }
+#contact { background:var(--stone); padding:0; }
+.contact-wrap { max-width:100%; margin:0; }
+.contact-grid { display:grid; grid-template-columns:1fr 1.6fr; align-items:stretch; min-height:600px; }
 
-.c-left .ov  { margin-bottom:18px; }
-.c-left h2   { color:var(--ink); margin-bottom:18px; }
-.c-left p    { color:var(--ink-mid); margin-bottom:32px; }
-.c-detail    { display:flex; align-items:center; gap:10px; font-size:.84rem; font-weight:300; color:var(--ink-mid); margin-bottom:10px; }
-.c-detail svg { width:14px; height:14px; stroke:var(--gold-dk); fill:none; stroke-width:1.5; flex-shrink:0; }
-.c-detail a  { color:var(--gold-dk); }
+/* Left: full-height photo with text overlay */
+.c-left {
+  position:relative; overflow:hidden;
+  background:#0e1221;
+}
+.c-left-photo {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  filter:brightness(.4) saturate(.65);
+  transition:transform .8s cubic-bezier(.16,1,.3,1);
+}
+#contact:hover .c-left-photo { transform:scale(1.03); }
+.c-left::before {
+  content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(135deg, rgba(14,18,33,.7) 0%, rgba(31,50,96,.5) 100%);
+}
+.c-left-content {
+  position:relative; z-index:2;
+  padding:80px 64px;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  height:100%;
+}
+.c-left-content .ov { color:rgba(240,236,233,.38); margin-bottom:18px; }
+.c-left-content h2 { color:#F0ECE9; margin-bottom:18px; font-size:clamp(1.7rem,2.5vw,2.3rem); }
+.c-left-content p { color:rgba(240,236,233,.55); margin-bottom:32px; font-size:.88rem; line-height:1.75; }
+.c-detail { display:flex; align-items:center; gap:10px; font-size:.84rem; font-weight:300; color:rgba(240,236,233,.6); margin-bottom:10px; }
+.c-detail svg { width:14px; height:14px; stroke:rgba(240,236,233,.5); fill:none; stroke-width:1.5; flex-shrink:0; }
+.c-detail a { color:rgba(240,236,233,.7); transition:color .2s; }
+.c-detail a:hover { color:#F0ECE9; }
+
+/* Right: form */
+.c-right { padding:80px 72px; background:var(--stone); }
 
 .form-box { background:var(--stone-lt); border:1px solid var(--ink-line); padding:44px 40px; }
 .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
@@ -552,10 +652,10 @@ footer {
 .panel-title {
   font-family:'Cormorant Garamond','Playfair Display',serif;
   font-size:clamp(2.2rem,3.2vw,3.2rem);
-  font-weight:300; font-style:italic;
+  font-weight:400;
   color:#F0ECE9; line-height:1.1; letter-spacing:-.01em;
 }
-.panel-title strong { font-style:normal; font-weight:400; display:block; }
+.panel-title strong { font-weight:600; display:block; }
 
 .panel-body {
   overflow:hidden; max-height:0;
@@ -580,14 +680,6 @@ footer {
   text-decoration:none;
 }
 .panel-cta:hover { gap:16px; border-color:rgba(240,236,233,.55); }
-.panel-index {
-  position:absolute; top:48px; right:48px; z-index:2;
-  font-family:'Cormorant Garamond','Playfair Display',serif;
-  font-size:5rem; font-weight:300; line-height:1;
-  color:rgba(240,236,233,.05); letter-spacing:-.03em;
-  user-select:none; transition:color .5s;
-}
-.immersive-panel:hover .panel-index { color:rgba(240,236,233,.09); }
 
 /* DATA BAND */
 .data-band {
@@ -625,10 +717,109 @@ footer {
 }
 
 /* ══════════════════════════════════════
+   SERVICE CARD THUMBNAILS
+══════════════════════════════════════ */
+.svc { overflow:hidden; }
+.svc-thumb {
+  width:100%; height:160px;
+  object-fit:cover;
+  display:block;
+  margin:-32px -32px 24px -32px;
+  width:calc(100% + 64px);
+  filter:brightness(.88) saturate(.8);
+  transition:transform .6s cubic-bezier(.16,1,.3,1), filter .6s ease;
+}
+.svc:hover .svc-thumb { transform:scale(1.04); filter:brightness(.95) saturate(.9); }
+
+/* ══════════════════════════════════════
+   WHO WE SERVE — photo strip
+══════════════════════════════════════ */
+.serve-photo-strip {
+  width:100%;
+  height:220px;
+  overflow:hidden;
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:3px;
+  background:#181D38;
+}
+.serve-photo-strip img {
+  width:100%; height:100%;
+  object-fit:cover;
+  filter:brightness(.7) saturate(.75);
+  transition:filter .5s;
+}
+.serve-photo-strip img:hover { filter:brightness(.85) saturate(.9); }
+
+/* ══════════════════════════════════════
+   PROCESS — full-width photo background
+══════════════════════════════════════ */
+#process {
+  position:relative;
+  overflow:hidden;
+}
+.process-bg {
+  position:absolute;
+  inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position:center;
+  filter:brightness(.12) saturate(.5);
+  z-index:0;
+}
+#process .proc-hd,
+#process .proc-grid { position:relative; z-index:1; }
+
+/* ══════════════════════════════════════
+   CONTACT — photo on left side
+══════════════════════════════════════ */
+.contact-photo {
+  position:relative;
+  overflow:hidden;
+  border-radius:0;
+  min-height:280px;
+}
+.contact-photo img {
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position:center;
+  filter:brightness(.75) saturate(.8);
+  transition:transform .8s cubic-bezier(.16,1,.3,1);
+  position:absolute; inset:0;
+}
+.contact-photo:hover img { transform:scale(1.04); }
+.contact-photo-caption {
+  position:absolute;
+  bottom:0; left:0; right:0;
+  padding:28px 32px;
+  background:linear-gradient(to top, rgba(24,29,56,.85) 0%, transparent 100%);
+  z-index:1;
+}
+.contact-photo-caption p {
+  font-size:.72rem; font-weight:300;
+  color:rgba(240,236,233,.65);
+  line-height:1.6;
+  font-style:normal;
+}
+.contact-photo-caption strong {
+  display:block;
+  font-family:'Playfair Display',serif;
+  font-size:1.05rem; font-weight:400;
+  color:#F0ECE9; margin-bottom:6px;
+}
+
+/* ══════════════════════════════════════
    RESPONSIVE — all colors hardcoded hex, no variables
    Prevents Brave/Safari mobile dark-mode override
 ══════════════════════════════════════ */
 @media(max-width:960px){
+  /* PHOTO ELEMENTS MOBILE */
+  .svc-thumb { height:120px !important; }
+  .serve-photo-strip { height:140px !important; grid-template-columns:1fr 1fr 1fr; }
+  .contact-photo { min-height:200px !important; }
+  .process-bg { opacity:1; }
+
   /* NAV */
   #nav { padding:0 24px; background:#ffffff !important; border-bottom:1px solid #E0DADA !important; }
   .nav-links,.nav-cta { display:none; }
@@ -647,6 +838,8 @@ footer {
   #services { padding:72px 24px; background:#ffffff !important; }
   .svc-grid { grid-template-columns:1fr; }
   .svc { background:#F0ECE9 !important; border-left:3px solid transparent; }
+  .svc-thumb { height:140px !important; }
+  .svc-body { padding:24px 28px 0 !important; }
   .svc h3.card-title { color:#1F3260 !important; }
   .svc p { color:#1F3260 !important; font-weight:400 !important; }
   .svc .svc-num { color:#A8A09A !important; }
@@ -664,34 +857,43 @@ footer {
 
   /* WHO WE SERVE */
   .serve-duo  { grid-template-columns:1fr; }
-  .serve-panel { padding:60px 32px; }
+  .serve-photo-wrap { height:160px !important; }
+  .serve-content { padding:32px 28px 52px !important; }
   .serve-lt { background:#ffffff !important; border-right:none !important; border-bottom:1px solid #E0DADA !important; }
-  .serve-dk { background:#F0ECE9 !important; }
+  .serve-dk { background:#181D38 !important; }
   .serve-lt .ov, .serve-dk .ov { color:#A8A09A !important; }
-  .serve-lt h2, .serve-dk h2 { color:#1F3260 !important; }
-  .serve-lt .serve-list li, .serve-dk .serve-list li { color:#1F3260 !important; border-color:#E0DADA !important; }
-  .serve-lt .serve-list li::before, .serve-dk .serve-list li::before { color:#1F3260 !important; }
+  .serve-lt h2 { color:#1F3260 !important; }
+  .serve-dk h2 { color:#F0ECE9 !important; }
+  .serve-lt .serve-list li { color:#1F3260 !important; border-color:#E0DADA !important; }
+  .serve-lt .serve-list li::before { color:#1F3260 !important; }
+  .serve-dk .serve-list li { color:rgba(240,236,233,.7) !important; border-color:rgba(240,236,233,.12) !important; }
+  .serve-dk .serve-list li::before { color:rgba(240,236,233,.5) !important; }
+  .serve-lt .serve-photo-wrap::after { background:linear-gradient(to top, #ffffff, transparent) !important; }
+  .serve-dk .serve-photo-wrap::after { background:linear-gradient(to top, #181D38, transparent) !important; }
 
   /* PROCESS */
-  #process { padding:72px 24px; background:#ffffff !important; }
+  #process { padding:72px 24px !important; }
   .proc-grid { grid-template-columns:1fr; }
-  .proc-step { background:#F0ECE9 !important; border-left:3px solid transparent; }
-  .proc-title { color:#1F3260 !important; font-family:'Playfair Display',serif !important; }
-  .proc-body  { color:#1F3260 !important; font-weight:400 !important; }
-  .proc-n { color:#A8A09A !important; opacity:1 !important; }
-  .proc-hd h2 { color:#1F3260 !important; }
-  .proc-hd p  { color:#1F3260 !important; }
-  .proc-hd .ov { color:#A8A09A !important; }
+  .proc-step { background:rgba(14,18,33,.75) !important; border-left:3px solid transparent; backdrop-filter:none !important; }
+  .proc-title { color:#F0ECE9 !important; font-family:'Playfair Display',serif !important; }
+  .proc-body  { color:rgba(240,236,233,.65) !important; font-weight:400 !important; }
+  .proc-n { color:rgba(240,236,233,.3) !important; opacity:1 !important; }
+  .proc-hd h2 { color:#F0ECE9 !important; }
+  .proc-hd p  { color:rgba(240,236,233,.55) !important; }
+  .proc-hd .ov { color:rgba(240,236,233,.4) !important; }
 
   /* CONTACT */
-  #contact { padding:72px 24px; background:#F0ECE9 !important; }
-  .contact-grid { grid-template-columns:1fr; gap:48px; }
-  .c-left h2 { color:#1F3260 !important; }
-  .c-left p  { color:#1F3260 !important; }
-  .c-left .ov { color:#A8A09A !important; }
-  .c-detail  { color:#1F3260 !important; }
-  .c-detail a { color:#1F3260 !important; }
-  .form-box  { background:#ffffff !important; }
+  #contact { padding:0 !important; }
+  .contact-grid { grid-template-columns:1fr !important; }
+  .c-left { min-height:320px !important; }
+  .c-left-content { padding:40px 28px !important; }
+  .c-left-content h2 { color:#F0ECE9 !important; font-size:1.8rem !important; }
+  .c-left-content p { color:rgba(240,236,233,.6) !important; }
+  .c-left-content .ov { color:rgba(240,236,233,.4) !important; }
+  .c-detail { color:rgba(240,236,233,.6) !important; }
+  .c-detail a { color:rgba(240,236,233,.75) !important; }
+  .c-right { padding:48px 28px !important; background:#F0ECE9 !important; }
+  .form-box { background:#ffffff !important; border:none !important; padding:32px 24px !important; }
   input, textarea { color:#1F3260 !important; background:#ffffff !important; border-color:#E0DADA !important; }
   label { color:#1F3260 !important; font-weight:500 !important; }
   .form-disclaimer { color:#A8A09A !important; }
@@ -769,15 +971,13 @@ footer {
       <img class="immersive-img"
         src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=92&auto=format&fit=crop&crop=center"
         alt="Global financial architecture">
-      <div class="panel-index">I</div>
       <div class="immersive-content">
         <div class="panel-eyebrow">
           <div class="panel-eyebrow-line"></div>
           <span class="panel-eyebrow-text">For Companies</span>
         </div>
         <div class="panel-title">
-          <strong>Capital</strong>
-          at the Right Moment
+          <strong>Capital at the Right Moment</strong>
         </div>
         <div class="panel-body">
           <p class="panel-desc">We advise companies at every strategic inflection — from growth capital to M&amp;A to full transaction execution — connecting leadership teams with precisely the right capital partners across global markets.</p>
@@ -790,15 +990,13 @@ footer {
       <img class="immersive-img"
         src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=1200&q=92&auto=format&fit=crop&crop=center"
         alt="Glass tower reflection">
-      <div class="panel-index">II</div>
       <div class="immersive-content">
         <div class="panel-eyebrow">
           <div class="panel-eyebrow-line"></div>
           <span class="panel-eyebrow-text">For Investors</span>
         </div>
         <div class="panel-title">
-          <strong>Curated Flow.</strong>
-          No Noise.
+          <strong>Curated Flow. No Noise.</strong>
         </div>
         <div class="panel-body">
           <p class="panel-desc">We surface opportunities calibrated to your mandate — sector, geography, stage — with independent intelligence, no preferred relationships, and no agenda beyond your outcome.</p>
@@ -842,32 +1040,52 @@ footer {
   <div class="svc-grid">
 
     <div class="svc reveal">
-      <div class="svc-num">01</div>
-      <h3 class="card-title">M&amp;A and Strategic Advisory</h3>
-      <p class="small-copy">We advise companies on mergers, acquisitions, divestitures, and strategic transactions — as well as capital structure and funding strategy. Independent, conflict-free counsel from first conversation through execution.</p>
-      <span class="svc-arrow">Learn More</span>
+      <div class="svc-thumb-wrap">
+        <img class="svc-thumb" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=700&q=88&auto=format&fit=crop&crop=top" alt="M&A Advisory">
+      </div>
+      <div class="svc-body">
+        <div class="svc-num">01</div>
+        <h3 class="card-title">M&amp;A and Strategic Advisory</h3>
+        <p class="small-copy">We advise companies on mergers, acquisitions, divestitures, and strategic transactions — as well as capital structure and funding strategy. Independent, conflict-free counsel from first conversation through execution.</p>
+        <span class="svc-arrow">Learn More</span>
+      </div>
     </div>
 
     <div class="svc reveal">
-      <div class="svc-num">02</div>
-      <h3 class="card-title">Debt Advisory &amp; Restructuring</h3>
-      <p class="small-copy">We advise on debt structure, capital raises, refinancings, and where necessary, balance sheet restructuring. Our counsel is independent — we have no preferred lenders, no conflicts of interest, and no agenda beyond our client's objectives.</p>
-      <span class="svc-arrow">Learn More</span>
+      <div class="svc-thumb-wrap">
+        <img class="svc-thumb" src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=700&q=88&auto=format&fit=crop&crop=center" alt="Debt Advisory">
+      </div>
+      <div class="svc-body">
+        <div class="svc-num">02</div>
+        <h3 class="card-title">Debt Advisory &amp; Restructuring</h3>
+        <p class="small-copy">We advise on debt structure, capital raises, refinancings, and where necessary, balance sheet restructuring. Our counsel is independent — we have no preferred lenders, no conflicts of interest, and no agenda beyond our client's objectives.</p>
+        <span class="svc-arrow">Learn More</span>
+      </div>
     </div>
 
     <div class="svc reveal">
-      <div class="svc-num">03</div>
-      <h3 class="card-title">Capital Introduction &amp; Placement</h3>
-      <p class="small-copy">We evaluate company fundamentals and capital readiness, develop the investor narrative and materials, then make deliberate introductions to capital partners whose mandate, sector, and geography align precisely. From positioning through placement — a single, integrated process built around one outcome: the right capital, not just any capital.</p>
-      <span class="svc-arrow">Learn More</span>
+      <div class="svc-thumb-wrap">
+        <img class="svc-thumb" src="https://images.unsplash.com/photo-1444723121867-7a241cacace9?w=700&q=88&auto=format&fit=crop&crop=center" alt="Capital Introduction">
+      </div>
+      <div class="svc-body">
+        <div class="svc-num">03</div>
+        <h3 class="card-title">Capital Introduction &amp; Placement</h3>
+        <p class="small-copy">We evaluate company fundamentals and capital readiness, develop the investor narrative and materials, then make deliberate introductions to capital partners whose mandate, sector, and geography align precisely. From positioning through placement — a single, integrated process built around one outcome: the right capital, not just any capital.</p>
+        <span class="svc-arrow">Learn More</span>
+      </div>
     </div>
 
     <div class="svc svc-intel reveal">
-      <div class="intel-badge">Intelligence Platform</div>
-      <div class="svc-num">04</div>
-      <h3 class="card-title">Global Market Intelligence</h3>
-      <p class="small-copy">Proprietary sector and regional intelligence across eight high-growth sectors and six global regions — tracking where capital conviction is building, where capital is deploying, and where the next cycle of opportunity is forming.</p>
-      <a href="intelligence-gate.html" class="svc-arrow">Explore Intelligence</a>
+      <div class="svc-thumb-wrap">
+        <img class="svc-thumb" src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=700&q=88&auto=format&fit=crop&crop=center" alt="Global Intelligence">
+      </div>
+      <div class="svc-body">
+        <div class="intel-badge">Intelligence Platform</div>
+        <div class="svc-num">04</div>
+        <h3 class="card-title">Global Market Intelligence</h3>
+        <p class="small-copy">Proprietary sector and regional intelligence across eight high-growth sectors and six global regions — tracking where capital conviction is building, where capital is deploying, and where the next cycle of opportunity is forming.</p>
+        <a href="intelligence-gate.html" class="svc-arrow">Explore Intelligence</a>
+      </div>
     </div>
 
   </div>
@@ -879,6 +1097,10 @@ footer {
   <div class="serve-duo">
 
     <div class="serve-panel serve-lt reveal">
+      <div class="serve-photo-wrap">
+        <img class="serve-photo" src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=900&q=88&auto=format&fit=crop&crop=center" alt="Global financial centers">
+      </div>
+      <div class="serve-content">
       <p class="ov">For Investors</p>
       <h2 class="section-title">Investors &amp;<br>Capital Allocators</h2>
       <ul class="serve-list">
@@ -889,9 +1111,14 @@ footer {
         <li>Asset managers building exposure to high-growth international markets</li>
         <li>Investors seeking independent sector intelligence and market positioning data</li>
       </ul>
+      </div>
     </div>
 
     <div class="serve-panel serve-dk reveal">
+      <div class="serve-photo-wrap">
+        <img class="serve-photo" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=900&q=88&auto=format&fit=crop&crop=center" alt="Dubai skyline">
+      </div>
+      <div class="serve-content">
       <p class="ov">For Companies</p>
       <h2 class="section-title">Companies at Every<br>Inflection Point</h2>
       <ul class="serve-list">
@@ -902,6 +1129,7 @@ footer {
         <li>Companies in high-growth sectors seeking investors who understand their industry and region</li>
         <li>Management teams requiring independent advisory for complex capital situations</li>
       </ul>
+      </div>
     </div>
 
   </div>
@@ -910,6 +1138,7 @@ footer {
 
 <!-- PROCESS -->
 <section id="process">
+  <img class="process-bg" src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=1600&q=85&auto=format&fit=crop&crop=center" alt="City background">
   <div class="proc-hd reveal">
     <p class="ov">How We Work</p>
     <h2 class="section-title">Our Advisory Process</h2>
@@ -950,7 +1179,14 @@ footer {
   <div class="contact-wrap">
     <div class="contact-grid">
       <div class="c-left reveal">
-        <p class="ov">Get In Touch</p>
+        <div class="contact-photo">
+          <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=800&q=90&auto=format&fit=crop&crop=center" alt="MNSR Capital">
+          <div class="contact-photo-caption">
+            <strong>Advisory Without Agenda</strong>
+            <p>We welcome inquiries from companies seeking capital and investors seeking curated opportunity.</p>
+          </div>
+        </div>
+        <p class="ov" style="margin-top:28px;">Get In Touch</p>
         <h2 class="section-title">Contact Our<br>Advisory Team</h2>
         <p class="body-copy">Whether you represent a company seeking capital or an investor seeking curated deal flow, we welcome your inquiry. All submissions are handled with strict confidentiality.</p>
         <div class="c-detail">
@@ -987,6 +1223,7 @@ footer {
           <h3 style="font-family:'Playfair Display',serif;color:var(--navy);margin-bottom:8px;font-weight:400;">Inquiry Received</h3>
           <p class="body-copy" style="color:var(--ink-mid);">Our advisory team will review your submission and respond within 2 business days.</p>
         </div>
+      </div>
       </div>
     </div>
   </div>
