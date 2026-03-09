@@ -463,7 +463,7 @@ img { display: block; max-width: 100%; }
 
 /* ─── MOBILE ACCORDION FOR SERVICES ─── */
 .svc-accordion {
-  display: none;
+  display: none !important;
   border: 1px solid var(--l-line);
 }
 .acc-item {
@@ -1309,7 +1309,7 @@ footer {
 @media (max-width: 600px) {
   /* Switch services to accordion on mobile */
   .svc-grid { display: none; }
-  .svc-accordion { display: block; }
+  .svc-accordion { display: block !important; }
   .process-row { grid-template-columns: 1fr; }
   .country-grid { grid-template-columns: 1fr; }
   .gate-features { grid-template-columns: 1fr; }
