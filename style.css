@@ -1,39 +1,35 @@
 /* ─────────────────────────────────────
-   MNSR CAPITAL — ROTHSCHILD-ADJACENT v5
-   Pixel-sampled then shifted 1-2 nodes
+   MNSR CAPITAL — APPROVED PALETTE v6
+   "Where Capital Moves Next"
 
-   Rothschild exact →  MNSR shift
-   Heading navy  #243A69  →  #1F3563  (1 shade deeper)
-   Dark sections #1C2039  →  #181D38  (1 shade deeper)
-   Body text     #4A4A4A  →  #404040  (near-identical)
-   Card bg       #F0ECE9  →  #F0ECE9  (exact — this is the signature)
-   Page bg       #FFFFFF  →  #FFFFFF  (exact)
-   Gold accent   #D4A56D  →  #C9985E  (1 shade richer/deeper)
+   WHITE    #FFFFFF  — page bg, nav, majority of site
+   BEIGE    #F0ECE9  — cards, contact section (surgical)
+   LT NAVY  #E8EDF5  — accent band only
+   DIVIDER  #E0DADA  — lines on white
+   TAUPE    #A8A09A  — muted text, labels
+   INK      #3D3D3D  — body text
+   NAVY     #1F3260  — headings, links, borders on white
+   DK NAVY  #181D38  — hero, process, footer
 ───────────────────────────────────── */
 :root {
-  /* Heading navy — Playfair Display titles, overlines */
-  --n-head: #1F3563;
+  --n900: #181D38;   /* dark navy — hero, footer, process, nav bg */
+  --n800: #1F3260;   /* heading navy — all serif titles on light bg */
+  --n700: #2B4280;
+  --n600: #3A5698;
 
-  /* Dark navy-indigo — hero, footer, process, nav, dark panels */
-  --n900: #181D38;
-  --n800: #1F2444;
-  --n700: #2B3260;
-  --n600: #3A4580;
+  --plat:    #A8A09A;   /* taupe — muted text, overlines */
+  --plat-lt: #C8C2BE;
+  --plat-dk: #7A706A;
 
-  /* Gold accent */
-  --plat:    #C9985E;
-  --plat-lt: #DEBB8A;
-  --plat-dk: #9A6E38;
-
-  /* Warm scale — Rothschild signature */
-  --g50:  #FFFFFF;   /* page body */
-  --g100: #F0ECE9;   /* card bg — Rothschild exact */
-  --g200: #E5DED9;
-  --g300: #CEC6C0;
-  --g400: #9A8E86;
-  --g500: #404040;   /* body text */
+  --g50:  #FFFFFF;   /* page bg */
+  --g100: #F0ECE9;   /* beige — cards, contact */
+  --g150: #E8EDF5;   /* light navy tint — accent band */
+  --g200: #E5DED9;   /* beige dark */
+  --g300: #E0DADA;   /* dividers on white */
+  --g400: #A8A09A;   /* muted */
+  --g500: #3D3D3D;   /* body text */
   --g700: #282828;
-  --g900: #161616;
+  --g900: #181818;
 
   /* On-dark */
   --d-hi:   #F0ECE9;
@@ -42,12 +38,11 @@
   --d-line: rgba(240,236,233,0.08);
 
   /* On-light */
-  --l-hi:   #1F3563;   /* navy — used for ALL headings on white bg */
-  --l-mid:  #404040;
-  --l-low:  #9A8E86;
-  --l-line: #CEC6C0;
+  --l-hi:   #1F3260;
+  --l-mid:  #3D3D3D;
+  --l-low:  #A8A09A;
+  --l-line: #E0DADA;
 
-  /* Alias for nav/button components still using --plat */
   --radius: 0px;
   --max: 1080px;
 }
@@ -177,17 +172,17 @@ img { display: block; max-width: 100%; }
   justify-content: space-between;
   padding: 0 52px;
   height: 66px;
-  background: var(--n900);
-  border-bottom: 1px solid var(--d-line);
+  background: var(--g50);
+  border-bottom: 1px solid var(--g300);
   transition: box-shadow 0.3s;
 }
-#nav.raised { box-shadow: 0 4px 32px rgba(0,0,0,0.5); }
+#nav.raised { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
 
 .nav-logo {
   font-family: 'Playfair Display', serif;
   font-size: 1.05rem;
   font-weight: 400;
-  color: var(--d-hi);
+  color: var(--n800);
   letter-spacing: 0.05em;
   flex-shrink: 0;
   text-decoration: none;
@@ -213,16 +208,16 @@ img { display: block; max-width: 100%; }
   font-weight: 400;
   letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: var(--d-mid);
+  color: var(--g400);
   text-decoration: none;
   transition: color 0.2s;
 }
-.nav-center > li > a:hover { color: var(--plat); }
+.nav-center > li > a:hover { color: var(--n800); }
 
 .nav-btn {
   padding: 9px 22px;
-  border: 1px solid var(--plat);
-  color: var(--plat);
+  border: 1px solid var(--n800);
+  color: var(--n800);
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -231,7 +226,7 @@ img { display: block; max-width: 100%; }
   text-decoration: none;
   flex-shrink: 0;
 }
-.nav-btn:hover { background: var(--plat); color: var(--n900); }
+.nav-btn:hover { background: var(--n800); color: var(--g50); }
 
 /* Hamburger — desktop hidden */
 .nav-hamburger {

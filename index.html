@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>MNSR Capital — Global Strategic Advisory</title>
+<title>MNSR Capital — Where Capital Moves Next</title>
 <meta name="description" content="MNSR Capital — boutique strategic advisory connecting companies with global capital across private equity, family offices, sovereign wealth, and accredited investors.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,39 +14,39 @@
 <style>
 
 /* ═══════════════════════════════════════
-   MNSR CAPITAL — ROTHSCHILD-ADJACENT v5
-   Pixel-sampled · 1-2 nodes shifted
+   MNSR CAPITAL — APPROVED PALETTE v6
+   "Where Capital Moves Next"
 
-   Heading navy   #1F3563  — Playfair titles
-   Dark sections  #181D38  — hero / footer / nav
-   Body text      #404040
-   Card bg        #F0ECE9  — Rothschild exact
-   Gold accent    #C9985E
+   WHITE    #FFFFFF  — page bg, nav, majority
+   BEIGE    #F0ECE9  — cards, contact (surgical)
+   LT NAVY  #E8EDF5  — accent band
+   DIVIDER  #E0DADA  — lines on white
+   TAUPE    #A8A09A  — muted text
+   INK      #3D3D3D  — body text
+   NAVY     #1F3260  — headings, borders
+   DK NAVY  #181D38  — hero, process, footer
 ═══════════════════════════════════════ */
 :root {
-  /* Dark navy-indigo — hero, process, footer, nav */
-  --navy:      #2B3260;
+  --navy:      #1F3260;
   --navy-dk:   #181D38;
-  --navy-lt:   #3A4580;
+  --navy-lt:   #2B4280;
 
-  /* Warm card/section — Rothschild exact */
   --stone:     #F0ECE9;
   --stone-lt:  #FFFFFF;
   --stone-dk:  #E5DED9;
-  --stone-bd:  #CEC6C0;
+  --stone-bd:  #E0DADA;
 
-  /* Gold accent */
-  --gold:      #C9985E;
-  --gold-lt:   #DEBB8A;
-  --gold-dk:   #9A6E38;
+  --accent-lt: #E8EDF5;   /* light navy tint — accent band */
 
-  /* Heading navy — Playfair on white bg */
-  --ink:       #1F3563;
-  --ink-mid:   #404040;
-  --ink-low:   #9A8E86;
-  --ink-line:  #CEC6C0;
+  --gold:      #A8A09A;   /* taupe — replaces gold */
+  --gold-lt:   #C8C2BE;
+  --gold-dk:   #7A706A;
 
-  /* On-dark */
+  --ink:       #1F3260;   /* navy for headings */
+  --ink-mid:   #3D3D3D;   /* body text */
+  --ink-low:   #A8A09A;   /* muted */
+  --ink-line:  #E0DADA;   /* dividers */
+
   --d-hi:      #F0ECE9;
   --d-mid:     rgba(240,236,233,.65);
   --d-low:     rgba(240,236,233,.35);
@@ -60,7 +60,7 @@ html { scroll-behavior:smooth; font-size:16px; }
 body {
   font-family:'Inter',sans-serif;
   background:#ffffff;
-  color:var(--ink);
+  color:var(--ink-mid);
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
@@ -109,35 +109,35 @@ h3.card-title {
   position:fixed; top:0; left:0; right:0; z-index:200;
   height:64px; display:flex; align-items:center;
   justify-content:space-between; padding:0 52px;
-  background:var(--navy-dk);
-  border-bottom:1px solid rgba(181,151,90,.14);
+  background:#ffffff;
+  border-bottom:1px solid var(--ink-line);
   transition:box-shadow .3s;
 }
-#nav.raised { box-shadow:0 4px 32px rgba(0,0,0,.45); }
+#nav.raised { box-shadow:0 2px 20px rgba(0,0,0,.08); }
 
 .nav-logo {
   font-family:'Playfair Display',serif;
   font-size:1.08rem; font-weight:400;
-  color:var(--d-hi); letter-spacing:.06em;
+  color:var(--ink); letter-spacing:.06em;
 }
 .nav-links {
   display:flex; list-style:none; margin:0; padding:0;
 }
 .nav-links li a {
-  color:var(--d-mid); font-size:.68rem; font-weight:300;
+  color:var(--ink-low); font-size:.68rem; font-weight:300;
   letter-spacing:.18em; text-transform:uppercase;
   display:block; padding:0 20px; height:64px; line-height:64px;
   transition:color .2s;
 }
-.nav-links li a:hover { color:var(--gold-lt); }
+.nav-links li a:hover { color:var(--ink); }
 
 .nav-cta {
-  font-size:.66rem; font-weight:400;
+  font-size:.66rem; font-weight:500;
   letter-spacing:.18em; text-transform:uppercase;
-  color:var(--gold); border:1px solid rgba(181,151,90,.42);
+  color:var(--ink); border:1px solid var(--ink);
   padding:8px 22px; transition:all .22s;
 }
-.nav-cta:hover { background:var(--gold); border-color:var(--gold); color:var(--navy-dk); }
+.nav-cta:hover { background:var(--ink); border-color:var(--ink); color:#fff; }
 
 .hamburger {
   display:none; flex-direction:column;
@@ -146,7 +146,7 @@ h3.card-title {
 }
 .hamburger span {
   display:block; width:22px; height:1.5px;
-  background:var(--gold); transition:all .25s;
+  background:var(--ink); transition:all .25s;
 }
 .hamburger.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity:0; }
@@ -155,21 +155,21 @@ h3.card-title {
 .mob-menu {
   display:none; position:fixed;
   top:64px; left:0; right:0; bottom:0;
-  background:var(--navy-dk); z-index:99;
+  background:#ffffff; z-index:99;
   padding:36px 28px; flex-direction:column;
-  border-top:1px solid rgba(181,151,90,.18);
+  border-top:1px solid var(--ink-line);
 }
 .mob-menu.open { display:flex; }
 .mob-menu a {
   display:block; padding:18px 0;
   font-size:.95rem; font-weight:300;
-  color:var(--d-mid); border-bottom:1px solid var(--d-line);
+  color:var(--ink-mid); border-bottom:1px solid var(--ink-line);
   letter-spacing:.06em; transition:color .2s;
 }
-.mob-menu a:hover { color:var(--gold-lt); }
+.mob-menu a:hover { color:var(--ink); }
 .mob-menu .mob-cta {
   margin-top:32px; padding:14px 24px;
-  background:var(--gold); color:var(--navy-dk);
+  background:var(--navy-dk); color:var(--d-hi);
   font-size:.68rem; font-weight:600;
   letter-spacing:.14em; text-transform:uppercase;
   text-align:center; border:none; border-bottom:none;
@@ -245,7 +245,7 @@ h3.card-title {
   padding:104px 60px;
 }
 .svc-hd { max-width:var(--max); margin:0 auto 68px; }
-.svc-hd .ov { margin-bottom:16px; }
+.svc-hd .ov { color:var(--ink-low); margin-bottom:16px; }
 .svc-hd h2 { color:var(--ink); margin-bottom:14px; }
 .svc-hd p  { color:var(--ink-mid); max-width:540px; }
 
@@ -288,17 +288,17 @@ h3.card-title {
   background:var(--navy-dk) !important;
   border-left:3px solid var(--gold) !important;
 }
-.svc-intel:hover { background:var(--navy) !important; border-left-color:var(--gold-lt) !important; }
-.svc-intel .svc-num { color:var(--gold); }
+.svc-intel:hover { background:var(--navy) !important; border-left-color:var(--stone-dk) !important; }
+.svc-intel .svc-num { color:rgba(240,236,233,.4); }
 .svc-intel h3.card-title { color:var(--d-hi); }
 .svc-intel p  { color:var(--d-mid); }
-.svc-intel .svc-arrow { color:var(--gold); }
-.svc-intel:hover .svc-arrow { color:var(--gold-lt); }
+.svc-intel .svc-arrow { color:var(--stone); }
+.svc-intel:hover .svc-arrow { color:var(--stone-lt); }
 
 .intel-badge {
   display:inline-block; font-size:.50rem; font-weight:600;
   letter-spacing:.20em; text-transform:uppercase;
-  color:var(--gold); border:1px solid rgba(181,151,90,.38);
+  color:var(--stone-dk); border:1px solid rgba(240,236,233,.25);
   padding:3px 9px; margin-bottom:18px; width:fit-content;
 }
 
@@ -308,12 +308,12 @@ h3.card-title {
 #serve { padding:0; }
 .serve-duo { display:grid; grid-template-columns:1fr 1fr; }
 .serve-panel { padding:92px 72px; }
-.serve-lt { background:var(--stone); }
+.serve-lt { background:var(--stone-lt); border-right:1px solid var(--ink-line); }
 .serve-dk { background:var(--navy-dk); }
 
-.serve-lt .ov { color:var(--gold-dk); margin-bottom:20px; }
-.serve-dk .ov { color:var(--gold);    margin-bottom:20px; }
-.serve-lt h2  { color:var(--ink);   margin-bottom:36px; font-size:clamp(1.6rem,2.5vw,2.2rem); }
+.serve-lt .ov { color:var(--ink-low); margin-bottom:20px; }
+.serve-dk .ov { color:rgba(240,236,233,.45); margin-bottom:20px; }
+.serve-lt h2  { color:var(--navy); margin-bottom:36px; font-size:clamp(1.6rem,2.5vw,2.2rem); }
 .serve-dk h2  { color:var(--d-hi);  margin-bottom:36px; font-size:clamp(1.6rem,2.5vw,2.2rem); }
 
 .serve-list { list-style:none; display:flex; flex-direction:column; }
@@ -325,23 +325,23 @@ h3.card-title {
 .serve-list li:last-child { border-bottom:none; }
 .serve-list li::before { content:'›'; font-size:1.1rem; font-weight:300; flex-shrink:0; margin-top:-1px; }
 .serve-lt .serve-list li { color:var(--ink-mid); border-color:var(--ink-line); }
-.serve-lt .serve-list li::before { color:var(--gold-dk); }
+.serve-lt .serve-list li::before { color:var(--navy); }
 .serve-dk .serve-list li { color:var(--d-mid); border-color:var(--d-line); }
-.serve-dk .serve-list li::before { color:var(--gold); }
+.serve-dk .serve-list li::before { color:rgba(240,236,233,.45); }
 
 /* ══════════════════════════════════════
    PROCESS — deep navy
 ══════════════════════════════════════ */
 #process { background:var(--navy-dk); padding:104px 60px; }
 .proc-hd { max-width:var(--max); margin:0 auto 64px; }
-.proc-hd .ov { color:var(--gold); margin-bottom:16px; }
+.proc-hd .ov { color:rgba(240,236,233,.45); margin-bottom:16px; }
 .proc-hd h2  { color:var(--d-hi); margin-bottom:14px; }
 .proc-hd p   { color:var(--d-mid); max-width:480px; }
 
 .proc-grid {
   max-width:var(--max); margin:0 auto;
   display:grid; grid-template-columns:repeat(4,1fr);
-  gap:2px; background:rgba(181,151,90,.12);
+  gap:2px; background:rgba(240,236,233,.06);
 }
 .proc-step {
   background:var(--navy-dk); padding:48px 32px;
@@ -351,7 +351,7 @@ h3.card-title {
 .proc-n {
   font-family:'Playfair Display',serif;
   font-size:2.2rem; font-weight:400;
-  color:var(--gold); opacity:.55;
+  color:var(--stone); opacity:.15;
   line-height:1; margin-bottom:20px;
 }
 .proc-title { font-size:.78rem; font-weight:400; letter-spacing:.12em; text-transform:uppercase; color:var(--d-hi); margin-bottom:12px; }
@@ -510,10 +510,10 @@ footer {
     <div class="hero-grid">
 
       <div>
-        <p class="ov hero-ov">Global Strategic Advisory</p>
-        <h1 class="display hero-h1">The Bridge Between<br>Companies and<br><em>Global Capital</em></h1>
+        <p class="ov hero-ov">Where Capital Moves Next</p>
+        <h1 class="display hero-h1">Where Capital<br><em>Moves Next.</em></h1>
         <div class="hero-rule"></div>
-        <p class="body-copy hero-sub">MNSR Capital connects companies at every inflection point — growth, transformation, strategic pivot, or capital cycle — with the right capital partners across global markets.</p>
+        <p class="body-copy hero-sub">MNSR Capital advises companies and investors at the moments that matter most — tracking where capital conviction is building, where deals are forming, and where the right introduction changes everything.</p>
         <div class="hero-btns">
           <a href="#contact" class="btn-gold">Inquire Now</a>
           <a href="#services" class="btn-ghost">Our Services</a>
@@ -703,7 +703,7 @@ footer {
     <div class="foot-top">
       <div>
         <div class="foot-brand">MNSR Capital</div>
-        <div class="foot-tag">Global Strategic Advisory</div>
+        <div class="foot-tag">Where Capital Moves Next</div>
       </div>
       <div class="foot-cols">
         <div class="foot-col">

@@ -3,7 +3,7 @@ cat << FOOTEOF
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
-      <div><div class="footer-brand">MNSR Capital</div><div class="footer-tag">Global Strategic Advisory</div></div>
+      <div><div class="footer-brand">MNSR Capital</div><div class="footer-tag">Where Capital Moves Next</div></div>
       <div class="footer-cols">
         <div class="footer-col"><h4>Global Reach</h4><ul>
           <li><a href="region-north-america.html">North America</a></li>
