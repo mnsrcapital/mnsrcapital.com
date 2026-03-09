@@ -330,32 +330,44 @@ h3.card-title {
 .serve-dk .serve-list li::before { color:rgba(240,236,233,.45); }
 
 /* ══════════════════════════════════════
-   PROCESS — deep navy
+   PROCESS — mirrors services exactly
 ══════════════════════════════════════ */
 #process { background:#ffffff; padding:104px 60px; }
-.proc-hd { max-width:var(--max); margin:0 auto 64px; }
+.proc-hd { max-width:var(--max); margin:0 auto 68px; }
 .proc-hd .ov { color:var(--ink-low); margin-bottom:16px; }
 .proc-hd h2  { color:var(--ink); margin-bottom:14px; }
-.proc-hd p   { color:var(--ink-mid); max-width:480px; }
+.proc-hd p   { color:var(--ink-mid); max-width:540px; }
 
 .proc-grid {
   max-width:var(--max); margin:0 auto;
-  display:grid; grid-template-columns:repeat(4,1fr);
+  display:grid; grid-template-columns:1fr 1fr;
   gap:2px; background:var(--stone-bd);
 }
 .proc-step {
-  background:var(--stone); padding:48px 32px;
-  transition:background .2s;
+  background:var(--stone);
+  padding:52px 48px;
+  display:flex; flex-direction:column;
+  border-left:3px solid transparent;
+  transition:border-color .25s, background .22s;
 }
-.proc-step:hover { background:var(--stone-dk); }
+.proc-step:hover {
+  background:var(--stone-dk);
+  border-left-color:var(--ink);
+}
 .proc-n {
-  font-family:'Playfair Display',serif;
-  font-size:2.2rem; font-weight:400;
-  color:var(--ink); opacity:.12;
-  line-height:1; margin-bottom:20px;
+  font-size:.57rem; font-weight:400;
+  letter-spacing:.26em; color:var(--ink-low);
+  margin-bottom:14px;
 }
-.proc-title { font-size:.78rem; font-weight:400; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); margin-bottom:12px; }
-.proc-body  { font-size:.85rem; font-weight:300; color:var(--ink-mid); line-height:1.70; }
+.proc-title {
+  font-family:'Playfair Display',serif;
+  font-size:1.35rem; font-weight:400; line-height:1.25;
+  color:var(--ink); margin-bottom:16px;
+}
+.proc-body {
+  font-size:.88rem; font-weight:300;
+  color:var(--ink-mid); line-height:1.75; flex:1;
+}
 
 /* ══════════════════════════════════════
    CONTACT
@@ -456,15 +468,12 @@ footer {
 
   #services { padding:72px 24px; }
   .svc-grid { grid-template-columns:1fr; }
-  .svc { background:var(--stone) !important; }
+  .svc { background:var(--stone) !important; border-left:3px solid transparent; }
   .svc-intel { background:var(--navy-dk) !important; }
 
   .serve-duo  { grid-template-columns:1fr; }
   .serve-panel { padding:60px 32px; }
-  /* On mobile both serve panels use light palette */
-  .serve-dk {
-    background: var(--stone) !important;
-  }
+  .serve-dk { background:var(--stone) !important; }
   .serve-dk .ov { color:var(--ink-low) !important; }
   .serve-dk h2  { color:var(--navy) !important; }
   .serve-dk .serve-list li { color:var(--ink-mid) !important; border-color:var(--ink-line) !important; }
@@ -472,8 +481,8 @@ footer {
   .serve-lt { border-right:none !important; border-bottom:1px solid var(--ink-line); }
 
   #process { padding:72px 24px; }
-  .proc-grid { grid-template-columns:1fr 1fr; }
-  .proc-step { background:var(--stone) !important; }
+  .proc-grid { grid-template-columns:1fr; }
+  .proc-step { background:var(--stone) !important; border-left:3px solid transparent; }
 
   #contact { padding:72px 24px; }
   .contact-grid { grid-template-columns:1fr; gap:48px; }
@@ -603,19 +612,6 @@ footer {
   <div class="serve-duo">
 
     <div class="serve-panel serve-lt reveal">
-      <p class="ov">For Companies</p>
-      <h2 class="section-title">Companies at Every<br>Inflection Point</h2>
-      <ul class="serve-list">
-        <li>Companies scaling into new markets and seeking the right capital to accelerate growth</li>
-        <li>Companies navigating strategic pivots — new technology, new production line, or market repositioning</li>
-        <li>Companies funding capex cycles to win new categories of customers</li>
-        <li>Companies facing customer concentration risk and needing capital to diversify revenue</li>
-        <li>Companies in high-growth sectors seeking investors who understand their industry and region</li>
-        <li>Management teams requiring independent advisory for complex capital situations</li>
-      </ul>
-    </div>
-
-    <div class="serve-panel serve-dk reveal">
       <p class="ov">For Investors</p>
       <h2 class="section-title">Investors &amp;<br>Capital Allocators</h2>
       <ul class="serve-list">
@@ -628,6 +624,19 @@ footer {
       </ul>
     </div>
 
+    <div class="serve-panel serve-dk reveal">
+      <p class="ov">For Companies</p>
+      <h2 class="section-title">Companies at Every<br>Inflection Point</h2>
+      <ul class="serve-list">
+        <li>Companies scaling into new markets and seeking the right capital to accelerate growth</li>
+        <li>Companies navigating strategic pivots — new technology, new production line, or market repositioning</li>
+        <li>Companies funding capex cycles to win new categories of customers</li>
+        <li>Companies facing customer concentration risk and needing capital to diversify revenue</li>
+        <li>Companies in high-growth sectors seeking investors who understand their industry and region</li>
+        <li>Management teams requiring independent advisory for complex capital situations</li>
+      </ul>
+    </div>
+
   </div>
 </section>
 
@@ -637,29 +646,34 @@ footer {
   <div class="proc-hd reveal">
     <p class="ov">How We Work</p>
     <h2 class="section-title">Our Advisory Process</h2>
-    <p class="body-copy">A structured, transparent approach from first engagement to strategic outcome.</p>
+    <p class="body-copy">A structured, disciplined approach from first engagement to close. Every step is designed to maximise your outcome — whether that is capital raised, a transaction completed, or the right investor relationship established.</p>
   </div>
   <div class="proc-grid">
+
     <div class="proc-step reveal">
       <div class="proc-n">01</div>
       <p class="proc-title">Strategic Assessment</p>
-      <p class="proc-body">A thorough evaluation of your company's fundamentals, capital needs, market positioning, and readiness for institutional engagement.</p>
+      <p class="proc-body">We begin with a rigorous evaluation of your company, capital structure, market position, and objectives. We identify the right type of capital, the right timing, and the right narrative — before we approach a single investor.</p>
     </div>
+
     <div class="proc-step reveal">
       <div class="proc-n">02</div>
-      <p class="proc-title">Market Positioning</p>
-      <p class="proc-body">We develop your capital narrative — sector story, financial positioning, and investor materials that resonate with the right global capital.</p>
+      <p class="proc-title">Positioning &amp; Narrative</p>
+      <p class="proc-body">We build your investor-facing materials from the ground up — sector story, financials, growth thesis, and differentiation. A compelling, credible narrative is the foundation of every successful capital raise or M&amp;A process.</p>
     </div>
+
     <div class="proc-step reveal">
       <div class="proc-n">03</div>
-      <p class="proc-title">Investor Targeting</p>
-      <p class="proc-body">We identify capital partners whose mandate, geography, and sector focus align precisely with your profile and objectives.</p>
+      <p class="proc-title">Targeted Introductions</p>
+      <p class="proc-body">We identify and approach only the capital partners whose mandate, geography, and sector focus align with your profile. No spray-and-pray. Every introduction is deliberate, warm, and prepared — protecting your time and your reputation.</p>
     </div>
+
     <div class="proc-step reveal">
       <div class="proc-n">04</div>
-      <p class="proc-title">Engagement &amp; Advisory</p>
-      <p class="proc-body">Structured engagement and ongoing strategic counsel through every stage of the capital raise or transaction process.</p>
+      <p class="proc-title">Engagement &amp; Close</p>
+      <p class="proc-body">We manage the process through term sheets, diligence, and closing — providing ongoing counsel at every inflection point. Our engagement ends when your outcome is secured, not when the first meeting is set.</p>
     </div>
+
   </div>
 </section>
 
