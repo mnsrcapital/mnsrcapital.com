@@ -12,6 +12,7 @@
    DK NAVY  #181D38  — hero, process, footer
 ───────────────────────────────────── */
 :root {
+  color-scheme: only light;
   --n900: #181D38;   /* dark navy — hero, footer, process, nav bg */
   --n800: #1F3260;   /* heading navy — all serif titles on light bg */
   --n700: #2B4280;
@@ -48,14 +49,15 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; color-scheme: only light; background: #ffffff; }
 body {
   font-family: 'Inter', sans-serif;
-  background: #ffffff;
-  color: var(--l-hi);
+  background: #ffffff !important;
+  color: #3D3D3D !important;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  forced-color-adjust: none;
 }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
