@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Power & Renewables | MNSR Capital</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+.gate-wall{background:var(--n900);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 24px 80px;}
+.gate-box{max-width:560px;width:100%;text-align:center;}
+.gate-overline{font-size:0.62rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--plat);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:10px;}
+.gate-overline::before,.gate-overline::after{content:"";width:28px;height:1px;background:var(--plat);opacity:0.4;}
+.gate-title{font-family:"Playfair Display",serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:400;color:#fff;line-height:1.15;margin-bottom:16px;}
+.gate-sub{font-size:0.88rem;font-weight:300;color:var(--d-mid);line-height:1.80;margin-bottom:28px;max-width:460px;margin-left:auto;margin-right:auto;}
+.gate-stats{display:flex;justify-content:center;border:1px solid var(--d-line);margin-bottom:32px;}
+.gate-stat{padding:18px 20px;border-right:1px solid var(--d-line);flex:1;}
+.gate-stat:last-child{border-right:none;}
+.gate-stat-num{font-family:"Playfair Display",serif;font-size:1.4rem;font-weight:400;color:var(--plat);line-height:1;margin-bottom:4px;}
+.gate-stat-lbl{font-size:0.58rem;font-weight:500;letter-spacing:0.10em;text-transform:uppercase;color:var(--d-low);}
+.gate-form-wrap{background:rgba(255,255,255,0.03);border:1px solid var(--d-line);border-top:2px solid var(--plat);padding:24px 24px 20px;margin-bottom:16px;}
+.gate-form-label{font-size:0.60rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--plat);margin-bottom:14px;text-align:left;}
+.gate-email-row{display:flex;}
+.gate-email-input{flex:1;padding:12px 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-right:none;color:#fff;font-size:0.85rem;font-family:inherit;outline:none;transition:border-color 0.2s;}
+.gate-email-input::placeholder{color:rgba(255,255,255,0.25);}
+.gate-email-input:focus{border-color:var(--plat);}
+.gate-submit-btn{padding:12px 20px;background:var(--plat);color:var(--n900);border:none;font-size:0.63rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;white-space:nowrap;}
+.gate-submit-btn:hover{background:var(--plat-lt);}
+.gate-disclaimer{font-size:0.60rem;color:var(--d-low);line-height:1.6;margin-top:10px;text-align:left;}
+.platform-banner{background:var(--n800);border:1px solid var(--d-line);border-left:3px solid var(--plat);padding:20px 52px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.pb-badge{font-size:0.58rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--plat);margin-bottom:5px;display:flex;align-items:center;gap:6px;}
+.pb-badge::before{content:"";width:6px;height:6px;background:var(--plat);border-radius:50%;animation:pulse 2s infinite;}
+.pb-title{font-size:0.88rem;font-weight:400;color:#fff;margin-bottom:3px;}
+.pb-sub{font-size:0.75rem;font-weight:300;color:var(--d-mid);}
+.pb-date{text-align:right;flex-shrink:0;}
+.pb-date-num{font-family:"Playfair Display",serif;font-size:1.2rem;color:var(--plat);font-weight:400;}
+.pb-date-lbl{font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--d-low);}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+@media(max-width:600px){.platform-banner{padding:20px 24px;flex-direction:column;align-items:flex-start;}.pb-date{text-align:left;}}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo">MNSR Capital</a>
+  <ul class="nav-center">
+    <li><a href="index.html#global-reach">Global Reach</a>
+      <div class="nav-dropdown">
+        <a href="region-north-america.html">North America</a>
+        <a href="region-asia-pacific.html">Asia-Pacific</a>
+        <a href="region-middle-east.html">Middle East</a>
+        <a href="region-europe.html">Europe</a>
+        <a href="region-africa.html">Africa</a>
+        <a href="region-latin-america.html">Latin America</a>
+      </div>
+    </li>
+    <li><a href="index.html#sectors">Sectors</a>
+      <div class="nav-dropdown">
+        <a href="sector-ai-technology.html">AI &amp; Technology</a>
+        <a href="sector-energy.html">Power &amp; Renewables</a>
+        <a href="sector-healthcare.html">Healthcare &amp; BioTech</a>
+        <a href="sector-fintech.html">FinTech</a>
+        <a href="sector-infrastructure.html">Infrastructure</a>
+        <a href="sector-critical-minerals.html">Critical Minerals</a>
+        <a href="sector-defense.html">Defense &amp; Aerospace</a>
+        <a href="sector-oil-gas.html">Oil &amp; Gas</a>
+      </div>
+    </li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#serve">Who We Serve</a></li>
+  </ul>
+  <div class="nav-right"><a href="index.html#contact" class="nav-btn">Contact</a></div>
+</nav>
+<div class="gate-wall" id="gateWall_sector_energy">
+  <div class="gate-box">
+    <div class="gate-overline">Sector Intelligence</div>
+    <h1 class="gate-title">Power & Renewables</h1>
+    <p class="gate-sub">$5.6T needed annually. Every major SWF and PE fund has a clean energy mandate. Access our full Power & Renewables intelligence brief.</p>
+    <div class="gate-stats"><div class="gate-stat"><div class="gate-stat-num">$5.6T</div><div class="gate-stat-lbl">Annual Investment</div></div><div class="gate-stat"><div class="gate-stat-num">17%</div><div class="gate-stat-lbl">CAGR</div></div><div class="gate-stat"><div class="gate-stat-num">60%</div><div class="gate-stat-lbl">Renewables Share</div></div></div>
+    <div class="gate-form-wrap">
+      <div class="gate-form-label">Access Full Intelligence Brief — No Account Required</div>
+      <div class="gate-email-row">
+        <input class="gate-email-input" type="email" id="gateEmail_sector_energy" placeholder="Enter your email address">
+        <button class="gate-submit-btn" onclick="unlockContent( + pid + )">Request Access</button>
+      </div>
+      <div class="gate-disclaimer">Institutional intelligence. No spam. You'll also receive early access notification for the MNSR Capital Platform launching coming soon.</div>
+    </div>
+    <p style="font-size:0.65rem;color:var(--d-low);line-height:1.6;">Used by companies seeking capital and investors seeking curated deal flow.</p>
+  </div>
+</div>
+<div id="platformBanner_sector_energy" style="display:none;padding-top:80px;">
+  <div class="platform-banner">
+    <div class="pb-left">
+      <div class="pb-badge">You're on the list</div>
+      <div class="pb-title">MNSR Capital Platform — Early Access Confirmed</div>
+      <div class="pb-sub">You'll be notified when the platform launches. Full access to verified investor profiles, sector intelligence, and company-investor matching tools.</div>
+    </div>
+    <div class="pb-date">
+      <div class="pb-date-num">Coming Soon</div>
+      <div class="pb-date-lbl">Platform Launch</div>
+    </div>
+  </div>
+</div>
+<div id="intelContent_sector_energy" style="display:none;">
+<div class="page-hero" style="margin-top:0;">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span>Sector Intelligence / Power & Renewables</div>
+    <div class="page-overline">Sector Intelligence</div>
+    <h1>Power & Renewables</h1>
+    <p class="page-hero-sub">The energy transition is the largest capital reallocation in human history. $5.6 trillion in annual investment is required through 2030.</p>
+  </div>
+</div>
+<div class="stat-strip"><div class="stat-strip-row"><div class="s-cell"><div class="s-num">$2<span>T+</span></div><div class="s-label">Clean Energy 2030</div></div><div class="s-cell"><div class="s-num">$5.6<span>T</span></div><div class="s-label">Annual Investment</div></div><div class="s-cell"><div class="s-num">17<span>%</span></div><div class="s-label">CAGR</div></div><div class="s-cell"><div class="s-num">60<span>%</span></div><div class="s-label">Renewables Share</div></div></div></div>
+<div class="section alt">
+  <div class="wrap">
+    <div class="overline on-white">Strategic Overview</div>
+    <div class="sh2 on-white" style="margin-bottom:12px;">The Institutional Investment Case</div>
+    <p class="lead on-white">The energy transition is the largest capital reallocation in human history. Traditional energy investors are pivoting mandates. Sovereign wealth funds from the Middle East to Norway are competing to lead.</p>
+  </div>
+</div>
+<div class="section"><div class="wrap"><div class="overline on-white">Subsector Intelligence</div><div class="sh2 on-white" style="margin-bottom:16px;">Power & Renewables Subsectors</div><ul class="subsector-list"><li class="subsector-item"><span class="sub-name">Solar & Wind</span><span class="sub-desc">Now the cheapest form of new power in most global markets. Capital accelerating deployment globally.</span><span class="sub-cagr">18% CAGR</span></li><li class="subsector-item"><span class="sub-name">Energy Storage</span><span class="sub-desc">Battery storage and long-duration systems — the missing link in renewable deployment globally.</span><span class="sub-cagr">32% CAGR</span></li><li class="subsector-item"><span class="sub-name">Green Hydrogen</span><span class="sub-desc">Decarbonization solution for hard-to-abate sectors. Sovereign capital racing to secure supply chains.</span><span class="sub-cagr">54% CAGR</span></li><li class="subsector-item"><span class="sub-name">Nuclear (SMR)</span><span class="sub-desc">Small modular reactors attracting unprecedented investor interest. Tech companies signing direct PPAs.</span><span class="sub-cagr">28% CAGR</span></li><li class="subsector-item"><span class="sub-name">Grid Infrastructure</span><span class="sub-desc">Transmission and smart grid — the bottleneck for renewable deployment requiring $600B+ in upgrades.</span><span class="sub-cagr">15% CAGR</span></li></ul></div></div>
+<div class="cta-band">
+  <h2>Position Your Energy Company for Institutional Capital</h2>
+  <p>The right narrative, the right investors, the right moment. MNSR Capital builds the bridge.</p>
+  <a href="index.html#contact" class="btn-white">Start the Conversation</a>
+</div>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">MNSR Capital</div>
+        <div class="footer-tag">Global Strategic Advisory</div>
+        <div class="footer-platform-badge">Intelligence Platform — Coming Soon</div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col"><h4>Global Reach</h4><ul>
+          <li><a href="region-north-america.html">North America</a></li>
+          <li><a href="region-asia-pacific.html">Asia-Pacific</a></li>
+          <li><a href="region-middle-east.html">Middle East</a></li>
+          <li><a href="region-europe.html">Europe</a></li>
+          <li><a href="region-africa.html">Africa</a></li>
+          <li><a href="region-latin-america.html">Latin America</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Sectors</h4><ul>
+          <li><a href="sector-ai-technology.html">AI &amp; Technology</a></li>
+          <li><a href="sector-energy.html">Power &amp; Renewables</a></li>
+          <li><a href="sector-healthcare.html">Healthcare &amp; BioTech</a></li>
+          <li><a href="sector-fintech.html">FinTech</a></li>
+          <li><a href="sector-infrastructure.html">Infrastructure</a></li>
+          <li><a href="sector-critical-minerals.html">Critical Minerals</a></li>
+          <li><a href="sector-defense.html">Defense &amp; Aerospace</a></li>
+          <li><a href="sector-oil-gas.html">Oil &amp; Gas</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Company</h4><ul>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#serve">Who We Serve</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="mailto:info@mnsrcapital.com">Email Us</a></li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">MNSR Capital LLC is a strategic advisory firm. This website does not constitute investment advice, an offer to sell, or a solicitation of securities. All services subject to applicable laws and regulations.</p>
+      <div class="footer-copy">&copy; 2026 MNSR Capital LLC</div>
+    </div>
+  </div>
+</footer>
+<script>
+window.addEventListener("scroll",function(){document.getElementById("nav").classList.toggle("raised",window.scrollY>40);});
+function unlockContent(pageId){
+  var email=document.getElementById("gateEmail_"+pageId).value.trim();
+  if(!email||email.indexOf("@")<0){document.getElementById("gateEmail_"+pageId).style.borderColor="#B43C3C";return;}
+  document.getElementById("gateWall_"+pageId).style.display="none";
+  var c=document.getElementById("intelContent_"+pageId);
+  c.style.display="block";
+  document.getElementById("platformBanner_"+pageId).style.display="flex";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.addEventListener("keydown",function(e){
+  if(e.key==="Enter"){var a=document.activeElement;if(a&&a.classList.contains("gate-email-input")){unlockContent(a.id.replace("gateEmail_",""));}}
+});
+</script>
+</body>
+</html>

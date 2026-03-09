@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Intelligence | MNSR Capital</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+body { background: var(--n900); }
+
+/* ── HERO ── */
+.plat-hero {
+  background: var(--n900);
+  padding: 130px 52px 72px;
+  border-bottom: 1px solid var(--d-line);
+  position: relative;
+  overflow: hidden;
+}
+.plat-hero::before {
+  content: '';
+  position: absolute;
+  top: -30%; right: -15%;
+  width: 70%; height: 100%;
+  background: radial-gradient(ellipse, rgba(184,196,207,0.04) 0%, transparent 65%);
+  pointer-events: none;
+}
+.plat-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--plat) 0%, transparent 50%);
+  opacity: 0.25;
+}
+.plat-hero-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+}
+.plat-overline {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--plat);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.plat-overline::before {
+  content: '';
+  width: 22px; height: 1px;
+  background: var(--plat);
+  opacity: 0.5;
+}
+.plat-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.12;
+  margin-bottom: 18px;
+}
+.plat-hero-sub {
+  font-size: 0.90rem;
+  font-weight: 300;
+  color: var(--d-mid);
+  line-height: 1.80;
+  max-width: 480px;
+}
+.plat-hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--d-line);
+}
+.plat-stat-row {
+  display: flex;
+}
+.plat-stat {
+  flex: 1;
+  padding: 20px 22px;
+  border-right: 1px solid var(--d-line);
+  border-bottom: 1px solid var(--d-line);
+}
+.plat-stat:last-child { border-right: none; }
+.plat-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--plat);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.plat-stat-lbl {
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--d-low);
+}
+.plat-note {
+  padding: 14px 22px;
+  font-size: 0.65rem;
+  font-weight: 300;
+  color: var(--d-low);
+  letter-spacing: 0.04em;
+  border-bottom: none;
+}
+
+/* ── SECTION TITLES ── */
+.intel-section {
+  padding: 72px 52px 0;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.intel-section-hdr {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--d-line);
+}
+.intel-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #fff;
+}
+.intel-section-tag {
+  font-size: 0.60rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--plat);
+}
+
+/* ── INTEL CARDS GRID ── */
+.intel-grid {
+  display: grid;
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.intel-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.intel-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+.intel-card {
+  background: var(--n900);
+  padding: 28px 26px 24px;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.25s;
+  min-height: 180px;
+}
+.intel-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--plat);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.intel-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 0 0 32px 32px;
+  border-color: transparent transparent rgba(184,196,207,0.07) transparent;
+  transition: border-color 0.25s;
+}
+.intel-card:hover { background: var(--n800); }
+.intel-card:hover::before { transform: scaleX(1); }
+.intel-card:hover::after { border-color: transparent transparent rgba(184,196,207,0.14) transparent; }
+.intel-card:hover .ic-cta { color: var(--plat); opacity: 1; }
+.intel-card:hover .ic-stat { color: var(--plat-lt); }
+
+.ic-tag {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--plat-dk);
+  margin-bottom: 10px;
+  transition: color 0.25s;
+}
+.intel-card:hover .ic-tag { color: var(--plat); }
+
+.ic-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 8px;
+  flex: 1;
+}
+.ic-stat {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--plat);
+  line-height: 1;
+  margin-bottom: 3px;
+  transition: color 0.25s;
+}
+.ic-stat-lbl {
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--d-low);
+  margin-bottom: 12px;
+}
+.ic-hook {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: rgba(212,220,228,0.45);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+.ic-cta {
+  font-size: 0.60rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(184,196,207,0.35);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.7;
+  transition: color 0.25s, opacity 0.25s;
+  margin-top: auto;
+}
+.ic-cta::after {
+  content: '→';
+  transition: transform 0.2s;
+}
+.intel-card:hover .ic-cta::after { transform: translateX(4px); }
+
+/* ── PLATFORM COMING SOON BAND ── */
+.platform-coming {
+  max-width: 1080px;
+  margin: 64px auto 0;
+  padding: 0 0 72px;
+}
+.pc-box {
+  background: var(--n800);
+  border: 1px solid var(--d-line);
+  padding: 44px 48px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.pc-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--plat), transparent);
+  opacity: 0.5;
+}
+.pc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--plat);
+  border: 1px solid rgba(184,196,207,0.2);
+  padding: 5px 12px;
+  margin-bottom: 16px;
+}
+.pc-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--plat);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.pc-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.pc-body {
+  font-size: 0.84rem;
+  font-weight: 300;
+  color: var(--d-mid);
+  line-height: 1.72;
+  max-width: 560px;
+  margin-bottom: 24px;
+}
+.pc-features {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.pc-feat {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--plat-dk);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pc-feat::before {
+  content: '';
+  width: 4px; height: 4px;
+  background: var(--plat);
+  border-radius: 50%;
+}
+.pc-right { text-align: center; }
+.pc-date {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--plat);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.pc-date-lbl {
+  font-size: 0.60rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--d-low);
+  margin-bottom: 20px;
+}
+
+/* Early access form inline */
+.pc-form {
+  display: flex;
+  gap: 0;
+  margin-top: 4px;
+}
+.pc-input {
+  padding: 11px 14px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-right: none;
+  color: #fff;
+  font-size: 0.82rem;
+  font-family: inherit;
+  outline: none;
+  width: 220px;
+  transition: border-color 0.2s;
+}
+.pc-input::placeholder { color: rgba(255,255,255,0.22); }
+.pc-input:focus { border-color: var(--plat); }
+.pc-btn {
+  padding: 11px 18px;
+  background: var(--plat);
+  color: var(--n900);
+  border: none;
+  font-size: 0.60rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.pc-btn:hover { background: var(--plat-lt); }
+.pc-success {
+  display: none;
+  font-size: 0.75rem;
+  color: var(--plat);
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .plat-hero { padding: 100px 24px 52px; }
+  .plat-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .intel-section { padding: 52px 24px 0; }
+  .intel-grid.cols-3 { grid-template-columns: 1fr 1fr; }
+  .intel-grid.cols-4 { grid-template-columns: 1fr 1fr; }
+  .platform-coming { padding: 0 24px 52px; margin-top: 40px; }
+  .pc-box { grid-template-columns: 1fr; gap: 28px; }
+  .pc-right { text-align: left; }
+}
+@media (max-width: 580px) {
+  .intel-grid.cols-3,
+  .intel-grid.cols-4 { grid-template-columns: 1fr; }
+  .plat-stat-row { flex-direction: column; }
+  .plat-stat { border-right: none; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">MNSR Capital</a>
+  <ul class="nav-center">
+    <li><a href="platform.html" style="color:var(--plat);">Intelligence</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#serve">Who We Serve</a></li>
+    <li><a href="index.html#process">Our Process</a></li>
+  </ul>
+  <div class="nav-right"><a href="index.html#contact" class="nav-btn">Contact</a></div>
+</nav>
+
+<!-- HERO -->
+<div class="plat-hero">
+  <div class="plat-hero-inner">
+    <div>
+      <div class="plat-overline">Global Market Intelligence</div>
+      <h1>Where Institutional Capital Is Moving — And Why</h1>
+      <p class="plat-hero-sub">Sector and regional intelligence across eight high-growth sectors and six priority markets. Built for companies seeking capital and investors seeking curated deal flow. Enter your email on any brief to unlock full access.</p>
+    </div>
+    <div class="plat-hero-right">
+      <div class="plat-stat-row">
+        <div class="plat-stat">
+          <div class="plat-stat-num">8</div>
+          <div class="plat-stat-lbl">High-Growth Sectors</div>
+        </div>
+        <div class="plat-stat">
+          <div class="plat-stat-num">6</div>
+          <div class="plat-stat-lbl">Priority Regions</div>
+        </div>
+      </div>
+      <div class="plat-stat-row">
+        <div class="plat-stat">
+          <div class="plat-stat-num">$30T+</div>
+          <div class="plat-stat-lbl">Institutional AUM Tracked</div>
+        </div>
+        <div class="plat-stat">
+          <div class="plat-stat-num">Coming Soon</div>
+          <div class="plat-stat-lbl">Platform Launch</div>
+        </div>
+      </div>
+      <div class="plat-note">Intelligence briefs unlock on email. No account required. Platform access launches coming soon.</div>
+    </div>
+  </div>
+</div>
+
+<!-- REGIONS -->
+<div style="padding: 0 52px; max-width:1132px; margin: 0 auto;">
+
+<div style="padding-top:64px; padding-bottom:24px; border-bottom:1px solid var(--d-line); display:flex; align-items:baseline; justify-content:space-between; margin-bottom:32px;">
+  <div>
+    <div style="font-size:0.60rem;font-weight:600;letter-spacing:0.20em;text-transform:uppercase;color:var(--plat);margin-bottom:8px;">Global Reach</div>
+    <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:400;color:#fff;">Six Priority Markets</div>
+  </div>
+  <div style="font-size:0.60rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--d-low);">Click any region to access intelligence brief</div>
+</div>
+
+<div class="intel-grid cols-3">
+
+  <a href="region-north-america.html" class="intel-card">
+    <div class="ic-tag">North America</div>
+    <div class="ic-name">The World's Deepest Capital Markets</div>
+    <div class="ic-stat">$30T+</div>
+    <div class="ic-stat-lbl">Institutional AUM</div>
+    <div class="ic-hook">US and Canadian institutions hold the largest pools of allocatable capital — and are actively seeking exposure outside traditional networks.</div>
+    <div class="ic-cta">Access Brief</div>
+  </a>
+
+  <a href="region-asia-pacific.html" class="intel-card">
+    <div class="ic-tag">Asia-Pacific</div>
+    <div class="ic-name">59% of Global GDP Growth</div>
+    <div class="ic-stat">59%</div>
+    <div class="ic-stat-lbl">Share of Global GDP Growth</div>
+    <div class="ic-hook">India, Southeast Asia, Japan, Australia — four distinct capital markets each demanding precise advisory positioning.</div>
+    <div class="ic-cta">Access Brief</div>
+  </a>
+
+  <a href="region-middle-east.html" class="intel-card">
+    <div class="ic-tag">Middle East & GCC</div>
+    <div class="ic-name">The Most Active Capital Deployers on Earth</div>
+    <div class="ic-stat">$4T+</div>
+    <div class="ic-stat-lbl">Sovereign Wealth Assets</div>
+    <div class="ic-hook">Vision 2030. Net Zero 2050. GCC sovereign funds are executing the most ambitious transformation programs in a generation.</div>
+    <div class="ic-cta">Access Brief</div>
+  </a>
+
+  <a href="region-europe.html" class="intel-card">
+    <div class="ic-tag">Europe</div>
+    <div class="ic-name">Three Structural Transitions — Simultaneously</div>
+    <div class="ic-stat">€1.5T</div>
+    <div class="ic-stat-lbl">Green Deal Investment</div>
+    <div class="ic-hook">Green energy, defense industrialization, digital sovereignty — all happening at once. Institutional capital repositioning across every theme.</div>
+    <div class="ic-cta">Access Brief</div>
+  </a>
+
+  <a href="region-africa.html" class="intel-card">
+    <div class="ic-tag">Africa</div>
+    <div class="ic-name">The Most Undercapitalized High-Growth Region</div>
+    <div class="ic-stat">1.4B</div>
+    <div class="ic-stat-lbl">Population — Fastest Growing</div>
+    <div class="ic-hook">Institutional capital is quietly repositioning into African equities and FinTech. The window for first-mover positioning is now.</div>
+    <div class="ic-cta">Access Brief</div>
+  </a>
+
+  <a href="region-latin-america.html" class="intel-card">
+    <div class="ic-tag">Latin America</div>
+    <div class="ic-name">Lithium, Oil & Deep Capital Markets Converging</div>
+    <div class="ic-stat">$12B+</div>
+    <div class="ic-stat-lbl">Annual PE Investment</div>
+    <div class="ic-hook">Brazil, Chile, Guyana — critical minerals, emerging oil, and $12B+ in annual PE investment creating distinct advisory opportunities.</div>
+    <div class="ic-cta">Access Brief</div>
+  </a>
+
+</div>
+
+<!-- SECTORS -->
+<div style="padding-top:64px; padding-bottom:24px; border-bottom:1px solid var(--d-line); display:flex; align-items:baseline; justify-content:space-between; margin-bottom:32px;">
+  <div>
+    <div style="font-size:0.60rem;font-weight:600;letter-spacing:0.20em;text-transform:uppercase;color:var(--plat);margin-bottom:8px;">Sectors</div>
+    <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:400;color:#fff;">Eight High-Growth Sectors</div>
+  </div>
+  <div style="font-size:0.60rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--d-low);">Click any sector to access intelligence brief</div>
+</div>
+
+<div class="intel-grid cols-4">
+
+  <a href="sector-ai-technology.html" class="intel-card">
+    <div class="ic-tag">AI & Technology</div>
+    <div class="ic-name">The Fastest-Growing Institutional Category</div>
+    <div class="ic-stat">27.7%</div>
+    <div class="ic-stat-lbl">CAGR — $826B by 2030</div>
+    <div class="ic-hook">Sovereign funds and family offices moving direct — bypassing VC to build technology exposure.</div>
+    <div class="ic-cta">Access Brief</div>
+  </a>
+
+  <a href="sector-energy.html" class="intel-card">
+    <div class="ic-tag">Power & Renewables</div>
+    <div class="ic-name">The Largest Capital Reallocation in History</div>
+    <div class="ic-stat">$5.6T</div>
+    <div class="ic-stat-lbl">Annual Investment Required</div>
+    <div class="ic-hook">Every major SWF and PE fund has a clean energy mandate. $5.6T needed annually through 2030.</div>
+    <div class="ic-cta">Access Brief</div>
+  </a>
+
+  <a href="sector-healthcare.html" class="intel-card">
+    <div class="ic-tag">Healthcare & BioTech</div>
+    <div class="ic-name">Recession-Resistant by Structure</div>
+    <div class="ic-stat">$3.14T</div>
+    <div class="ic-stat-lbl">Market Size by 2030</div>
+    <div class="ic-hook">AI, genomics, digital health converging. Aging demographics create structural demand that transcends economic cycles.</div>
+    <div class="ic-cta">Access Brief</div>
+  </a>
+
+  <a href="sector-fintech.html" class="intel-card">
+    <div class="ic-tag">FinTech</div>
+    <div class="ic-name">Financial Services Rebuilt From Scratch</div>
+    <div class="ic-stat">$9T</div>
+    <div class="ic-stat-lbl">Stablecoin Payments 2025</div>
+    <div class="ic-hook">Regulatory windows open in US, UK, Singapore, UAE — simultaneously. The most favorable environment in a generation.</div>
+    <div class="ic-cta">Access Brief</div>
+  </a>
+
+  <a href="sector-infrastructure.html" class="intel-card">
+    <div class="ic-tag">Infrastructure</div>
+    <div class="ic-name">Every Megatrend Converges Here</div>
+    <div class="ic-stat">$15.2T</div>
+    <div class="ic-stat-lbl">Global Market</div>
+    <div class="ic-hook">AI, deglobalization, energy transition — all require physical infrastructure. The defining capital deployment theme of the decade.</div>
+    <div class="ic-cta">Access Brief</div>
+  </a>
+
+  <a href="sector-critical-minerals.html" class="intel-card">
+    <div class="ic-tag">Critical Minerals</div>
+    <div class="ic-name">National Security Meets Energy Transition</div>
+    <div class="ic-stat">$400B</div>
+    <div class="ic-stat-lbl">Annual Investment Needed</div>
+    <div class="ic-hook">Governments co-investing with private capital. Supply chain vulnerability creating a generational opportunity window.</div>
+    <div class="ic-cta">Access Brief</div>
+  </a>
+
+  <a href="sector-defense.html" class="intel-card">
+    <div class="ic-tag">Defense & Aerospace</div>
+    <div class="ic-name">Highest Spend Since the Cold War</div>
+    <div class="ic-stat">$2.4T</div>
+    <div class="ic-stat-lbl">Global Defense Spending</div>
+    <div class="ic-hook">Commercial technology disrupting procurement at every level. $100B+ European defense increase underway.</div>
+    <div class="ic-cta">Access Brief</div>
+  </a>
+
+  <a href="sector-oil-gas.html" class="intel-card">
+    <div class="ic-tag">Oil & Gas</div>
+    <div class="ic-name">Institutions Quietly Returning</div>
+    <div class="ic-stat">100M</div>
+    <div class="ic-stat-lbl">Barrels/Day Global Demand</div>
+    <div class="ic-hook">ESG-driven underinvestment created structural supply gaps. Energy security and transition cannot coexist without capital.</div>
+    <div class="ic-cta">Access Brief</div>
+  </a>
+
+</div>
+
+<!-- PLATFORM COMING SOON -->
+<div class="platform-coming">
+  <div class="pc-box">
+    <div>
+      <div class="pc-badge">Platform Status</div>
+      <div class="pc-title">The MNSR Capital Platform</div>
+      <p class="pc-body">A two-sided marketplace connecting companies at every inflection point with the right capital partners — sovereign wealth funds, private equity, family offices, and accredited investors globally. Verified investor profiles, sector intelligence, and direct engagement tools across six global regions and eight high-growth sectors.</p>
+      <div class="pc-features">
+        <div class="pc-feat">Verified Investor Profiles</div>
+        <div class="pc-feat">Sector Intelligence</div>
+        <div class="pc-feat">Company-Investor Matching</div>
+        <div class="pc-feat">Direct Engagement Tools</div>
+      </div>
+      <div style="margin-top:24px;">
+        <div style="font-size:0.60rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--plat);margin-bottom:10px;">Get Notified at Launch</div>
+        <div class="pc-form" id="pcForm">
+          <input class="pc-input" type="email" id="pcEmail" placeholder="your@email.com">
+          <button class="pc-btn" onclick="pcSubmit()">Notify Me</button>
+        </div>
+        <div class="pc-success" id="pcSuccess">You're on the list. We'll notify you at launch.</div>
+      </div>
+    </div>
+    <div class="pc-right">
+      <div class="pc-date">Coming<br>Soon</div>
+      <div class="pc-date-lbl">Platform Status</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end padding wrap -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">MNSR Capital</div>
+        <div class="footer-tag">Global Strategic Advisory</div>
+        <div class="footer-platform-badge">Intelligence Platform — Coming Soon</div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col"><h4>Global Reach</h4><ul>
+          <li><a href="region-north-america.html">North America</a></li>
+          <li><a href="region-asia-pacific.html">Asia-Pacific</a></li>
+          <li><a href="region-middle-east.html">Middle East</a></li>
+          <li><a href="region-europe.html">Europe</a></li>
+          <li><a href="region-africa.html">Africa</a></li>
+          <li><a href="region-latin-america.html">Latin America</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Sectors</h4><ul>
+          <li><a href="sector-ai-technology.html">AI &amp; Technology</a></li>
+          <li><a href="sector-energy.html">Power &amp; Renewables</a></li>
+          <li><a href="sector-healthcare.html">Healthcare &amp; BioTech</a></li>
+          <li><a href="sector-fintech.html">FinTech</a></li>
+          <li><a href="sector-infrastructure.html">Infrastructure</a></li>
+          <li><a href="sector-critical-minerals.html">Critical Minerals</a></li>
+          <li><a href="sector-defense.html">Defense &amp; Aerospace</a></li>
+          <li><a href="sector-oil-gas.html">Oil &amp; Gas</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Company</h4><ul>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#serve">Who We Serve</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="mailto:info@mnsrcapital.com">Email Us</a></li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">MNSR Capital LLC is a strategic advisory firm. This website does not constitute investment advice, an offer to sell, or a solicitation of securities. All services subject to applicable laws and regulations.</p>
+      <div class="footer-copy">&copy; 2026 MNSR Capital LLC</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener("scroll",function(){document.getElementById("nav").classList.toggle("raised",window.scrollY>40);});
+function pcSubmit(){
+  var e=document.getElementById("pcEmail").value.trim();
+  if(!e||e.indexOf("@")<0){document.getElementById("pcEmail").style.borderColor="#B43C3C";return;}
+  document.getElementById("pcForm").style.display="none";
+  document.getElementById("pcSuccess").style.display="block";
+}
+document.addEventListener("keydown",function(e){
+  if(e.key==="Enter"&&document.activeElement.id==="pcEmail"){pcSubmit();}
+});
+</script>
+</body>
+</html>

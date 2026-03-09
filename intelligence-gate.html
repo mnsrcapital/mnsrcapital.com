@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Early Access | MNSR Capital</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+body { background: var(--n900); margin: 0; }
+
+.gate-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ── LEFT PANEL ── */
+.gate-left {
+  background: var(--n900);
+  padding: 120px 64px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--d-line);
+  position: relative;
+  overflow: hidden;
+}
+.gate-left::before {
+  content: '';
+  position: absolute;
+  top: -20%; right: -20%;
+  width: 90%; height: 90%;
+  background: radial-gradient(ellipse, rgba(184,196,207,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+.gate-left::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 40%; height: 1px;
+  background: linear-gradient(90deg, var(--plat), transparent);
+  opacity: 0.3;
+}
+
+.gate-overline {
+  font-size: 0.60rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--plat);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.gate-overline::before {
+  content: '';
+  width: 22px; height: 1px;
+  background: var(--plat);
+  opacity: 0.5;
+}
+
+.gate-left h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.gate-left-sub {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--d-mid);
+  line-height: 1.80;
+  margin-bottom: 40px;
+  max-width: 400px;
+}
+
+/* Teaser blocks — hint without revealing */
+.gate-teasers {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--d-line);
+  margin-bottom: 32px;
+}
+.gate-teaser {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--d-line);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.gate-teaser:last-child { border-bottom: none; }
+.gt-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--plat);
+  min-width: 40px;
+  line-height: 1;
+}
+.gt-content {}
+.gt-title {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 3px;
+  letter-spacing: 0.02em;
+}
+.gt-desc {
+  font-size: 0.70rem;
+  font-weight: 300;
+  color: var(--d-low);
+  line-height: 1.5;
+}
+
+/* Redacted bars — visual intrigue */
+.gate-redacted {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.gate-redacted-label {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--plat-dk);
+  margin-bottom: 4px;
+}
+.redacted-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.redacted-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--plat);
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+.redacted-bar {
+  height: 8px;
+  border-radius: 1px;
+  background: rgba(184,196,207,0.08);
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+}
+.redacted-bar::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(184,196,207,0.12), transparent);
+  animation: shimmer 2.5s infinite;
+}
+@keyframes shimmer { to { left: 200%; } }
+.redacted-bar.w60 { max-width: 60%; }
+.redacted-bar.w80 { max-width: 80%; }
+.redacted-bar.w45 { max-width: 45%; }
+.redacted-bar.w70 { max-width: 70%; }
+.redacted-bar.w55 { max-width: 55%; }
+.redacted-bar.w75 { max-width: 75%; }
+.redacted-bar.w65 { max-width: 65%; }
+.redacted-bar.w50 { max-width: 50%; }
+
+.gate-unlock-hint {
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: var(--d-low);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* ── RIGHT PANEL ── */
+.gate-right {
+  background: var(--n800);
+  padding: 120px 64px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gate-back {
+  font-size: 0.60rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--d-low);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 36px;
+  transition: color 0.2s;
+}
+.gate-back:hover { color: var(--plat); }
+
+.gate-form-hdr {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--d-line);
+}
+.gate-form-eyebrow {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--plat);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.gate-form-eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--plat);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.gate-form-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+.gate-form-sub {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--d-mid);
+  line-height: 1.6;
+}
+
+.gate-field { margin-bottom: 14px; }
+.gate-label {
+  display: block;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--d-low);
+  margin-bottom: 6px;
+}
+.gate-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  color: #fff;
+  font-size: 0.86rem;
+  font-family: inherit;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.gate-input::placeholder { color: rgba(255,255,255,0.18); }
+.gate-input:focus { border-color: var(--plat); background: rgba(255,255,255,0.06); }
+.gate-input.error { border-color: #B43C3C; }
+
+.gate-submit {
+  width: 100%;
+  padding: 14px 24px;
+  background: var(--plat);
+  color: var(--n900);
+  border: none;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 6px;
+}
+.gate-submit:hover { background: var(--plat-lt); }
+
+.gate-fine {
+  font-size: 0.58rem;
+  color: var(--d-low);
+  line-height: 1.65;
+  margin-top: 12px;
+}
+
+/* ── SUCCESS STATE ── */
+#gateSuccess {
+  display: none;
+}
+.success-box {
+  border: 1px solid var(--d-line);
+  border-top: 2px solid var(--plat);
+  padding: 32px 28px;
+}
+.success-eyebrow {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--plat);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.success-eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--plat);
+  border-radius: 50%;
+}
+.success-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+.success-body {
+  font-size: 0.80rem;
+  font-weight: 300;
+  color: var(--d-mid);
+  line-height: 1.72;
+  margin-bottom: 8px;
+}
+.success-note {
+  font-size: 0.68rem;
+  font-weight: 300;
+  color: var(--plat-dk);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  padding: 10px 14px;
+  border-left: 2px solid var(--plat);
+  background: rgba(184,196,207,0.04);
+}
+.success-btn {
+  display: inline-block;
+  padding: 13px 28px;
+  background: var(--plat);
+  color: var(--n900);
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.success-btn:hover { background: var(--plat-lt); }
+
+@media (max-width: 860px) {
+  .gate-page { grid-template-columns: 1fr; }
+  .gate-left { padding: 100px 28px 40px; border-right: none; border-bottom: 1px solid var(--d-line); }
+  .gate-right { padding: 40px 28px 60px; }
+  .gate-teasers { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">MNSR Capital</a>
+  <ul class="nav-center">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#serve">Who We Serve</a></li>
+    <li><a href="index.html#process">Our Process</a></li>
+  </ul>
+  <div class="nav-right"><a href="index.html#contact" class="nav-btn">Contact</a></div>
+</nav>
+
+<div class="gate-page">
+
+  <!-- LEFT: intrigue panel -->
+  <div class="gate-left">
+    <div class="gate-overline">Global Market Intelligence</div>
+    <h1>Know Where Capital Is Moving Before Everyone Else</h1>
+    <p class="gate-left-sub">MNSR Capital tracks capital flows across high-growth sectors and priority regions globally. Our intelligence briefs reveal where the right capital is deploying — and how to position for it. Register for early access to see our areas of focus.</p>
+
+    <div class="gate-teasers">
+      <div class="gate-teaser">
+        <div class="gt-num">8</div>
+        <div class="gt-content">
+          <div class="gt-title">High-Growth Sectors</div>
+          <div class="gt-desc">Independently identified through rigorous capital flow analysis. Unlocked on registration.</div>
+        </div>
+      </div>
+      <div class="gate-teaser">
+        <div class="gt-num">6</div>
+        <div class="gt-content">
+          <div class="gt-title">Priority Regions</div>
+          <div class="gt-desc">Where we see the highest conviction opportunities across global markets. Unlocked on registration.</div>
+        </div>
+      </div>
+      <div class="gate-teaser">
+        <div class="gt-num">$32T</div>
+        <div class="gt-content">
+          <div class="gt-title">Capital Seeking Deployment by 2030</div>
+          <div class="gt-desc">The structural shift is underway. Position your company or mandate ahead of it.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Redacted preview — visual intrigue -->
+    <div class="gate-redacted">
+      <div class="gate-redacted-label">Areas of Focus — Unlocked on Registration</div>
+      <div class="redacted-row">
+        <div class="redacted-dot"></div>
+        <div class="redacted-bar w80"></div>
+      </div>
+      <div class="redacted-row">
+        <div class="redacted-dot"></div>
+        <div class="redacted-bar w60"></div>
+      </div>
+      <div class="redacted-row">
+        <div class="redacted-dot"></div>
+        <div class="redacted-bar w75"></div>
+      </div>
+      <div class="redacted-row">
+        <div class="redacted-dot"></div>
+        <div class="redacted-bar w45"></div>
+      </div>
+      <div class="redacted-row">
+        <div class="redacted-dot"></div>
+        <div class="redacted-bar w70"></div>
+      </div>
+      <div class="redacted-row">
+        <div class="redacted-dot"></div>
+        <div class="redacted-bar w55"></div>
+      </div>
+      <div class="redacted-row">
+        <div class="redacted-dot"></div>
+        <div class="redacted-bar w65"></div>
+      </div>
+      <div class="redacted-row">
+        <div class="redacted-dot"></div>
+        <div class="redacted-bar w50"></div>
+      </div>
+    </div>
+    <div class="gate-unlock-hint">Register to unlock sectors, regions, and subsector intelligence briefs →</div>
+
+  </div>
+
+  <!-- RIGHT: form panel -->
+  <div class="gate-right">
+    <a href="index.html" class="gate-back">← Back to MNSR Capital</a>
+
+    <div class="gate-form-hdr">
+      <div class="gate-form-eyebrow">Early Access Registration</div>
+      <div class="gate-form-title">Access Our Intelligence Hub &amp; Join the Platform Waitlist</div>
+      <p class="gate-form-sub">Register to unlock our sector and regional focus areas, access full intelligence briefs, and secure your place on the MNSR Capital Platform waitlist.</p>
+    </div>
+
+    <div id="gateForm">
+      <div class="gate-field">
+        <label class="gate-label" for="gateName">Full Name</label>
+        <input class="gate-input" type="text" id="gateName" placeholder="Your full name">
+      </div>
+      <div class="gate-field">
+        <label class="gate-label" for="gateCompany">Company</label>
+        <input class="gate-input" type="text" id="gateCompany" placeholder="Company name">
+      </div>
+      <div class="gate-field">
+        <label class="gate-label" for="gateTitle">Title</label>
+        <input class="gate-input" type="text" id="gateTitle" placeholder="Your title or role">
+      </div>
+      <div class="gate-field">
+        <label class="gate-label" for="gateEmail">Email Address</label>
+        <input class="gate-input" type="email" id="gateEmail" placeholder="your@email.com">
+      </div>
+      <button class="gate-submit" onclick="gateSubmit()">Register &amp; Unlock Intelligence Hub →</button>
+      <p class="gate-fine">No spam. Your information is handled with strict confidentiality. You'll be among the first notified when the MNSR Capital Platform goes live.</p>
+    </div>
+
+    <div id="gateSuccess">
+      <div class="success-box">
+        <div class="success-eyebrow">Registration Confirmed</div>
+        <div class="success-title">Welcome to MNSR Capital Intelligence</div>
+        <p class="success-body">You now have access to our sector and regional focus areas, full intelligence briefs, and subsector analysis.</p>
+        <div class="success-note">You're on the early access list for the MNSR Capital Platform. You'll be among the first notified when it goes live — no deadline, just first in line.</div>
+        <a href="platform.html" class="success-btn">Enter Intelligence Hub →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+window.addEventListener("scroll",function(){document.getElementById("nav").classList.toggle("raised",window.scrollY>40);});
+
+function gateSubmit() {
+  var name    = document.getElementById("gateName").value.trim();
+  var company = document.getElementById("gateCompany").value.trim();
+  var title   = document.getElementById("gateTitle").value.trim();
+  var email   = document.getElementById("gateEmail").value.trim();
+  var valid   = true;
+
+  ["gateName","gateCompany","gateTitle","gateEmail"].forEach(function(id){
+    document.getElementById(id).classList.remove("error");
+  });
+
+  if (!name)    { document.getElementById("gateName").classList.add("error");    valid=false; }
+  if (!company) { document.getElementById("gateCompany").classList.add("error"); valid=false; }
+  if (!title)   { document.getElementById("gateTitle").classList.add("error");   valid=false; }
+  if (!email || email.indexOf("@")<0) { document.getElementById("gateEmail").classList.add("error"); valid=false; }
+
+  if (!valid) return;
+
+  document.getElementById("gateForm").style.display    = "none";
+  document.getElementById("gateSuccess").style.display = "block";
+  try { sessionStorage.setItem("mnsr_intel_access","1"); } catch(e){}
+}
+
+document.addEventListener("keydown",function(e){
+  if(e.key==="Enter"){
+    var a=document.activeElement;
+    if(a&&a.classList.contains("gate-input")){gateSubmit();}
+  }
+});
+</script>
+</body>
+</html>
