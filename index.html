@@ -841,55 +841,6 @@ footer {
 
     </div>
 
-    <!-- Mobile accordion (shown only on small screens) -->
-    <div class="svc-accordion">
-      <div class="acc-item">
-        <div class="acc-header" onclick="toggleAcc(this)">
-          <div class="acc-header-left"><span class="acc-num">01</span><span class="acc-title">Capital Advisory</span></div>
-          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="#8A9BAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="acc-body"><p class="acc-body-text">Strategic guidance on capital structure, funding readiness, and positioning for companies seeking the right capital partners — across private equity, sovereign wealth, family offices, and accredited investors globally.</p></div>
-      </div>
-      <div class="acc-item">
-        <div class="acc-header" onclick="toggleAcc(this)">
-          <div class="acc-header-left"><span class="acc-num">02</span><span class="acc-title">Company Evaluation &amp; Positioning</span></div>
-          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="#8A9BAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="acc-body"><p class="acc-body-text">Independent analysis of company fundamentals, capital structure, sector comparables, and capital readiness — the foundation for credible market engagement.</p></div>
-      </div>
-      <div class="acc-item">
-        <div class="acc-header" onclick="toggleAcc(this)">
-          <div class="acc-header-left"><span class="acc-num">03</span><span class="acc-title">Capital Introduction</span></div>
-          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="#8A9BAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="acc-body"><p class="acc-body-text">Strategic introductions between qualified companies and the right capital partners — every connection is deliberate, structured, and built on mandate alignment.</p></div>
-      </div>
-      <div class="acc-item">
-        <div class="acc-header" onclick="toggleAcc(this)">
-          <div class="acc-header-left"><span class="acc-num">04</span><span class="acc-title">Strategic Transaction Advisory</span></div>
-          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="#8A9BAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="acc-body"><p class="acc-body-text">Advisory across M&amp;A, divestitures, joint ventures, and strategic partnerships — helping clients pursue value-creating transactions globally.</p></div>
-      </div>
-      <div class="acc-item">
-        <div class="acc-header" onclick="toggleAcc(this)">
-          <div class="acc-header-left"><span class="acc-num">05</span><span class="acc-title">Roadshow Advisory</span></div>
-          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="#8A9BAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="acc-body"><p class="acc-body-text">End-to-end preparation and strategic support for investor roadshows — narrative development, materials, investor targeting, and meeting facilitation.</p></div>
-      </div>
-      <div class="acc-item">
-        <div class="acc-header" onclick="toggleAcc(this)">
-          <div class="acc-header-left"><span class="acc-num">06</span><span class="acc-title">Global Market Intelligence <span class="acc-badge-inline">Platform</span></span></div>
-          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="#8A9BAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="acc-body">
-          <p class="acc-body-text">Proprietary sector and regional intelligence across eight high-growth sectors and six global regions — where capital is actively deploying.</p>
-          <a href="intelligence-gate.html" class="acc-body-link">Explore Intelligence →</a>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -1108,15 +1059,6 @@ function closeMenu() {
   document.body.style.overflow = '';
 }
 
-// Services accordion
-function toggleAcc(header) {
-  const item = header.parentElement;
-  const isOpen = item.classList.contains('open');
-  // Close all
-  document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
-  // Open clicked if it was closed
-  if (!isOpen) item.classList.add('open');
-}
 </script>
 </body>
 </html>
