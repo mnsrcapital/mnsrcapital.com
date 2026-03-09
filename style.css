@@ -245,7 +245,7 @@ img { display: block; max-width: 100%; }
   display: block;
   width: 22px;
   height: 2px;
-  background: #ffffff;
+  background: #1F3260;
   transition: all 0.25s;
 }
 .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -1176,7 +1176,7 @@ footer {
   .nav-center { display: none !important; }
   .nav-btn { display: none !important; }
   .nav-hamburger { display: flex !important; }
-  .nav-hamburger span { background: #ffffff !important; }
+  .nav-hamburger span { background: #1F3260 !important; }
   .hero-inner { grid-template-columns: 1fr; gap: 40px; }
   .hero-stats { display: grid; grid-template-columns: 1fr 1fr; }
   .svc-grid { grid-template-columns: 1fr 1fr; }
