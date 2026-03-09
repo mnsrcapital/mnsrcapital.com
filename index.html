@@ -332,30 +332,30 @@ h3.card-title {
 /* ══════════════════════════════════════
    PROCESS — deep navy
 ══════════════════════════════════════ */
-#process { background:var(--navy-dk); padding:104px 60px; }
+#process { background:#ffffff; padding:104px 60px; }
 .proc-hd { max-width:var(--max); margin:0 auto 64px; }
-.proc-hd .ov { color:rgba(240,236,233,.45); margin-bottom:16px; }
-.proc-hd h2  { color:var(--d-hi); margin-bottom:14px; }
-.proc-hd p   { color:var(--d-mid); max-width:480px; }
+.proc-hd .ov { color:var(--ink-low); margin-bottom:16px; }
+.proc-hd h2  { color:var(--ink); margin-bottom:14px; }
+.proc-hd p   { color:var(--ink-mid); max-width:480px; }
 
 .proc-grid {
   max-width:var(--max); margin:0 auto;
   display:grid; grid-template-columns:repeat(4,1fr);
-  gap:2px; background:rgba(240,236,233,.06);
+  gap:2px; background:var(--stone-bd);
 }
 .proc-step {
-  background:var(--navy-dk); padding:48px 32px;
+  background:var(--stone); padding:48px 32px;
   transition:background .2s;
 }
-.proc-step:hover { background:var(--navy); }
+.proc-step:hover { background:var(--stone-dk); }
 .proc-n {
   font-family:'Playfair Display',serif;
   font-size:2.2rem; font-weight:400;
-  color:var(--stone); opacity:.15;
+  color:var(--ink); opacity:.12;
   line-height:1; margin-bottom:20px;
 }
-.proc-title { font-size:.78rem; font-weight:400; letter-spacing:.12em; text-transform:uppercase; color:var(--d-hi); margin-bottom:12px; }
-.proc-body  { font-size:.85rem; font-weight:300; color:var(--d-low); line-height:1.70; }
+.proc-title { font-size:.78rem; font-weight:400; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); margin-bottom:12px; }
+.proc-body  { font-size:.85rem; font-weight:300; color:var(--ink-mid); line-height:1.70; }
 
 /* ══════════════════════════════════════
    CONTACT
@@ -456,12 +456,24 @@ footer {
 
   #services { padding:72px 24px; }
   .svc-grid { grid-template-columns:1fr; }
+  .svc { background:var(--stone) !important; }
+  .svc-intel { background:var(--navy-dk) !important; }
 
   .serve-duo  { grid-template-columns:1fr; }
   .serve-panel { padding:60px 32px; }
+  /* On mobile both serve panels use light palette */
+  .serve-dk {
+    background: var(--stone) !important;
+  }
+  .serve-dk .ov { color:var(--ink-low) !important; }
+  .serve-dk h2  { color:var(--navy) !important; }
+  .serve-dk .serve-list li { color:var(--ink-mid) !important; border-color:var(--ink-line) !important; }
+  .serve-dk .serve-list li::before { color:var(--navy) !important; }
+  .serve-lt { border-right:none !important; border-bottom:1px solid var(--ink-line); }
 
   #process { padding:72px 24px; }
   .proc-grid { grid-template-columns:1fr 1fr; }
+  .proc-step { background:var(--stone) !important; }
 
   #contact { padding:72px 24px; }
   .contact-grid { grid-template-columns:1fr; gap:48px; }
