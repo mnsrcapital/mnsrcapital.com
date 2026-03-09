@@ -477,6 +477,154 @@ footer {
 .reveal.in { opacity:1; transform:translateY(0); }
 
 /* ══════════════════════════════════════
+   PHOTO SECTION
+══════════════════════════════════════ */
+.hero-grid-single { grid-template-columns:1fr; max-width:680px; }
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
+.immersive-section { background:#0e1221; position:relative; overflow:hidden; }
+
+.immersive-grid {
+  display:grid;
+  grid-template-columns:55fr 45fr;
+  min-height:640px;
+  position:relative;
+}
+.immersive-grid::after {
+  content:'';
+  position:absolute;
+  top:8%; bottom:8%;
+  left:55%;
+  width:1px;
+  background:linear-gradient(to bottom, transparent, rgba(240,236,233,.1) 30%, rgba(240,236,233,.1) 70%, transparent);
+  z-index:3;
+  pointer-events:none;
+}
+
+.immersive-panel { position:relative; overflow:hidden; cursor:pointer; }
+
+.immersive-img {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  transition:transform 1.1s cubic-bezier(.16,1,.3,1), filter 1.1s ease;
+  will-change:transform;
+  filter:brightness(.72) saturate(.8);
+}
+.immersive-panel:hover .immersive-img { transform:scale(1.05); filter:brightness(.6) saturate(.75); }
+
+.immersive-panel.left::before {
+  content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:
+    linear-gradient(105deg, rgba(14,18,33,.75) 0%, rgba(14,18,33,.25) 55%, transparent 100%),
+    linear-gradient(to top, rgba(14,18,33,.92) 0%, rgba(14,18,33,.3) 45%, transparent 75%);
+}
+.immersive-panel.right::before {
+  content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:
+    linear-gradient(255deg, rgba(14,18,33,.75) 0%, rgba(14,18,33,.25) 55%, transparent 100%),
+    linear-gradient(to top, rgba(14,18,33,.92) 0%, rgba(14,18,33,.3) 45%, transparent 75%);
+}
+.immersive-panel::after {
+  content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
+  box-shadow:inset 0 0 120px rgba(14,18,33,.4);
+}
+
+.immersive-content {
+  position:absolute; inset:0; z-index:2;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:52px 56px 60px;
+}
+
+.panel-eyebrow { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+.panel-eyebrow-line {
+  width:0; height:1px; background:rgba(240,236,233,.45); flex-shrink:0;
+  transition:width .7s cubic-bezier(.16,1,.3,1);
+}
+.immersive-panel:hover .panel-eyebrow-line { width:36px; }
+.panel-eyebrow-text {
+  font-size:.57rem; font-weight:500; letter-spacing:.28em; text-transform:uppercase;
+  color:rgba(240,236,233,.38); transition:color .4s;
+}
+.immersive-panel:hover .panel-eyebrow-text { color:rgba(240,236,233,.6); }
+
+.panel-title {
+  font-family:'Cormorant Garamond','Playfair Display',serif;
+  font-size:clamp(2.2rem,3.2vw,3.2rem);
+  font-weight:300; font-style:italic;
+  color:#F0ECE9; line-height:1.1; letter-spacing:-.01em;
+}
+.panel-title strong { font-style:normal; font-weight:400; display:block; }
+
+.panel-body {
+  overflow:hidden; max-height:0;
+  transition:max-height .6s cubic-bezier(.16,1,.3,1), opacity .5s ease;
+  opacity:0;
+}
+.immersive-panel:hover .panel-body { max-height:180px; opacity:1; }
+
+.panel-desc {
+  margin-top:16px;
+  font-size:.84rem; font-weight:300; line-height:1.78;
+  color:rgba(240,236,233,.58); max-width:380px;
+}
+.panel-cta {
+  display:inline-flex; align-items:center; gap:10px;
+  margin-top:24px;
+  font-size:.61rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase;
+  color:#F0ECE9;
+  border-bottom:1px solid rgba(240,236,233,.22);
+  padding-bottom:5px;
+  transition:gap .3s, border-color .3s;
+  text-decoration:none;
+}
+.panel-cta:hover { gap:16px; border-color:rgba(240,236,233,.55); }
+.panel-index {
+  position:absolute; top:48px; right:48px; z-index:2;
+  font-family:'Cormorant Garamond','Playfair Display',serif;
+  font-size:5rem; font-weight:300; line-height:1;
+  color:rgba(240,236,233,.05); letter-spacing:-.03em;
+  user-select:none; transition:color .5s;
+}
+.immersive-panel:hover .panel-index { color:rgba(240,236,233,.09); }
+
+/* DATA BAND */
+.data-band {
+  background:#181D38;
+  display:grid;
+  grid-template-columns:1fr 1px 1fr 1px 1fr;
+  border-top:1px solid rgba(240,236,233,.06);
+}
+.data-divider { background:rgba(240,236,233,.07); align-self:stretch; }
+.data-item { padding:38px 48px; transition:background .3s; }
+.data-item:hover { background:rgba(240,236,233,.03); }
+.data-num {
+  font-family:'Cormorant Garamond','Playfair Display',serif;
+  font-size:2.5rem; font-weight:300; color:#F0ECE9;
+  line-height:1; margin-bottom:10px; letter-spacing:-.02em;
+}
+.data-num sup { font-size:.9rem; vertical-align:super; }
+.data-label { font-size:.58rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:rgba(240,236,233,.32); margin-bottom:7px; }
+.data-desc { font-size:.78rem; font-weight:300; color:rgba(240,236,233,.35); line-height:1.65; }
+
+/* Mobile photo section */
+@media(max-width:960px){
+  .immersive-grid { grid-template-columns:1fr; min-height:auto; }
+  .immersive-grid::after { display:none; }
+  .immersive-panel { min-height:420px; }
+  .immersive-content { padding:36px 28px 40px; }
+  .panel-title { font-size:2rem; }
+  .panel-body { max-height:none !important; opacity:1 !important; }
+  .panel-eyebrow-line { width:24px !important; }
+  .panel-eyebrow-text { color:rgba(240,236,233,.55) !important; }
+  .data-band { grid-template-columns:1fr; }
+  .data-divider { height:1px; width:auto; }
+  .data-item { padding:28px 28px; }
+  .panel-index { display:none; }
+}
+
+/* ══════════════════════════════════════
    RESPONSIVE — all colors hardcoded hex, no variables
    Prevents Brave/Safari mobile dark-mode override
 ══════════════════════════════════════ */
@@ -595,10 +743,10 @@ footer {
 <!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-grid">
+    <div class="hero-grid hero-grid-single">
 
       <div>
-        <p class="ov hero-ov">Independent Capital Advisory</p>
+        <p class="ov hero-ov">MNSR Capital</p>
         <h1 class="display hero-h1">Where Capital Moves Next.</h1>
         <div class="hero-rule"></div>
         <p class="body-copy hero-sub">MNSR Capital advises companies and investors at the moments that matter most — tracking where capital conviction is building, where deals are forming, and where the right introduction changes everything.</p>
@@ -608,24 +756,76 @@ footer {
         </div>
       </div>
 
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="stat-num">$32<sup>T</sup></div>
-          <div class="stat-label">Global Alternative AUM by 2030</div>
-          <div class="stat-desc">Private equity, credit, infrastructure, and real assets seeking deployment</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PHOTO SECTION -->
+<section class="immersive-section">
+  <div class="immersive-grid">
+
+    <div class="immersive-panel left">
+      <img class="immersive-img"
+        src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=92&auto=format&fit=crop&crop=center"
+        alt="Global financial architecture">
+      <div class="panel-index">I</div>
+      <div class="immersive-content">
+        <div class="panel-eyebrow">
+          <div class="panel-eyebrow-line"></div>
+          <span class="panel-eyebrow-text">For Companies</span>
         </div>
-        <div class="hero-stat">
-          <div class="stat-num">200<sup>K+</sup></div>
-          <div class="stat-label">Companies Underserved</div>
-          <div class="stat-desc">Companies at every inflection point underserved by existing advisory infrastructure</div>
+        <div class="panel-title">
+          <strong>Capital</strong>
+          at the Right Moment
         </div>
-        <div class="hero-stat">
-          <div class="stat-num">$80<sup>T</sup></div>
-          <div class="stat-label">Capital Entering Private Markets</div>
-          <div class="stat-desc">Institutional and private capital allocating to alternatives at an accelerating pace</div>
+        <div class="panel-body">
+          <p class="panel-desc">We advise companies at every strategic inflection — from growth capital to M&amp;A to full transaction execution — connecting leadership teams with precisely the right capital partners across global markets.</p>
+          <a class="panel-cta" href="#services">Our Services ›</a>
         </div>
       </div>
+    </div>
 
+    <div class="immersive-panel right">
+      <img class="immersive-img"
+        src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=1200&q=92&auto=format&fit=crop&crop=center"
+        alt="Glass tower reflection">
+      <div class="panel-index">II</div>
+      <div class="immersive-content">
+        <div class="panel-eyebrow">
+          <div class="panel-eyebrow-line"></div>
+          <span class="panel-eyebrow-text">For Investors</span>
+        </div>
+        <div class="panel-title">
+          <strong>Curated Flow.</strong>
+          No Noise.
+        </div>
+        <div class="panel-body">
+          <p class="panel-desc">We surface opportunities calibrated to your mandate — sector, geography, stage — with independent intelligence, no preferred relationships, and no agenda beyond your outcome.</p>
+          <a class="panel-cta" href="#serve">Who We Serve ›</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="data-band">
+    <div class="data-item">
+      <div class="data-num">$32<sup>T</sup></div>
+      <div class="data-label">Global Alternative AUM by 2030</div>
+      <p class="data-desc">Private equity, credit, infrastructure, and real assets seeking deployment</p>
+    </div>
+    <div class="data-divider"></div>
+    <div class="data-item">
+      <div class="data-num">200<sup>K+</sup></div>
+      <div class="data-label">Companies Underserved</div>
+      <p class="data-desc">Companies at every inflection point underserved by existing advisory infrastructure</p>
+    </div>
+    <div class="data-divider"></div>
+    <div class="data-item">
+      <div class="data-num">$80<sup>T</sup></div>
+      <div class="data-label">Capital Entering Private Markets</div>
+      <p class="data-desc">Institutional and private capital allocating to alternatives at an accelerating pace</p>
     </div>
   </div>
 </section>
