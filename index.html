@@ -713,13 +713,24 @@ footer {
 <!-- ─── NAV ─── -->
 <nav id="nav">
   <a href="#hero" class="nav-logo">MNSR Capital</a>
-  <ul class="nav-links">
+  <ul class="nav-center">
     <li><a href="#services">Services</a></li>
     <li><a href="#serve">Who We Serve</a></li>
     <li><a href="#process">Our Process</a></li>
   </ul>
   <a href="#contact" class="nav-btn">Contact</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#serve" onclick="closeMenu()">Who We Serve</a>
+  <a href="#process" onclick="closeMenu()">Our Process</a>
+  <a href="intelligence-gate.html">Market Intelligence</a>
+  <a href="#contact" class="mob-contact-btn" onclick="closeMenu()">Contact Us</a>
+</div>
 
 
 <!-- ─── HERO ─── -->
@@ -829,6 +840,56 @@ footer {
       </div>
 
     </div>
+
+    <!-- Mobile accordion (shown only on small screens) -->
+    <div class="svc-accordion">
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-header-left"><span class="acc-num">01</span><span class="acc-title">Capital Advisory</span></div>
+          <svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="acc-body"><p class="acc-body-text">Strategic guidance on capital structure, funding readiness, and positioning for companies seeking the right capital partners — across private equity, sovereign wealth, family offices, and accredited investors globally.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-header-left"><span class="acc-num">02</span><span class="acc-title">Company Evaluation &amp; Positioning</span></div>
+          <svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="acc-body"><p class="acc-body-text">Independent analysis of company fundamentals, capital structure, sector comparables, and capital readiness — the foundation for credible market engagement.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-header-left"><span class="acc-num">03</span><span class="acc-title">Capital Introduction</span></div>
+          <svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="acc-body"><p class="acc-body-text">Strategic introductions between qualified companies and the right capital partners — every connection is deliberate, structured, and built on mandate alignment.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-header-left"><span class="acc-num">04</span><span class="acc-title">Strategic Transaction Advisory</span></div>
+          <svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="acc-body"><p class="acc-body-text">Advisory across M&amp;A, divestitures, joint ventures, and strategic partnerships — helping clients pursue value-creating transactions globally.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-header-left"><span class="acc-num">05</span><span class="acc-title">Roadshow Advisory</span></div>
+          <svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="acc-body"><p class="acc-body-text">End-to-end preparation and strategic support for investor roadshows — narrative development, materials, investor targeting, and meeting facilitation.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-header-left"><span class="acc-num">06</span><span class="acc-title">Global Market Intelligence <span class="acc-badge-inline">Platform</span></span></div>
+          <svg class="acc-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="acc-body">
+          <p class="acc-body-text">Proprietary sector and regional intelligence across eight high-growth sectors and six global regions — where capital is actively deploying.</p>
+          <a href="intelligence-gate.html" class="acc-body-link">Explore Intelligence →</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -919,7 +980,7 @@ footer {
         </p>
         <div class="c-detail">
           <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <span style="color:var(--plat-dk);font-size:0.88rem;">info@mnsrcapital.com</span>
+          <span style="color:var(--plat-dk);font-size:0.88rem;"><a href="mailto:info@mnsrcapital.com" style="color:var(--plat-dk);text-decoration:none;">info@mnsrcapital.com</a></span>
         </div>
       </div>
 
@@ -936,7 +997,7 @@ footer {
             <select id="roleIn">
               <option value="" disabled selected>Select your role</option>
               <option>A Company Seeking Capital</option>
-              <option>An Institutional Investor</option>
+              <option>An Investor</option>
               <option>Other / General Inquiry</option>
             </select>
           </div>
@@ -972,7 +1033,7 @@ footer {
           <h4>Services</h4>
           <ul>
             <li><a href="#services">Capital Advisory</a></li>
-            <li><a href="#services">Market Intelligence</a></li>
+            <li><a href="intelligence-gate.html">Market Intelligence</a></li>
             <li><a href="#services">Capital Introduction</a></li>
             <li><a href="#services">Roadshow Advisory</a></li>
             <li><a href="#services">Company Evaluation</a></li>
@@ -984,7 +1045,7 @@ footer {
             <li><a href="#serve">Who We Serve</a></li>
             <li><a href="#process">Our Process</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><span style="color:var(--d-mid);font-size:0.82rem;font-weight:300;">info@mnsrcapital.com</span></li>
+            <li><a href="mailto:info@mnsrcapital.com" style="color:var(--d-mid);font-size:0.82rem;font-weight:300;">info@mnsrcapital.com</a></li>
           </ul>
         </div>
       </div>
@@ -1027,4 +1088,35 @@ if ('IntersectionObserver' in window) {
 // Form submit
 function doSubmit() {
   const email = document.getElementById('emailIn').value.trim();
-  const role  = doc
+  const role  = document.getElementById('roleIn').value;
+  if (!email || !role) { alert('Please provide your email and role.'); return; }
+  document.getElementById('formContent').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+
+// Hamburger menu
+function toggleMenu() {
+  const ham = document.getElementById('hamburger');
+  const menu = document.getElementById('mobileMenu');
+  ham.classList.toggle('open');
+  menu.classList.toggle('open');
+  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu() {
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Services accordion
+function toggleAcc(header) {
+  const item = header.parentElement;
+  const isOpen = item.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
+  // Open clicked if it was closed
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
