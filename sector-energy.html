@@ -71,7 +71,19 @@
     <li><a href="index.html#serve">Who We Serve</a></li>
   </ul>
   <div class="nav-right"><a href="index.html#contact" class="nav-btn">Contact</a></div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMobileMenu()">Home</a>
+  <a href="index.html#services" onclick="closeMobileMenu()">Services</a>
+  <a href="index.html#serve" onclick="closeMobileMenu()">Who We Serve</a>
+  <a href="index.html#process" onclick="closeMobileMenu()">Our Process</a>
+  <a href="intelligence-gate.html" onclick="closeMobileMenu()">Intelligence</a>
+  <a href="index.html#contact" class="mob-contact-btn" onclick="closeMobileMenu()">Contact Us</a>
+</div>
 <div class="gate-wall" id="gateWall_sector_energy">
   <div class="gate-box">
     <div class="gate-overline">Sector Intelligence</div>
