@@ -181,6 +181,8 @@
 </footer>
 <script>
 window.addEventListener("scroll",function(){document.getElementById("nav").classList.toggle("raised",window.scrollY>40);});
+function toggleMobileMenu(){var m=document.getElementById("mobileMenu");var b=document.getElementById("navHamburger");m.classList.toggle("open");b.classList.toggle("open");}
+function closeMobileMenu(){document.getElementById("mobileMenu").classList.remove("open");document.getElementById("navHamburger").classList.remove("open");}
 function unlockContent(pageId){
   var email=document.getElementById("gateEmail_"+pageId).value.trim();
   if(!email||email.indexOf("@")<0){document.getElementById("gateEmail_"+pageId).style.borderColor="#B43C3C";return;}

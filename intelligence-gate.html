@@ -519,6 +519,17 @@ body { background: var(--n900); margin: 0; }
 <script>
 window.addEventListener("scroll",function(){document.getElementById("nav").classList.toggle("raised",window.scrollY>40);});
 
+function toggleMobileMenu() {
+  var menu = document.getElementById("mobileMenu");
+  var btn = document.getElementById("navHamburger");
+  menu.classList.toggle("open");
+  btn.classList.toggle("open");
+}
+function closeMobileMenu() {
+  document.getElementById("mobileMenu").classList.remove("open");
+  document.getElementById("navHamburger").classList.remove("open");
+}
+
 function gateSubmit() {
   var name    = document.getElementById("gateName").value.trim();
   var company = document.getElementById("gateCompany").value.trim();

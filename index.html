@@ -500,12 +500,6 @@ footer {
   #services { padding:72px 24px; background:#ffffff !important; }
   .svc-grid { grid-template-columns:1fr; }
   .svc { background:#F0ECE9 !important; border-left:3px solid transparent; }
-  .svc-intel { background:#181D38 !important; }
-  .svc-intel h3.card-title { color:#F0ECE9 !important; }
-  .svc-intel p { color:#F0ECE9 !important; font-weight:400 !important; }
-  .svc-intel .svc-num { color:rgba(240,236,233,0.5) !important; }
-  .svc-intel .svc-arrow { color:#F0ECE9 !important; }
-  .intel-badge { color:#F0ECE9 !important; border-color:rgba(240,236,233,0.3) !important; }
   .svc h3.card-title { color:#1F3260 !important; }
   .svc p { color:#1F3260 !important; font-weight:400 !important; }
   .svc .svc-num { color:#A8A09A !important; }
@@ -513,6 +507,13 @@ footer {
   .svc-hd h2 { color:#1F3260 !important; }
   .svc-hd p  { color:#1F3260 !important; }
   .svc-hd .ov { color:#A8A09A !important; }
+  /* Intel card — MUST come after .svc rules to override */
+  .svc-intel { background:#181D38 !important; border-left:3px solid #A8A09A !important; }
+  .svc-intel h3.card-title { color:#F0ECE9 !important; }
+  .svc-intel p { color:#F0ECE9 !important; font-weight:400 !important; }
+  .svc-intel .svc-num { color:rgba(240,236,233,0.5) !important; }
+  .svc-intel .svc-arrow { color:#F0ECE9 !important; }
+  .intel-badge { color:#F0ECE9 !important; border-color:rgba(240,236,233,0.3) !important; }
 
   /* WHO WE SERVE */
   .serve-duo  { grid-template-columns:1fr; }
