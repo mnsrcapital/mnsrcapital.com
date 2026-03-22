@@ -29,16 +29,7 @@
 .gate-submit-btn{padding:12px 20px;background:#1F3260;color:#ffffff;border:none;font-size:0.63rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;white-space:nowrap;}
 .gate-submit-btn:hover{background:#2B4280;}
 .gate-disclaimer{font-size:0.60rem;color:#A8A09A;line-height:1.6;margin-top:10px;text-align:left;}
-.platform-banner{background:#F0ECE9;border:1px solid #E0DADA;border-left:3px solid #1F3260;padding:20px 52px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
-.pb-badge{font-size:0.58rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#1F3260;margin-bottom:5px;display:flex;align-items:center;gap:6px;}
-.pb-badge::before{content:"";width:6px;height:6px;background:#1F3260;border-radius:50%;animation:pulse 2s infinite;}
-.pb-title{font-size:0.88rem;font-weight:400;color:#1F3260;margin-bottom:3px;}
-.pb-sub{font-size:0.75rem;font-weight:300;color:#3D3D3D;}
-.pb-date{text-align:right;flex-shrink:0;}
-.pb-date-num{font-family:"Playfair Display",serif;font-size:1.2rem;color:#1F3260;font-weight:400;}
-.pb-date-lbl{font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:#A8A09A;}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
-@media(max-width:600px){.platform-banner{padding:20px 24px;flex-direction:column;align-items:flex-start;}.pb-date{text-align:left;}}
+@media(max-width:430px){.gate-wall{padding:80px 16px 48px;}.gate-title{font-size:1.65rem !important;}.gate-sub{font-size:.82rem;}.gate-stats{flex-direction:column;}.gate-stat{border-right:none;border-bottom:1px solid #E0DADA;padding:14px 16px;}.gate-stat:last-child{border-bottom:none;}.gate-form-wrap{padding:20px 16px;}.gate-email-row{flex-direction:column;}.gate-email-input{border-right:1px solid #E0DADA;border-bottom:none;}.gate-submit-btn{width:100%;min-height:48px;margin-top:8px;}}
 </style>
 </head>
 <body>
@@ -99,19 +90,6 @@
       <div class="gate-disclaimer">Institutional intelligence. No spam. You'll also receive early access notification for the MNSR Capital Platform launching coming soon.</div>
     </div>
     <p style="font-size:0.65rem;color:var(--d-low);line-height:1.6;">Used by companies seeking capital and investors seeking curated deal flow.</p>
-  </div>
-</div>
-<div id="platformBanner_sector_oil_gas" style="display:none;padding-top:80px;">
-  <div class="platform-banner">
-    <div class="pb-left">
-      <div class="pb-badge">You're on the list</div>
-      <div class="pb-title">MNSR Capital Platform — Early Access Confirmed</div>
-      <div class="pb-sub">You'll be notified when the platform launches. Full access to verified investor profiles, sector intelligence, and company-investor matching tools.</div>
-    </div>
-    <div class="pb-date">
-      <div class="pb-date-num">Coming Soon</div>
-      <div class="pb-date-lbl">Platform Launch</div>
-    </div>
   </div>
 </div>
 <div id="intelContent_sector_oil_gas" style="display:none;">
@@ -190,7 +168,6 @@ function unlockContent(pageId){
   document.getElementById("gateWall_"+pageId).style.display="none";
   var c=document.getElementById("intelContent_"+pageId);
   c.style.display="block";
-  document.getElementById("platformBanner_"+pageId).style.display="flex";
   window.scrollTo({top:0,behavior:"smooth"});
 }
 document.addEventListener("keydown",function(e){
@@ -229,7 +206,6 @@ window.unlockContent = async function(pageId) {
     document.getElementById('gateWall_' + pageId).style.display = 'none';
     var c = document.getElementById('intelContent_' + pageId);
     c.style.display = 'block';
-    document.getElementById('platformBanner_' + pageId).style.display = 'flex';
     window.scrollTo({top:0, behavior:'smooth'});
   }
 };

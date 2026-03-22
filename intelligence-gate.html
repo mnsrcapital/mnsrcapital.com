@@ -374,6 +374,22 @@ body { background: var(--n900); margin: 0; }
   .gate-redacted { display: none; }
   .gate-unlock-hint { display: none; }
 }
+
+@media(max-width:430px){
+  .gate-left { padding:80px 16px 32px; }
+  .gate-right { padding:24px 16px 40px; }
+  .gate-left h1 { font-size:1.65rem !important; }
+  .gate-left p { font-size:.85rem; }
+  .gate-features { grid-template-columns:1fr !important; gap:12px; }
+  .gate-feature { padding:16px; }
+  .gate-input { padding:14px 12px; font-size:.85rem; }
+  .gate-submit, .gate-btn { width:100%; min-height:48px; font-size:.75rem; }
+  .gate-form-title { font-size:1.2rem; }
+  .gate-redacted-label { font-size:.52rem; }
+  .gate-tabs { flex-wrap:wrap; gap:6px; }
+  .gate-tab { font-size:.6rem; padding:8px 12px; }
+  .gate-brief-card { padding:16px; }
+}
 </style>
 </head>
 <body>

@@ -1286,3 +1286,75 @@ footer {
   .footer-bottom { flex-direction: column; gap: 12px; }
   .footer-copy { white-space: normal; }
 }
+
+/* ─── MOBILE 390px (iPhone 14) ─── */
+@media (max-width: 430px) {
+  /* Global: prevent horizontal overflow */
+  html, body { overflow-x: hidden; }
+  * { max-width: 100%; box-sizing: border-box; }
+
+  /* Layout padding */
+  .px { padding-left: 16px; padding-right: 16px; }
+  .section { padding: 48px 16px; }
+  .py-lg { padding-top: 44px; padding-bottom: 44px; }
+  .py-md { padding-top: 36px; padding-bottom: 36px; }
+
+  /* Nav */
+  #nav { padding: 0 16px; }
+
+  /* Typography: cap headings at 28px */
+  h1, .t-display { font-size: 1.75rem !important; }
+  h2, .t-heading { font-size: 1.4rem !important; }
+  h3 { font-size: 1.1rem !important; }
+  .t-body { font-size: 0.875rem; }
+
+  /* Buttons: full width, 48px min tap height */
+  .btn-plat, .btn-navy, .btn-white {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+    padding: 14px 20px;
+  }
+
+  /* Hero */
+  .hero-stat-num { font-size: 1.5rem; }
+  .hero-stats { gap: 12px; }
+
+  /* Stat strip */
+  .stat-strip { padding: 0 16px; }
+  .stat-strip-row { grid-template-columns: 1fr; }
+
+  /* Cards & grids: single column */
+  .svc-grid,
+  .process-row,
+  .country-grid,
+  .gate-features,
+  .hero-stats,
+  .form-row,
+  .highlight-row,
+  .approach-row { grid-template-columns: 1fr !important; }
+
+  /* Serve panels */
+  .serve-panel { padding: 36px 16px; }
+
+  /* Process steps */
+  .proc-step { padding: 20px 16px; }
+
+  /* Page hero (sector/region pages) */
+  .page-hero { padding: 80px 16px 32px; }
+  .page-hero h1 { font-size: 1.75rem !important; }
+
+  /* Footer */
+  footer { padding: 36px 16px 24px; }
+  .footer-cols { gap: 20px; }
+
+  /* Gate sections */
+  .gate-section { padding: 40px 16px; }
+
+  /* Contact */
+  .contact-grid { gap: 28px; }
+
+  /* Mobile menu */
+  .mobile-menu { padding: 24px 16px; }
+  .mob-contact-btn { width: 100%; text-align: center; min-height: 48px; display: flex; align-items: center; justify-content: center; }
+}

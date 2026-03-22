@@ -414,6 +414,23 @@ body { background: var(--n900); }
   .plat-stat-row { flex-direction: column; }
   .plat-stat { border-right: none; }
 }
+@media(max-width:430px){
+  .plat-hero { padding:100px 16px 48px; }
+  .plat-hero h1 { font-size:1.65rem !important; }
+  .plat-hero-sub { font-size:.85rem; }
+  .plat-hero-inner { gap:36px; }
+  .plat-hero-stats { gap:12px; }
+  .plat-stat-num { font-size:1.5rem; }
+  .intel-section { padding:48px 16px 0; }
+  .intel-grid.cols-3, .intel-grid.cols-4 { grid-template-columns:1fr !important; }
+  .intel-card { padding:20px 16px; }
+  .pc-box { padding:28px 16px; grid-template-columns:1fr !important; }
+  .pc-badge { font-size:.52rem; }
+  .pc-title { font-size:1.3rem; }
+  .pc-input { width:100% !important; }
+  .pc-btn { width:100%; min-height:48px; }
+  [style*="padding: 0 52px"] { padding:0 16px !important; }
+}
 </style>
 </head>
 <body>
@@ -666,7 +683,6 @@ body { background: var(--n900); }
       <div>
         <div class="footer-brand">MNSR Capital</div>
         <div class="footer-tag">Where Capital Moves Next</div>
-        <div class="footer-platform-badge">Intelligence Platform — Coming Soon</div>
       </div>
       <div class="footer-cols">
         <div class="footer-col"><h4>Global Reach</h4><ul>
